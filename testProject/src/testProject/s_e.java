@@ -13,36 +13,7 @@ public class s_e {
 		System.out.println("외쳐 충돌!");
 		System.out.println("외쳐 충돌!");
 		System.out.println("외쳐 충돌!");
-		System.out.println("외쳐 충돌!");
-		System.out.println("외쳐 충돌!");
-		System.out.println("외쳐 충돌!");
-		System.out.println("외쳐 충돌!");
-		System.out.println("외쳐 충돌!");
-		System.out.println("외쳐 충돌!");
-		System.out.println("외쳐 충돌!");
-		System.out.println("외쳐 충돌!");
-		System.out.println("외쳐 충돌!");
-		System.out.println("외쳐 충돌!");
-		System.out.println("외쳐 충돌!");
-		System.out.println("외쳐 충돌!");
-		System.out.println("외쳐 충돌!");
-		System.out.println("외쳐 충돌!");
-		System.out.println("외쳐 충돌!");
-		System.out.println("외쳐 충돌!");
-		System.out.println("외쳐 충돌!");
-		System.out.println("외쳐 충돌!");
-		System.out.println("외쳐 충돌!");
-		System.out.println("외쳐 충돌!");
-		System.out.println("외쳐 충돌!");
-		System.out.println("외쳐 충돌!");
-		System.out.println("외쳐 충돌!");
-		System.out.println("외쳐 충돌!");
-		System.out.println("외쳐 충돌!");
-		System.out.println("외쳐 충돌!");
-		System.out.println("외쳐 충돌!");
-		System.out.println("외쳐 충돌!");
-		System.out.println("외쳐 충돌!");
-		System.out.println("외쳐 충돌!");
+		System.out.pr
 		System.out.println("외쳐 충돌!");
 		System.out.println("외쳐 충돌!");
 		
