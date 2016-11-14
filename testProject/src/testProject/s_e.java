@@ -7,21 +7,47 @@ public class s_e {
 		System.out.println("어이~~~");
 		System.out.println("퍄퍄 보이십니까");
 		System.out.println("><");
-
-		System.out.println("퍄퍄 보이십니까");
-		System.out.println("><");
-		System.out.println("나도충돌낼래");
-
-		System.out.println("충돌끝낫나?~");
-		System.out.println("그만해~~");
 		System.out.println("나도충돌낼래");
 
 		System.out.println("충돌끝낫나?~");
 		System.out.println("외쳐 충돌!");
-		System.out.println("충돌을달려봦!!!!!!!!!!!!");
 		System.out.println("외쳐 충돌!");
-		System.out.println("충돌을달려봦!!!!!!!!!!!!");
-		System.out.println("재영이형은 보이소");
+		System.out.println("외쳐 충돌!");
+		System.out.println("외쳐 충돌!");
+		System.out.println("외쳐 충돌!");
+		System.out.println("외쳐 충돌!");
+		System.out.println("외쳐 충돌!");
+		System.out.println("외쳐 충돌!");
+		System.out.println("외쳐 충돌!");
+		System.out.println("외쳐 충돌!");
+		System.out.println("외쳐 충돌!");
+		System.out.println("외쳐 충돌!");
+		System.out.println("외쳐 충돌!");
+		System.out.println("외쳐 충돌!");
+		System.out.println("외쳐 충돌!");
+		System.out.println("외쳐 충돌!");
+		System.out.println("외쳐 충돌!");
+		System.out.println("외쳐 충돌!");
+		System.out.println("외쳐 충돌!");
+		System.out.println("외쳐 충돌!");
+		System.out.println("외쳐 충돌!");
+		System.out.println("외쳐 충돌!");
+		System.out.println("외쳐 충돌!");
+		System.out.println("외쳐 충돌!");
+		System.out.println("외쳐 충돌!");
+		System.out.println("외쳐 충돌!");
+		System.out.println("외쳐 충돌!");
+		System.out.println("외쳐 충돌!");
+		System.out.println("외쳐 충돌!");
+		System.out.println("외쳐 충돌!");
+		System.out.println("외쳐 충돌!");
+		System.out.println("외쳐 충돌!");
+		System.out.println("외쳐 충돌!");
+		System.out.println("외쳐 충돌!");
+		System.out.println("외쳐 충돌!");
+		
+		
+		
 	}
 
 }
