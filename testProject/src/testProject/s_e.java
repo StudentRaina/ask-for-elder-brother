@@ -6,6 +6,7 @@ public class s_e {
 		// TODO Auto-generated method stub
 		System.out.println("어이~~~");
 		System.out.println("퍄퍄 보이십니까");
+		System.out.println("><");
 	}
 
 }
