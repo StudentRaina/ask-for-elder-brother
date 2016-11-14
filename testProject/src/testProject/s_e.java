@@ -20,6 +20,7 @@ public class s_e {
 		System.out.println("재영이형은 보이소");
 		System.out.println("용우형:가만히안있어?!");
 		System.out.println("재영이형 힘내 ㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋ");
+		System.out.println("외쳐 충돌!");
 	}
 
 }
