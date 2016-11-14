@@ -8,6 +8,7 @@ public class s_e {
 		System.out.println("퍄퍄 보이십니까");
 		System.out.println("><");
 		System.out.println("나도충돌낼래");
+
 		System.out.println("충돌끝낫나?~");
 		System.out.println("외쳐 충돌!");
 	}
