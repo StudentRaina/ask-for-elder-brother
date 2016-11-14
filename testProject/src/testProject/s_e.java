@@ -7,7 +7,7 @@ public class s_e {
 		System.out.println("응 수정없어 응 오류 외쳐 퍄");
 		System.out.println("우리 오류 확이해볼까?");
 		System.out.println("스리슬쩍~");
-		
+		System.out.println("용우형의 고난시대");
 		
 		
 	}
