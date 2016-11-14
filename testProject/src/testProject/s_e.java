@@ -11,6 +11,7 @@ public class s_e {
 
 		System.out.println("충돌끝낫나?~");
 		System.out.println("외쳐 충돌!");
+		System.out.println("충돌을달려봦!!!!!!!!!!!!");
 	}
 
 }
