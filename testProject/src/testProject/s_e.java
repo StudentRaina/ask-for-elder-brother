@@ -13,9 +13,11 @@ public class s_e {
 		System.out.println("외쳐 충돌!");
 		System.out.println("외쳐 충돌!");
 		System.out.println("외쳐 충돌!");
-		System.out.pr
+	
 		System.out.println("외쳐 충돌!");
 		System.out.println("외쳐 충돌!");
+		System.out.println("충돌내면 다 죽인다");
+		
 		
 		
 		
