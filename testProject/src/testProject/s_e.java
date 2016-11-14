@@ -13,11 +13,33 @@ public class s_e {
 		System.out.println("외쳐 충돌!");
 		System.out.println("외쳐 충돌!");
 		System.out.println("외쳐 충돌!");
+
+		System.out.println("외쳐 충돌!");
+		System.out.println("외쳐 충돌!");
+		System.out.println("수정2");
+		System.out.println("수정3");
+		System.out.println("수정2");
+		System.out.println("수정3");
 	
-		System.out.println("외쳐 충돌!");
-		System.out.println("외쳐 충돌!");
-		System.out.println("충돌내면 다 죽인다");
 		
+	}
+	
+}
+		
+		
+		
+		
+	}
+
+}
+		
+		
+	}
+
+}
+		
+		
+	}
 		
 		
 		
