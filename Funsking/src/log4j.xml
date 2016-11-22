@@ -18,7 +18,7 @@
 		</layout>
 	</appender>
 	
-	<logger name="com.spring.sample.*" additivity="false">
+	<logger name="com.spring.funsking.*" additivity="false">
 		<!-- <level value="DEBUG" /> -->
 		<level value="DEBUG" />
 		<appender-ref ref="CONSOLE" />
