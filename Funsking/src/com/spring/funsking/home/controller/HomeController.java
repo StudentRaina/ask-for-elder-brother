@@ -16,5 +16,13 @@ public class HomeController {
 		
 		return modelAndView;
 	}
+	
+	@RequestMapping(value="/home2")
+	public ModelAndView home2(HttpServletRequest request, ModelAndView modelAndView){
+		
+		modelAndView.setViewName("home/home2");
+		
+		return modelAndView;
+	}
 
 }
