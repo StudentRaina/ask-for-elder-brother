@@ -24,5 +24,21 @@ public class HomeController {
 		
 		return modelAndView;
 	}
+	
+	@RequestMapping(value="/home3")
+	public ModelAndView home3(HttpServletRequest request, ModelAndView modelAndView){
+		
+		modelAndView.setViewName("home/home3");
+		
+		return modelAndView;
+	}
+	
+	@RequestMapping(value="/home4")
+	public ModelAndView home4(HttpServletRequest request, ModelAndView modelAndView){
+		
+		modelAndView.setViewName("home/home4");
+		
+		return modelAndView;
+	}
 
 }

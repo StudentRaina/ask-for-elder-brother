@@ -136,18 +136,6 @@
 	<div class="article">article</div>
 </div>
 <div class="footer">footer</div>
-<h1>Welcome to</h1>
-<h1>FUNSKING IN SEOUL</h1>
-<h3>FUNSKING in SEOUL 홈페이지 방문을 환영합니다.</h3>
-
-<form>
-	
-
-
-
-
-</form>
-
 
 </body>
 </html>
