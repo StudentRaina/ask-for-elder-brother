@@ -11,7 +11,30 @@
 </style>
 <script type="text/javascript" 
 		src="resources/script/jquery/jquery-1.11.0.js"></script>
-<script type="text/javascript"></script>
+<script type="text/javascript">
+$(document).ready(function() {
+	$("#real_name_confBtn").on("click", function() {	
+		
+		if($("input[name='real_name']").val() != ""){
+			if($("input[name='redt_num']").val() != ""){
+				if(isNaN($("input[name='redt_num']").val() * 1) == false){
+					alert("실명인증이 확인되었습니다.");
+					location.href="join_text_write";		
+				}else{
+					alert("주민등록 번호에 숫자를 입력해주세요.")
+				}
+			}else{
+				alert("주민등록 번호를 입력하세요.");	
+			}
+		}else{
+			alert("이름을 입력해주세요.");
+		}			
+	});
+		
+	
+});
+
+</script>
 </head>
 <body>
 실명인증 확인
@@ -22,7 +45,7 @@
 		<tr>
 			<td>이름</td>
 			<td>
-				<input type="text" name="name" />
+				<input type="text" name="real_name" />
 			</td>
 			<td rowspan="2">
 				<input type="button" value="실명확인" id="real_name_confBtn"/>
@@ -38,7 +61,5 @@
 ※타인의 주민등록번호를 부정사용하는 자는 3년 이하의 징역 또는 1천 만원 이하의 벌급이 부과될 수 있습니다.<br/>
 관련법률 : 주민등록법 제37조(벌칙) (시행일 2009. 10. 2)<br/>
 </form>
-<input type="button" value="회원가입서 작성" id="" />
-<input type="button" value="취소" id="" />
 </body>
 </html>

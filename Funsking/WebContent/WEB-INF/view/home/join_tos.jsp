@@ -20,7 +20,7 @@ $(document).ready(function() {
 	$("#agreeBtn").on("click", function() {	
 		if($("input:checkbox[name='tos_check_box1']").is(":checked") == true){
 			if($("input:checkbox[name='tos_check_box2']").is(":checked") == true){
-				$(location).attr("href", "real_name_conf");
+				location.href = "real_name_conf";
 			}else{
 				alert("개인정보 수집 · 이용 동의에 동의해주십시오.")
 			}

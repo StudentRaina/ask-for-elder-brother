@@ -19,7 +19,7 @@
 <script type="text/javascript">
 $(document).ready(function() {
 	$("#joinBtn").on("click", function() {
-		$(location).attr("href", "join_tos");
+		location.href="join_tos";
 	});	
 
 
