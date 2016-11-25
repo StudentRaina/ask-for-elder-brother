@@ -25,7 +25,7 @@ import com.spring.funsking.web.login.service.ILoginService;
 @Controller
 public class LoginController {
 	
-	@Autowired
+	/*@Autowired
 	public ILoginService iLoginService;
 
 	@RequestMapping(value = "/login")
@@ -106,7 +106,7 @@ public class LoginController {
 		modelAndView.setViewName("redirect:login");
 
 		return modelAndView;
-	}
+	}*/
 }
 
 
