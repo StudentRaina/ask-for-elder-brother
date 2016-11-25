@@ -25,20 +25,36 @@ public class HomeController {
 		return modelAndView;
 	}
 	
-	@RequestMapping(value="/home3")
-	public ModelAndView home3(HttpServletRequest request, ModelAndView modelAndView){
+	@RequestMapping(value="/login")
+	public ModelAndView login(HttpServletRequest request, ModelAndView modelAndView){
 		
-		modelAndView.setViewName("home/home3");
+		modelAndView.setViewName("home/login");
 		
 		return modelAndView;
 	}
 	
-	@RequestMapping(value="/home4")
-	public ModelAndView home4(HttpServletRequest request, ModelAndView modelAndView){
+	
+	@RequestMapping(value="/join_tos")
+	public ModelAndView join_tos(HttpServletRequest request, ModelAndView modelAndView){
 		
-		modelAndView.setViewName("home/home4");
+		modelAndView.setViewName("home/join_tos");
 		
 		return modelAndView;
 	}
-
+	
+	@RequestMapping(value="/real_name_conf")
+	public ModelAndView real_name_conf(HttpServletRequest request, ModelAndView modelAndView){
+		
+		modelAndView.setViewName("home/real_name_conf");
+		
+		return modelAndView;
+	}
+	
+	@RequestMapping(value="/rsv")
+	public ModelAndView rsv(HttpServletRequest request, ModelAndView modelAndView){
+		
+		modelAndView.setViewName("home/rsv");
+		
+		return modelAndView;
+	}
 }
