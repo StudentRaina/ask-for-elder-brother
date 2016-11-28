@@ -21,21 +21,22 @@ import com.spring.funsking.home.service.ITestService;
 
 @Controller
 public class HomeController {
-
+	
 	@Autowired
 	public ITestService iTestService;
 
-	@RequestMapping(value = "/home1")
-	public ModelAndView home1(HttpServletRequest request, ModelAndView modelAndView) {
-
+	
+	@RequestMapping(value="/home1")
+	public ModelAndView home1(HttpServletRequest request, ModelAndView modelAndView){
+		
 		modelAndView.setViewName("home/home1");
-
+		
 		return modelAndView;
 	}
-
-	@RequestMapping(value = "/home2")
-	public ModelAndView home2(HttpServletRequest request, ModelAndView modelAndView) {
-
+	
+	@RequestMapping(value="/home2")
+	public ModelAndView home2(HttpServletRequest request, ModelAndView modelAndView){
+		
 		modelAndView.setViewName("home/home2");
 
 		return modelAndView;
@@ -64,6 +65,15 @@ public class HomeController {
 
 		return modelAndView;
 	}
+	
+	@RequestMapping(value="/join_text_write")
+	public ModelAndView join_text_write(HttpServletRequest request, ModelAndView modelAndView){
+		
+		modelAndView.setViewName("home/join_text_write");
+		
+		return modelAndView;
+	}
+	
 
 	@RequestMapping(value = "/rsv")
 	public ModelAndView rsv(HttpServletRequest request, ModelAndView modelAndView) {
