@@ -6,4 +6,6 @@ import java.util.HashMap;
 public interface ITestDao {
 
 	ArrayList<HashMap<String, String>> getgu(HashMap<String, String> params) throws Throwable;
+
+	ArrayList<HashMap<String, String>> getplace(HashMap<String, String> params) throws Throwable;
 }

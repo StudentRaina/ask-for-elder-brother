@@ -19,6 +19,14 @@ public class TestDao implements ITestDao {
 		return (ArrayList<HashMap<String, String>>)
 				sqlMapClient.queryForList("test.getgu",params);
 	}
+
+	@SuppressWarnings("unchecked")
+	@Override
+	public ArrayList<HashMap<String, String>> getplace(HashMap<String, String> params) throws Throwable {
+		// TODO Auto-generated method stub
+		return (ArrayList<HashMap<String, String>>)
+				sqlMapClient.queryForList("test.getplace",params);
+	}
  
 
 

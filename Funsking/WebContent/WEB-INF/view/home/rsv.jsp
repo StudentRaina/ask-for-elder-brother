@@ -10,109 +10,126 @@
 	src="resources/script/jquery/jquery-1.11.0.js"></script>
 <script type="text/javascript">
 	$(document).ready(function() {
-		
-		
-		$("#tb1").on("click",function(){
-
-			var params = $("#tb1").serialize();
-			
-			$.ajax({  //jquery에 있는 ajax
-				type : "post", //브라우저의 주소 입력란에 내용이 나타나지 않음
-				url : "rsvgu",
-				dataType : "json", 
-				data : params,
-				success : function(result){
-					var html = "";
-					for(var i=0; i < result.list.length; i++){
-						html += '<option value="' ;
-						html += result.list[i].GUCODE+'">';
-						html += result.list[i].ATTR ;
-						html +=  '</option>';
-						//<option value="rsvgu_gucode"> attr </option>
-					}  
-						$("#tb1").html(html);
-					},
-					error : function(result){
-						alert("응안돼~");
-					} 
-				});// ajax끝
+		var params = $("#se1").serialize();
+		$.ajax({  //jquery에 있는 ajax
+			type : "post", //브라우저의 주소 입력란에 내용이 나타나지 않음
+			url : "rsvgu",
+			dataType : "json", 
+			data : params,
+			success : function(result){
+				var html = '<option value='+'"'+'"'+'>==구==</option>';
+				for(var i=0; i < result.list.length; i++){
+					html += '<option value="' ;
+					html += result.list[i].GUCODE+'">';
+					html += result.list[i].ATTR ;
+					html +=  '</option>';
+					//<option value="rsvgu_gucode"> attr </option>
+				}  
+					$("#se1").html(html);
+					$("#s1name").html("구 선택");
+					
+				},
+				error : function(result){
+					alert("응안돼~");
+				} 
+		});// ajax끝
+		$("#se1").on("change",function(){
+			checkgu();
+			//console.log("-->"+$("#se1").val());
 		});//tb1(구선택 ) 끝
+		
+		$("#se2").on("change",function(){
+		});
+		
+		$("#showplace").on("click",function(){
+			$("#show").html(html);
+		});
+		
+		
+		
 		
 		
 	});//ready 끝
-/* 
-function getData(){
-		var params = $("#tb1").serialize();
-		
-		
-	$.ajax({  //jquery에 있는 ajax
-		type : "post", //브라우저의 주소 입력란에 내용이 나타나지 않음
-		              //get방식: 클라이언트로부터의 데이터를 이름과 값이 결합된 스트링 형태로 전달
-		              
-		url : "rsvgu",
-		dataType : "json", 
-		data : params,
-		success : function(result){
-			var html = "";
-			for(var i=0; i < result.list.length; i++){
-				html += '<option value="' ;
-				html += result.list[i].GUCODE+'">';
-				html += result.list[i].ATTR ;
-				html +=  '</option>';
-				//<option value="rsvgu_gucode"> attr </option>
-			}  
-				$("#tb1").html(html);
-			},
-			error : function(result){
-				alert("error!!");
-			} 
-		});// ajax끝
-	}// getdata끝 */
+	
+function checkgu(){
+		if($("#se1").val() != 0) {
+			var params =$("#dataForm").serialize();
+			
+			$.ajax({  //jquery에 있는 ajax
+				type : "post", //브라우저의 주소 입력란에 내용이 나타나지 않음
+				url : "rsvplace",
+				dataType : "json", 
+				data : params,
+				success : function(result){
+					var show = "";
+					var html = '<option value='+'"'+'"'+'>==장소==</option>';
+					for(var i=0; i < result.list.length; i++){
+						
+						html += '<option value="' ;
+						html += result.list[i].PCODE+'">';
+						html += result.list[i].BATTR ;
+						html +=  '</option>';
+						show = result.list[i].ATTR;
+						//<option value="rsvgu_gucode"> attr </option>
+					}  
+					$("#s1name").html(show);
+					$("#se2").html(html);
+				},
+				error : function(result){
+					alert(result.responseText);
+				} 
+			});// ajax끝
+		} else{
+			$("#s1name").html("구 선택");
+			
+		}//if 문 끝
+	}//function checkug 끝
+	
+	
+
 </script>
 <style type="text/css">
 
 .rsv{
-	width:100px;
+	width:200px;
 	height:40px;
 }
 
 .rsvshow{
 	font-size: 20pt;
-	
-}
+} 
 
 </style>
 </head>
 <body>
+	<input type="button" value="날짜순" id="showdate">
+	<input type="button" value="장소순" id="showplace">
 
-<form action ="#" id="actionForm" method="post">
-	<input type="button" value="날짜순">
-	<input type="button" value="장소순">
-</form>
 
-		<table class="rsvshow">
-		<tr>
-			<td>==구==<td>&nbsp;&nbsp;&nbsp;&nbsp;			
-			<td>==장소==<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-			<td>==일자==<td>
-		</tr>
+	
+	<tbody id="show" >
+		 <table class="rsvshow">
+			<tr>
+				<td id="s1name"></td>&nbsp;&nbsp;&nbsp;&nbsp;
+				<td>==장소==</td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				<td>==일자==</td>
+			</tr>
 		</table>
-		</br></br>
-		<table>
-		<tr>
-			<select class="rsv" id="tb1">
-			</select>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-			<select class="rsv">
-				<option value="">==장소==</option>
-			</select>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-			<select class="rsv">
-				<option value="">==장소==</option>
-			</select>
-		</tr>
-		</table>
-		
-	<tbody id="tb"> 		
+		</br>
+		</br>
+		<form action="#" id="dataForm">
+			<table>
+				<tr>
+					<select class="rsv" id="se1" name="se1">
+					</select>&nbsp;&nbsp;&nbsp;&nbsp;
+					<select class="rsv" id="se2">
+					</select>&nbsp;&nbsp;&nbsp;&nbsp;
+					<select class="rsv">
+					</select>
+				</tr>
+			</table> 
+		</form>
 	</tbody>
-		
+	
 </body>
 </html>

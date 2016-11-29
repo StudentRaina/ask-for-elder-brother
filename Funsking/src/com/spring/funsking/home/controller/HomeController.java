@@ -100,5 +100,27 @@ public class HomeController {
 		return new ResponseEntity<String>(mapper.writeValueAsString(modelMap), responseHeaders, HttpStatus.CREATED);
 
 	}
+	
+	
+	@RequestMapping(value = "/rsvplace")
+	public @ResponseBody ResponseEntity<String> rsvplace(HttpServletRequest request,
+			@RequestParam HashMap<String, String> params, ModelAndView modelAndView) throws Throwable {
+		ObjectMapper mapper = new ObjectMapper();
+
+		Map<String, Object> modelMap = new HashMap<String, Object>();
+
+		ArrayList<HashMap<String, String>> list = iTestService.getplace(params);
+
+		modelMap.put("list", list);
+
+		HttpHeaders responseHeaders = new HttpHeaders();
+		responseHeaders.add("Content-Type", "text/json; charset=UTF-8");
+	
+		return new ResponseEntity<String>(mapper.writeValueAsString(modelMap), responseHeaders, HttpStatus.CREATED);
+
+	}
+	
+	
+	
 
 }
