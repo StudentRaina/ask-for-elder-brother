@@ -13,6 +13,8 @@
 	<sqlMap resource="/com/spring/funsking/sqlMap/chat/ChatSQL.xml" />
 	<!-- AjaxBoard쿼리 -->
 	<sqlMap resource="/com/spring/funsking/sqlMap/ajaxBoard/AjaxBoardSQL.xml" />
-	
+	<!-- 예약 선택시 쿼리들 -->
+	<sqlMap resource="/com/spring/funsking/sqlMap/rsv/TestSQL.xml" />
+
 </sqlMapConfig>
  

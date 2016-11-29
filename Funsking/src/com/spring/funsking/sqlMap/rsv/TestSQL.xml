@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN"
+    "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="test">
+
+	<select id="getgu" parameterClass="java.util.HashMap"
+		resultClass="java.util.HashMap">
+		SELECT GUCODE,ATTR
+		FROM RSVGU
+	</select>
+
+
+	<select id="getplace" parameterClass="java.util.HashMap"
+		resultClass="java.util.HashMap">
+		<!-- SELECT PCODE,GUCODE,ATTR
+		FROM RSVPLACE
+		WHERE
+		GUCODE=#se1# -->
+	SELECT A.ATTR,PCODE,B.ATTR AS BATTR
+	FROM RSVPLACE B,(SELECT GUCODE,ATTR
+	FROM RSVGU
+	WHERE GUCODE=#se1#) A
+	WHERE A.GUCODE=B.GUCODE
+	
+	</select>
+</sqlMap>
