@@ -20,8 +20,40 @@
 $(document).ready(function() {
 	$("#joinBtn").on("click", function() {
 		location.href="join_tos";
-	});	
+	});//회원가입 페이로 이동
 
+	
+	$("#loginBtn").on("click", function() {
+		if($.trim($("#user_id").val()) == ""){
+			alert("아이디를 입력해주세요.");
+			$("#user_id").focus();
+		}else if($.trim($("#user_password").val()) == ""){
+			alert("비밀번호를 입력해주요.");
+			$("#user_password").focus();
+		}else{
+			var login_params = $("loginForm").serialize();
+			
+			$.ajax({
+				type : "post",
+				url : "loginConfAjax",
+				dataType : "json",
+				data : login_params,
+				success : function(result) {
+					if(result.res == "success"){
+						location.href = "";
+					}else {
+						alert("가입된 회원아이디가 아니거나 비밀번호가 틀립니다."); 
+						alert("비밀번호는 대소문자를 구분합니다.");
+						$("#user_id").focus();
+					}
+				},
+				error : function(result) {
+					alert("웹 페이지에 문제가 있어 올바르게 표시되지 않았습니다.");
+				}			
+			});				
+		}		
+	});//로그인 Ajax
+	
 
 	
 	
@@ -34,7 +66,7 @@ $(document).ready(function() {
 		<tr>
 			<td>아이디</td>
 			<td>
-				<input type="text" name="user_id" />
+				<input type="text" name="user_id" id="user_id" />
 			</td>
 			<td rowspan="2">
 				<input type="button" value="로그인" id="loginBtn"/>
@@ -43,7 +75,7 @@ $(document).ready(function() {
 		<tr>
 			<td>비밀번호</td>
 			<td>
-				<input type="password" name="user_password" />
+				<input type="password" name="user_password" id="user_password" />
 			</td>
 		</tr>
 	</table>
