@@ -449,14 +449,14 @@ width : 63px;
 }
 
 
-.bg{
+/* .bg{
    display: inline-block;
    width: 100%;
    height: 100%;
    border: 0px;
    background-color: <img src="junhee.jpg"/>;
    opacity: 0.4; /* 투명도 */
-   position: absolute;
+/*    position: absolute;
    z-index: 100;
 }
 .popup {
@@ -466,7 +466,7 @@ width : 63px;
    height: 700px;
    background-color: #FFFFFF;
    position: absolute; /* 깊이를 나타낸다 */
-   z-index: 200;
+/*    z-index: 200;
    top: calc(50% - 50px);
    left: calc(50% - 100px);
    text-align: center;
@@ -496,7 +496,7 @@ width : 63px;
 	background-color: <img alt="junee" src="junee.gif">;
 	text-align: center;
 	
-} 
+}  */ 
 
 #hr{
 	margin-top : -0.6%;
