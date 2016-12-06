@@ -28,14 +28,4 @@ public class TestDao implements ITestDao {
 				sqlMapClient.queryForList("test.getplace",params);
 	}
  
-
-
-	@Override
-	public HashMap<String, String> getFuser(HashMap<String, String> params) throws Throwable {
-		// TODO Auto-generated method stub
-		return (HashMap<String, String>)
-				sqlMapClient.queryForObject("test.getFuser", params);
-	}
-
-	
 }

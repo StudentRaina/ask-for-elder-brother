@@ -42,73 +42,7 @@ public class HomeController {
 		return modelAndView;
 	}
 	
-	@RequestMapping(value="/login")//로그인 페이지
-	public ModelAndView login(HttpServletRequest request, ModelAndView modelAndView){
-		
-		modelAndView.setViewName("home/login");
-		
-		return modelAndView;
-	}
 	
-	
-	@RequestMapping(value="/join_tos")//회원가입-약관동의
-	public ModelAndView join_tos(HttpServletRequest request, ModelAndView modelAndView){
-		
-		modelAndView.setViewName("home/join_tos");
-		
-		return modelAndView;
-	}
-	
-	@RequestMapping(value="/real_name_conf")//회원가입-실명확인
-	public ModelAndView real_name_conf(HttpServletRequest request, ModelAndView modelAndView){
-		
-		modelAndView.setViewName("home/real_name_conf");
-		
-		return modelAndView;
-	}
-	
-	@RequestMapping(value="/join_text_write")
-	public ModelAndView join_text_write(HttpServletRequest request, ModelAndView modelAndView){
-		
-		modelAndView.setViewName("home/join_text_write");
-		
-		return modelAndView;
-	}
-	
-	@RequestMapping(value="/loginConfAjax")//로그인 확인
-	public @ResponseBody ResponseEntity<String> loginConfAjax(
-			HttpServletRequest request,
-			@RequestParam HashMap<String, String> params,
-			HttpSession session,
-			ModelAndView modelAndView) throws Throwable{
-		
-		ObjectMapper mapper = new ObjectMapper();
-		Map<String, Object> modelMap = new HashMap<String, Object>();
-		
-		HashMap<String, String> fuser
-					= iTestService.getFuser(params);
-		
-		if(fuser != null && !fuser.isEmpty()){
-			session.setAttribute("sFuserNo", fuser.get("FUSER_NO"));
-			session.setAttribute("sFuserNo", fuser.get("FUSER_ID"));
-			session.setAttribute("sFuserNo", fuser.get("FUSER_PW"));
-			
-			modelMap.put("res", "success");
-		}else{
-			modelMap.put("res", "fail");
-		}
-		
-		HttpHeaders responseHeaders = new HttpHeaders();
-		responseHeaders.add("Content-Type", "text/json; charset=UTF-8");
-		
-		return new ResponseEntity<String>(mapper.writeValueAsString(modelMap),
-										  responseHeaders, HttpStatus.CREATED);
-		
-	}
-	
-	
-	
-
 	@RequestMapping(value = "/rsv")
 	public ModelAndView rsv(HttpServletRequest request, ModelAndView modelAndView) {
 
@@ -153,4 +87,5 @@ public class HomeController {
 		return new ResponseEntity<String>(mapper.writeValueAsString(modelMap), responseHeaders, HttpStatus.CREATED);
 
 	}
+	
 }

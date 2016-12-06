@@ -20,8 +20,12 @@
 $(document).ready(function() {
 	$("#joinBtn").on("click", function() {
 		location.href="join_tos";
-	});//회원가입 페이로 이동
+	});//회원가입 페이지로 이동
 
+	$("#id_password_viewBtn").on("click", function() {
+		location.href="id_password_view";
+	});//아이디/비밀번호 찾기 페이지로 이동 
+	
 	
 	$("#loginBtn").on("click", function() {
 		if($.trim($("#user_id").val()) == ""){
@@ -31,7 +35,7 @@ $(document).ready(function() {
 			alert("비밀번호를 입력해주요.");
 			$("#user_password").focus();
 		}else{
-			var login_params = $("loginForm").serialize();
+			var login_params = $("#loginForm").serialize();
 			
 			$.ajax({
 				type : "post",
@@ -40,10 +44,9 @@ $(document).ready(function() {
 				data : login_params,
 				success : function(result) {
 					if(result.res == "success"){
-						location.href = "";
+						location.href = "home2";
 					}else {
 						alert("가입된 회원아이디가 아니거나 비밀번호가 틀립니다."); 
-						alert("비밀번호는 대소문자를 구분합니다.");
 						$("#user_id").focus();
 					}
 				},

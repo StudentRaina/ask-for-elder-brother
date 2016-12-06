@@ -14,11 +14,6 @@ public class TestService implements ITestService {
 	public ITestDao iTestDao;
 
 	@Override
-	public HashMap<String, String> getFuser(HashMap<String, String> params) throws Throwable {
-		// TODO Auto-generated method stub
-		return iTestDao.getFuser(params);
-	}
-	@Override
 	public ArrayList<HashMap<String, String>> getgu(HashMap<String, String> params) throws Throwable {
 		// TODO Auto-generated method stub
 		return iTestDao.getgu(params);
