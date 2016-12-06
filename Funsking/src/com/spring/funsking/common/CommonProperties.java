@@ -22,12 +22,12 @@ public class CommonProperties {
 	 * 파일 업로드
 	 */
 	//파일 업로드 경로
-	public static final String FILE_UPLOAD_PATH = "C:\\MyWork\\Workspace\\SampleSpring\\WebContent\\resources\\upload\\";
+	public static final String FILE_UPLOAD_PATH = "C:\\MyWork\\양진이\\ask-for-elder-brother\\Funsking\\WebContent\\resources\\upload\\";
 	
 	//파일 다운로드 경로
 	public static final String FILE_DOWNLOAD_PATH = "http://localhost:8080/location";
 	
 	//허용파일 확장자
-	public static final String FILE_EXT = "xls|ppt|doc|xlsx|pptx|docx|hwp|csv|jpg|png|tld|txt";
+	public static final String FILE_EXT = "xls|ppt|doc|xlsx|pptx|docx|hwp|csv|jpg|png|tld|txt|gif|bmp";
 
 }

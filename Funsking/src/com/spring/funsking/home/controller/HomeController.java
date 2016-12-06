@@ -5,6 +5,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.codehaus.jackson.map.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,7 +22,6 @@ import com.spring.funsking.home.service.ITestService;
 
 @Controller
 public class HomeController {
-	
 	@Autowired
 	public ITestService iTestService;
 
@@ -38,43 +38,11 @@ public class HomeController {
 	public ModelAndView home2(HttpServletRequest request, ModelAndView modelAndView){
 		
 		modelAndView.setViewName("home/home2");
-
-		return modelAndView;
-	}
-
-	@RequestMapping(value = "/login")
-	public ModelAndView login(HttpServletRequest request, ModelAndView modelAndView) {
-
-		modelAndView.setViewName("home/login");
-
-		return modelAndView;
-	}
-
-	@RequestMapping(value = "/join_tos")
-	public ModelAndView join_tos(HttpServletRequest request, ModelAndView modelAndView) {
-
-		modelAndView.setViewName("home/join_tos");
-
-		return modelAndView;
-	}
-
-	@RequestMapping(value = "/real_name_conf")
-	public ModelAndView real_name_conf(HttpServletRequest request, ModelAndView modelAndView) {
-
-		modelAndView.setViewName("home/real_name_conf");
-
-		return modelAndView;
-	}
-	
-	@RequestMapping(value="/join_text_write")
-	public ModelAndView join_text_write(HttpServletRequest request, ModelAndView modelAndView){
-		
-		modelAndView.setViewName("home/join_text_write");
 		
 		return modelAndView;
 	}
 	
-
+	
 	@RequestMapping(value = "/rsv")
 	public ModelAndView rsv(HttpServletRequest request, ModelAndView modelAndView) {
 
@@ -120,7 +88,4 @@ public class HomeController {
 
 	}
 	
-	
-	
-
 }
