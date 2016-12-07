@@ -11,138 +11,452 @@
 body{
 	margin:0px;
 	border: 1pt solid #000000;
-	width : 1900px;
-	height: 1000px;
+	width : 100%;
+	height: 100%;
 }
 
-#leftFrame{
-	border : 1pt solid #000000;
-	width : 270px;
-	height: 998px;
-	display : inline-block;
-}
+
 
 #centerFrame{
-	border : 1pt solid #000000;
-	width : 1330px;
+	width : 63%;
 	height : 998px;
 	display : inline-block;
+	margin-left : 18.7%;
 }
 
-#rightFrame{
-	border : 1pt solid #000000;
-	width : 270px;
-	height: 998px;
-	display : inline-block;
-}
 
 
  
 #topFrame{
  
-	border: 1pt solid #000000;
-	width : 1300px;
-	height: 60px;
-	margin-left : 1%;
+
+	width : 100%;
+	height: 42px;
  
 }
  
 #logoFrame{
-	border:1pt solid #000000;
+
 	width : 260px;
-	height: 58px;
+	height: 40px;
 	display: inline-block;
+	background-image: url('resources/images/LOGO.PNG');
+	background-size : 260px 40px;
+	
 }
 
-#memberFrame{
-	border: 1px solid #000000;
+ #memberFrame{
+/* 	border: 1pt solid #000000; */
 	width : 200px;
-	height : 58px;
+	height : 40px;
 	display: inline-block;
-	margin-left : 50%; 
+	margin-left : 60.5%;
+	margin-top : 0.5%;
 }
 
 #joinFrame{
-	border : 1px solid #000000;
-	width : 95px;
-	height : 56px;
-	display : inline-block;
+		/* border: 1pt solid #000000; */
+	width : 90px;
+	height : 40px;
+	text-align : center;
+	display: table-cell;
+	vertical-align : middle;
+	font-size : 10pt;
 }
 
 #loginFrame{
-	border : 1px solid #000000;
-	width : 95px;
-	height : 56px;
-	display : inline-block;
-}
+	/* 	border: 1pt solid #000000; */
+	width : 85px;
+	height : 40px;
+	text-align : center;
+	display: table-cell;
+	vertical-align : middle;
+	font-size : 10pt;
+
+	
+} 
 
 
  
-#lineFrame{
-	border: 1pt solid #000000;
-	width : 1900px;
-	height : 10px;
-}
+
 
 #menuFrame{
-	border: 1pt solid #000000;
-	width: 1897px;
-	height : 55px;
+	/* border: 1pt solid #000000; */
+	width: 100%;
+	height : 45px;
 }
 
-#lineFrame{
-	border: 1pt solid #000000;
-	width : 1900px;
-	height : 10px;
-}
+
 
 #contentFrame{
-	border:1pt solid #000000;
-	width: 1897px;
-	height : 650px;
+	/* border:1pt solid #000000; */
+	width: 100%;
+	height : 670px;
+	 background-image: url('resources/images/mainimage2.jpg'); 
+	 background-size : 100% 100%; 
+	 margin-top : -5%;
 }
 
 #titleFrame{
-	border : 1pt solid #000000;
+/* 	border : 1pt solid #000000; */
 	width : 450px;
 	height : 250px;
-	margin-top : 3%;
+	margin-top : 6%;
 	margin-left : 1%;
 }
 
 #favoriteFrame{
-	border : 1pt solid #000000;
-	width : 600px;
-	height : 250px;
-	margin-top : 2.5%;
-	margin-left : 67%;
+	/* border : 1pt solid #000000; */
+	width : 550px;
+	height : 200px;
+	margin-top : 16%;
+	margin-left : 53%;
 }
 
 #companytitleFrame{
-	border : 1pt solid #000000;
-	width : 1900px;
-	height : 50px;
+	/* border : 1pt solid #000000; */
+	width : 100%;
+	height : 20px;
+	margin-left:0.2%;
+	margin-top : 0.5%;
+	font-size : 10pt;
+	color : gray;
+	
 }
 
 #companyFrame{
-	border : 1pt solid #000000;
-	width : 1900px;
-	height : 80px;
+	width : 100%;
+	height : 70px;
+	text-align : center;
 }
 
 #bigtextFrame{
-	border : 1pt solid #000000;
+	/* border : 1pt solid #000000; */
 	width : 450px;
-	height : 60%;
+	height : 70%;
+	font-size : 50pt;
+	color : #FFFFFF;
+	margin-top:3%;
 	}
-.bg{
+	
+#smalltextFrame{
+	width : 450px;
+	height : 30%;
+	font-size : 37.5pt;
+	color : #FFFFFF;
+}
+
+	
+
+#busi_intr{
+	width : 83px;
+	height : 60%;
+	display : inline-block;
+	 	background-color : #FFFFFF; 
+	margin-left : 12.3%;
+	/* background-image: url('resources/images/busi.png'); */
+	/* background-size : 123px 100%; */
+	text-align : center;
+}
+	
+	
+#notice{
+	width : 83px;
+	height : 60%;
+	display : inline-block;
+	 	background-color : #FFFFFF; 
+	/* background-image: url('resources/images/notice.png');
+	background-size : 123px 100%; */
+	margin-top : 0.3%;
+	text-align : center;
+	margin-left : 1.5%;
+}
+
+#street_concert{
+	width : 83px;
+	height : 60%;
+	display : inline-block;
+	 	background-color : #FFFFFF; 
+/* 	background-image: url('resources/images/streetconcert.png');
+	background-size : 123px 100%; */
+	text-align : center;
+	margin-left : 1.5%;
+}
+
+#bsk_intr{
+	width : 103px;
+	height : 60%;
+	display : inline-block;
+	 	background-color : #FFFFFF; 
+	/* background-image: url('resources/images/bskintr.png');
+	background-size : 123px 100%; */
+	text-align : center;
+	margin-left : 1.5%;
+	
+}
+	
+#media_photo{
+	width : 143px;
+	height : 60%;
+	display : inline-block;
+	 	background-color : #FFFFFF; 
+	/* background-image: url('resources/images/mediaphoto.png');
+	background-size : 143px 100%; */
+	text-align : center;
+	margin-left : 1.5%;
+}
+
+#audition{
+	width : 73px;
+	height : 60%;
+	display : inline-block;
+	 	background-color : #FFFFFF; 
+	/* background-image: url('resources/images/audition.png');
+	background-size : 103px 100%; */
+	text-align : center;
+	margin-left : 1.5%;
+}
+
+#qna{
+width : 63px;
+	height : 60%;
+	display : inline-block;
+ 	background-color : #FFFFFF; 
+	/* background-image: url('resources/images/qna.png');
+	background-size : 103px 100%; */
+	text-align : center;
+	margin-left : 1.5%;
+}
+
+#cmu{
+	width : 83px;
+	height : 60%;
+	display : inline-block;
+	 	background-color : #FFFFFF; 
+	/* background-image: url('resources/images/cmu.png');
+	background-size : 123px 100%; */
+	text-align : center;
+	margin-left : 1.5%;
+}
+
+
+#fv_1{
+	width: 125px;
+	height : 60px;
+	display : inline-block;
+	margin-left:2.3%;
+	margin-top: 1%;
+}
+
+#fv_2{
+	width: 125px;
+	height : 60px;
+	display : inline-block;
+	margin-top: 1%;
+}
+
+#fv_3{
+	width: 125px;
+	height : 60px;
+	display : inline-block;
+	margin-top: 1%;
+}
+
+#fv_4{
+	width: 125px;
+	height : 60px;
+	display : inline-block;
+	margin-top: 1%;
+}
+
+#fv_notice{
+	width:125px;
+	height:60px;
+	display: table-cell;
+	background-color: rgba( 130, 130, 130, 0.5 );
+	margin-left:2.3%;
+	border-top:6px solid gray;
+	border-left : 3px solid gray;
+	text-align : center;
+	vertical-align : middle;
+	font-size : 14pt;
+	color : #FFFFFF;
+}
+
+#fv_concert_sche{
+	width:125px;
+	height:60px;
+	display: table-cell;
+	background-color: rgba( 130, 130, 130, 0.5 );
+	border-top:6px solid gray;
+	border-left : 3px solid gray;
+	text-align : center;
+	vertical-align : middle;
+	font-size : 14pt;
+	color : #FFFFFF;
+}
+
+#fv_concert_rsv{
+	width:125px;
+	height:60px;
+	display: table-cell;
+	background-color: rgba( 130, 130, 130, 0.5 );
+	border-top:6px solid gray;
+	border-left : 3px solid gray;
+	text-align : center;
+	vertical-align : middle;
+	font-size : 14pt;
+	color : #FFFFFF;
+}
+
+#fv_concert_pla{
+	width:125px;
+	height:60px;
+	display: table-cell;
+	background-color: rgba( 130, 130, 130, 0.5 );
+	border-top:6px solid gray;
+	border-left : 3px solid gray;
+	text-align : center;
+	vertical-align : middle;
+	font-size : 14pt;
+	color : #FFFFFF;
+}
+
+#fv_textarea{
+	width: 100%;
+	height : 20px;
+	/* border : solid 1pt #000000; */
+	margin-top : 2.4%;
+	font-size: 10pt;
+	margin-left : 2%;
+	color : #FFFFFF;
+	
+}
+
+#fv_festival1{
+	width:125px;
+	height:75px;
+	display: inline-block;
+	background-color : #FF0000;
+	margin-top: 2.1%;
+	margin-left:2.3%;
+	background-image: url('resources/images/festival1.PNG');
+	background-size : 125px 100%;
+	
+}
+
+#fv_festival2{
+	width:125px;
+	height:75px;
+	display: inline-block;
+	background-color : #FF0000;
+	margin-top: 2.1%;
+	background-image: url('resources/images/festival2.png');
+	background-size : 125px 100%;
+}
+
+#fv_festival3{
+	width:125px;
+	height:75px;
+	display: inline-block;
+	background-color : #FF0000;
+	margin-top: 2.1%;
+	background-image: url('resources/images/festival3.jpg');
+	background-size : 125px 100%;
+}
+
+#fv_festival4{
+	width:125px;
+	height:75px;
+	display: inline-block;
+	background-color : #FF0000;
+	margin-top: 2.1%;
+	background-image: url('resources/images/festival4.png');
+	background-size : 125px 100%;
+}
+
+
+
+#company1{
+ 	width : 175px;
+	height : 100%;
+	display : inline-block;
+ 	
+	background-image: url('resources/images/company1.PNG');
+ 	background-repeat : no-repeat;
+/*  	background-size : 95% 100%;  */
+ 	text-align: center;
+ 	background-size : 100% 50%;
+}
+
+
+#company2{
+	width : 170px;
+	height : 100%;
+	display : inline-block;
+	/* background-color : #00FF00; */
+	
+		margin-left : 2.5%;
+	background-image: url('resources/images/company2.gif');
+	background-repeat : no-repeat;
+	/*background-size : 100% 100%;*/
+	margin-top : 1.5%;
+	text-align : center;
+	
+}
+
+#company3{
+	width : 220px;
+	height : 100%;
+	display : inline-block;
+	/* background-color : #00FF00; */
+		
+			margin-left : 2.5%;
+	background-image: url('resources/images/company3.png');
+	/* background-size : 100% 100%; */
+	background-repeat : no-repeat;
+	text-align : center;
+}
+
+#company4{
+	width : 150px;
+	height : 100%;
+	display : inline-block;
+	/* background-color : #00FF00;
+	 */
+	 	margin-left : 2.5%;
+	background-image: url('resources/images/company4.gif');
+	/* background-size : 100% 100%; */
+	background-repeat : no-repeat;
+	background-size : 100% 50%;
+}
+
+#company5{
+	width : 225px;
+	height : 100%;
+	display : inline-block;
+	/* background-color : #00FF00; */
+
+	margin-left : 2.5%;
+	background-image: url('resources/images/company5.gif');
+	background-repeat : no-repeat;
+	
+}
+
+#bottomFrame{
+	text-align : center;
+	font-size : 10pt;
+}
+
+
+/* .bg{
    display: inline-block;
    width: 100%;
    height: 100%;
    border: 0px;
    background-color: <img src="junhee.jpg"/>;
    opacity: 0.4; /* 투명도 */
-   position: absolute;
+/*    position: absolute;
    z-index: 100;
 }
 .popup {
@@ -152,7 +466,7 @@ body{
    height: 700px;
    background-color: #FFFFFF;
    position: absolute; /* 깊이를 나타낸다 */
-   z-index: 200;
+/*    z-index: 200;
    top: calc(50% - 50px);
    left: calc(50% - 100px);
    text-align: center;
@@ -182,41 +496,94 @@ body{
 	background-color: <img alt="junee" src="junee.gif">;
 	text-align: center;
 	
-} 
+}  */ 
+
+#hr{
+	margin-top : -0.6%;
+}
+
+#h4{
+   margin-top : -1%;
+   margin-left : 48.7%;
+   color : #FFFFFF;
+}
+
+#hr2 {
+	margin-top : -0.1%;
+}
+
+#hr3 {
+	margin-top : 1%;
+}
+
 </style>
 </head>
 <body>
 <div id="leftFrame"></div>
-<div id="centerFrame">
-	<div id="topFrame">
- 	<div id="logoFrame"></div>
- 	  <div id="memberFrame">
- 		<div id="joinFrame"></div>
- 		<div id="loginFrame"></div>
- 	  </div>
- </div>
-</div>
-<div id="rightFrame"></div>
 
-<!--  <div id="topFrame">
+<div id="centerFrame">
+	
+<div id="topFrame">
  	<div id="logoFrame"></div>
  	  <div id="memberFrame">
- 		<div id="joinFrame"></div>
- 		<div id="loginFrame"></div>
+ 		<div id="joinFrame">회원가입</div>
+ 		<div id="loginFrame">로그인</div>
  	  </div>
- </div>
- 	<div id="lineFrame"></div>
- 	<div id="menuFrame"></div>
- 	<div id="lineFrame"></div>
+ </div> 
+
+	<hr/>
+ 	<div id="menuFrame">
+ 		<div id="busi_intr">사업소개</div>
+ 		<div id="notice">공지사항</div>
+ 		<div id="street_concert">거리공연</div>
+		<div id="bsk_intr">버스커소개</div>
+		<div id="media_photo">공연 영상 및 사진</div>
+		<div id="audition">오디션</div>
+		<div id="qna">QnA</div>
+		<div id="cmu">커뮤니티</div>
+ 	</div>
+ 	<hr id="hr"/>
+ 	
  <div id="contentFrame">
  	<div id="titleFrame">
- 		<div id="bigtextFrame"></div>
- 		<div id="smalltextFrame"></div>
+ 		<div id="bigtextFrame"><b>FUNSKING IN SEOUL<b/></div>
+ 		<div id="smalltextFrame">공연에 서울을 담다</div>
+ 		<h4 id="h4">우리가 들려주는 작은 노랫말</h4>
  	</div>
- 	<div id="favoriteFrame"></div>
+ 	
+ 	<div id="favoriteFrame">
+ 		<div id="fv_1">
+ 		<div id="fv_notice">공지사항</div>
+ 		</div>
+ 		<div id="fv_2">
+ 		<div id="fv_concert_sche">공연일정</div>
+ 		</div>
+ 		<div id="fv_3">
+ 		<div id="fv_concert_rsv">공연예약</div>
+ 		</div>
+ 		<div id="fv_4">
+ 		<div id="fv_concert_pla">공연장소</div>
+ 		</div>
+ 		<div id="fv_textarea">서울시에서 진행중인 축제</div>
+ 		<div id="fv_festival1"></div>
+ 		<div id="fv_festival2"></div>
+ 		<div id="fv_festival3"></div>
+ 		<div id="fv_festival4"></div>
+ 	</div>
  </div>
- <div id="companytitleFrame"></div>
- <div id="lineFrame"></div>
- <div id="companyFrame"></div> -->
+ <div id="companytitleFrame">응원해주시는 기업</div>
+	<hr id="hr2"/>
+ <div id="companyFrame"> 
+ 	<div id="company1"></div>
+ 	<div id="company2"></div>
+ 	<div id="company3"></div>
+ 	<div id="company4"></div>
+ 	<div id="company5"></div>
+ </div>
+	<hr id="hr3"/>
+	<div id="bottomFrame">(재)서울문화재단 ⓒALL RIGHTS RESERVED.<br/>
+ ※ (재)서울문화재단 서울특별시 동대문구 청계천로 517 (용두동 255-67)    ☎ 02-3290-7000<br/>
+ 		이 사이트는 IE, Chrome에 최적화 되어 있는 사이트입니다.</div>
+</div>
 </body>
 </html>
