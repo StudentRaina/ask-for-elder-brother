@@ -8,13 +8,16 @@
 	<settings useStatementNamespaces="true" enhancementEnabled="true"
 		maxTransactions="5" maxRequests="32" maxSessions="10" />
 	<!-- Login쿼리 -->
-	<sqlMap resource="/com/spring/funsking/sqlMap/login/LoginSQL.xml" />
+	<sqlMap resource="/com/spring/funsking/sqlMap/rsv/LoginSQL.xml" />
 	<!-- Chat쿼리 -->
 	<sqlMap resource="/com/spring/funsking/sqlMap/chat/ChatSQL.xml" />
 	<!-- AjaxBoard쿼리 -->
 	<sqlMap resource="/com/spring/funsking/sqlMap/ajaxBoard/AjaxBoardSQL.xml" />
 	<!-- 예약 선택시 쿼리들 -->
 	<sqlMap resource="/com/spring/funsking/sqlMap/rsv/TestSQL.xml" />
-
+	<!-- Join쿼리 -->
+	<sqlMap resource="/com/spring/funsking/sqlMap/rsv/JoinSQL.xml" />
+	<!--  버스커 소개게시판 쿼리 -->
+	<sqlMap resource="/com/spring/funsking/sqlMap/rsv/Intr.xml" />
 </sqlMapConfig>
  

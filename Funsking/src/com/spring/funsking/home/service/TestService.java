@@ -19,6 +19,12 @@ public class TestService implements ITestService {
 		return iTestDao.getgu(params);
 	}
 
+	@Override
+	public ArrayList<HashMap<String, String>> getplace(HashMap<String, String> params) throws Throwable {
+		// TODO Auto-generated method stub
+		return iTestDao.getplace(params);
+	}
+
 
 
 
