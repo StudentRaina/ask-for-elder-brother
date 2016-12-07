@@ -26,27 +26,17 @@ public class HomeController {
 	public ITestService iTestService;
 
 	
-	@RequestMapping(value="/home1")
-	public ModelAndView home1(HttpServletRequest request, ModelAndView modelAndView){
-		
-		modelAndView.setViewName("home/home1");
-		
-		return modelAndView;
-	}
-	
-	@RequestMapping(value="/home2")
-	public ModelAndView home2(HttpServletRequest request, ModelAndView modelAndView){
-		
-		modelAndView.setViewName("home/home2");
-		
-		return modelAndView;
-	}
-	
-	
 	@RequestMapping(value = "/rsv")
 	public ModelAndView rsv(HttpServletRequest request, ModelAndView modelAndView) {
 
 		modelAndView.setViewName("home/rsv");
+
+		return modelAndView;
+	}
+	@RequestMapping(value = "/adminrsv")
+	public ModelAndView adminrsv(HttpServletRequest request, ModelAndView modelAndView) {
+
+		modelAndView.setViewName("home/adminrsv");
 
 		return modelAndView;
 	}
@@ -88,4 +78,78 @@ public class HomeController {
 
 	}
 	
+	
+	@RequestMapping(value = "/rsvplace2")
+	public @ResponseBody ResponseEntity<String> rsvplace2(HttpServletRequest request,
+			@RequestParam HashMap<String, String> params, ModelAndView modelAndView) throws Throwable {
+		ObjectMapper mapper = new ObjectMapper();
+
+		Map<String, Object> modelMap = new HashMap<String, Object>();
+
+		ArrayList<HashMap<String, String>> list = iTestService.getplace2(params);
+		modelMap.put("list", list);
+		
+		
+		HttpHeaders responseHeaders = new HttpHeaders();
+		responseHeaders.add("Content-Type", "text/json; charset=UTF-8");
+	
+		return new ResponseEntity<String>(mapper.writeValueAsString(modelMap), responseHeaders, HttpStatus.CREATED);
+
+	}
+	
+	@RequestMapping(value = "/rsvplace3")
+	public @ResponseBody ResponseEntity<String> rsvplace3(HttpServletRequest request,
+			@RequestParam HashMap<String, String> params, ModelAndView modelAndView) throws Throwable {
+		ObjectMapper mapper = new ObjectMapper();
+
+		Map<String, Object> modelMap = new HashMap<String, Object>();
+
+		ArrayList<HashMap<String, String>> list = iTestService.getplace3(params);
+		modelMap.put("list", list);
+		
+		
+		HttpHeaders responseHeaders = new HttpHeaders();
+		responseHeaders.add("Content-Type", "text/json; charset=UTF-8");
+	
+		return new ResponseEntity<String>(mapper.writeValueAsString(modelMap), responseHeaders, HttpStatus.CREATED);
+	}	
+	
+	@RequestMapping(value = "/genre")
+	public @ResponseBody ResponseEntity<String> genre(HttpServletRequest request,
+			@RequestParam HashMap<String, String> params, ModelAndView modelAndView) throws Throwable {
+		ObjectMapper mapper = new ObjectMapper();
+		
+		Map<String, Object> modelMap = new HashMap<String, Object>();
+		
+		ArrayList<HashMap<String, String>> list = iTestService.genre(params);
+		modelMap.put("list", list);
+		
+		
+		HttpHeaders responseHeaders = new HttpHeaders();
+		responseHeaders.add("Content-Type", "text/json; charset=UTF-8");
+		
+		return new ResponseEntity<String>(mapper.writeValueAsString(modelMap), responseHeaders, HttpStatus.CREATED);
+	}
+
+	@RequestMapping(value = "/insertrsv")
+	public @ResponseBody ResponseEntity<String> insertTest(	//ResponseBody諛���濡� �몄����寃���. RsponseEntity媛�泥�. 媛�泥댁�� ����瑜� 臾몄���대� 怨���
+			HttpServletRequest request,
+			@RequestParam HashMap<String, String>  params,
+			ModelAndView modelAndView) throws Throwable{
+		
+		ObjectMapper mapper = new ObjectMapper(); //ObjectMapper =>map������ json�����쇰� 留��ㅼ�댁�.
+		Map<String, Object> modelMap = new HashMap<String, Object>();
+		
+		String res=iTestService.insertrsv(params);
+	
+		modelMap.put("res",res);
+		//res는 ture or flase로 받아옴
+		HttpHeaders responseHeaders = new HttpHeaders();
+		responseHeaders.add("Content-Type", "text/json; charset=UTF-8");
+		
+		return new ResponseEntity<String>(mapper.writeValueAsString(modelMap), responseHeaders, HttpStatus.CREATED);   
+	}
+	
+	
+
 }

@@ -17,18 +17,65 @@
 	height: 20px;
 	display:inline-block;	
 	vertical-align: top;
-	text-align: center;
+/*  text-align: center;*/
 }
 #dd{
 	width: 500px;
 	height: 800px;
+}
+#choose{
+	width: 130px;
+	height: 20px;
+	display:inline-block;	
+	vertical-align: top;
+}
+#insertplace{
+	width: 400px;
+	height: 300px;
+	display:none;	
+	vertical-align: top;
+}
+#insertsche{
+	width: 400px;
+	height: 300px;
+	display:inline-block;	
+	vertical-align: top;
+}
 
+.insert{
+	width: 200px;
+	height: 200px;
+	display:inline-block;	
+	vertical-align: top;
+}
+
+.Btn{
+	color:black;
 }
 </style>
 <script type="text/javascript">
-$(document).ready(function() {
+$(document).ready(function() { 
 		getgu();
 		getgenre();
+		$("#placeBtn").on("click",function(){
+			$("#placeBtn").attr("disabled",true);
+			$("#scheBtn").attr("disabled",false);
+			$("#scheBtn").css("background-color","none");
+			$("#placeBtn").css("background-color","rgb(142, 68, 173)");
+			$("#insertplace").css("display","block");
+			$("#insertsche").css("display","none");
+			//버튼 비활성화
+		});
+		$("#scheBtn").on("click",function(){
+			$("#placeBtn").attr("disabled",false);
+			$("#scheBtn").attr("disabled",true);
+			$("#scheBtn").css("background-color","rgb(142, 68, 173)");
+			$("#placeBtn").css("background-color","none");
+			$("#insertplace").css("display","none");
+			$("#insertsche").css("display","block");
+		});
+		
+		
 		var d= new Date(); 
 		console.log(d.getDate());
 		//오늘날짜 6일
@@ -39,7 +86,10 @@ $(document).ready(function() {
 		console.log(d.getDay());
 		// 일 월 화 수 목 금 토 일  -> 숫자로나타냄.
 		// 0 1 2 3 4 5 6 7
-		
+		yyyy = d.getFullYear();
+        mm   = d.getMonth()+1;
+        dd   = d.getDate()+1;
+        var date = new Date(yyyy,mm-1,dd);
 			$("#savaBtn").on("click", function() {
 				var insertForm= $("#insertForm");
 				insertForm.ajaxForm(uploadResultCallBack);
@@ -67,6 +117,7 @@ function getgu(){
 						// <tr><tb>gucode</tb><tb>attr</tb></tr>
 					}
 					$("#gu").html(html);
+					$("#se1").html(html);
 				},
 				error : function(result) {
 					alert("응안돼~");
@@ -115,9 +166,6 @@ function uploadResultCallBack(data,result){
 			if(result=="success"){
 				var resData=eval( "(" + removePre(data) + ")" );
 				//eval이란 데이터를 용도에맞춰 변형시켜줌 bean형태로 만들어준다???
-				console.log($("#pphoto").val());
-				console.log($("#dphoto").val());
-				console.log($("#epphoto").val());
 				$("#pphoto").val(resData.fileName[0]);
 				$("#dphoto").val(resData.fileName[1]);
 				$("#epphoto").val(resData.fileName[2]);
@@ -130,6 +178,7 @@ function uploadResultCallBack(data,result){
 					success : function(result) {
 						if(result.res=="true"){
 							alert("저장성공");
+							//lacation.ref
 						}else{
 							alert("저장중에 문제가 발생함.");
 						}
@@ -150,17 +199,36 @@ function uploadResultCallBack(data,result){
 
 </head>
 <body>
-
+	<input type="button" value="스케쥴 입력" id="scheBtn"  class="Btn"/>
+	<input type="button" value="장소 입력" id="placeBtn" class="Btn"/>
 	<form action="fileUploadAjax" id="insertForm" method="post" enctype="multipart/form-data">
+<div id="insertsche" class="insert">
+	<div class="rsv">구</div>
+		<select id="se1" name="se1">
+	</select><br/>
+	<div class="rsv">장소</div>
+		<select id="se2" name="se2"></select><br/>
+	<div class="rsv">공연일자</div>
+	<input type="checkbox" value="0">일요일<br/>
+	<input type="checkbox" value="1">월요일
+	<input type="checkbox" value="2">화요일
+	<input type="checkbox" value="3">수요일<br/>
+	<input type="checkbox" value="4">목요일
+	<input type="checkbox" value="5">금요일
+	<input type="checkbox" value="6">토요일
+	<br/>
+	<!-- 		<input type="text" name="attr" class="rsv"><br/>(0:일,1:월,2:화,3:수,4:목,5:금,6:토)<br/> -->	
+	<div class="rsv">공연시간</div>
+			<input type="text" name="attr" class="rsv"><br/>
+	<input type="button" value="저장" name="" />
+	<input type="button" value="취소"  />	
+</div>
+<div id="insertplace" class="insert">
 			<div class="rsv">구</div>
 				<select id="gu" name="gu">
 				</select><br/>
 			<div class="rsv">장소</div>
 				<input type="text" name="attr" class="rsv"><br/>
-			<div class="rsv">예약시간시간</div>
-				<input type="text" name="concersche" class="rsv"><br/>
-			<div class="rsv">예약끝나는시간</div>
-				<input type="text" name="concerschepre" class="rsv"><br/>
 			<div class="rsv" class="rsv">지원사항</div>
 				<input type="text" name="spt" class="rsv"><br/>
 			<div class="rsv">장르</div>
@@ -175,10 +243,10 @@ function uploadResultCallBack(data,result){
 			<div class="rsv">예샹배치도사진</div>
 				<input type="file" name="att3"> <br/>
 					<input type="hidden" name="epphoto" id="epphoto" />
-	</form>
 	<input type="button" value="저장" id="savaBtn" />
 	<input type="button" value="취소" id="cancleBtn" />
-		
+</div>
+	</form>
 	<!-- 	
 			pcode	장소 코드
 			gucode	예약 구 코드
