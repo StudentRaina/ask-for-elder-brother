@@ -17,11 +17,7 @@
 	<sqlMap resource="/com/spring/funsking/sqlMap/rsv/TestSQL.xml" />
 	<!-- Join쿼리 -->
 	<sqlMap resource="/com/spring/funsking/sqlMap/rsv/JoinSQL.xml" />
-<<<<<<< HEAD
 	<!--  버스커 소개게시판 쿼리 -->
 	<sqlMap resource="/com/spring/funsking/sqlMap/rsv/Intr.xml" />
-=======
-
->>>>>>> branch 'master' of https://github.com/StudentRaina/ask-for-elder-brother.git
 </sqlMapConfig>
  
