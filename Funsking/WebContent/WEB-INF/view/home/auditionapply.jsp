@@ -457,38 +457,38 @@ body{
 
 #genreNameFrame{
 	width : 25%;
-	height : 70px;
-	/* border : 1pt solid #000000; */
+	height : 50px;
+	/*  border : 1pt solid #000000;  */
 	display : inline-block;
 	margin-top : -5%;
 	font-size : 13pt;
 	font-weight : bold;
-	margin-top : 4%;
 }
 
  #genreName{
 	width : 25%;
-	height : 70px;
-	/* border : 1pt solid #000000; */
+	height : 50px;
+	/*  border : 1pt solid #000000; */ 
 	text-align : center;
 	display : table-cell;
 	vertical-align : middle;
 	font-size : 13pt;
 	font-weight : bold;
-	margin-top : 4%;
+	/* margin-top : 4%; */
 } 
 
 #genreRadio{
 	width : 72%;
-	height: 70px;
-	/* border : 1pt solid #000000; */
+	height: 50px;
+/* 	 border : 1pt solid #000000;  */
 	display : inline-block;
+	/* margin-top : -5%; */
 }
 
 #genreRadio1{
 	width : 100%;
-	height : 50%;
-	/* border : 1pt solid #000000; */
+	height : 100%;
+/* 	 border : 1pt solid #000000;  */
 }
 
 #genreRadio2{
@@ -497,52 +497,40 @@ body{
 	/* border : 1pt solid #000000; */
 }
 
-#radioSinger{
-	width : 15%;
-	height : 97%;
-	/* border : 1pt solid #000000; */
+#singer{
+	
 	display : inline-block;
-	font-size : 10.5pt;
+
 }
 
-#radioSingAsongWriter{
-	width : 31%;
-	height : 97%;
-	/* border : 1pt solid #000000; */
+#singasongwriter{
+	
 	display : inline-block;
-	font-size : 10.5pt;
+
 }
 
-#radioBand{
-	width : 31%;
-	height : 97%;
-	/* border : 1pt solid #000000; */
+#band{
+	
 	display : inline-block;
-	font-size : 10.5pt;
+	
 }
 
-#radioDance{
-	width : 15%;
-	height : 97%;
-	/* border : 1pt solid #000000; */
+#dance{
+	
 	display : inline-block;
-	font-size : 10.5pt;
+
 }
 
-#radioPlay{
-	width : 31%;
-	height : 97%;
-	/* border : 1pt solid #000000; */
+#play{
+	
 	display : inline-block;
-	font-size : 10.5pt;
+
 }
 
-#radioPerformance{
-	width : 31%;
-	height : 97%;
-	/* border : 1pt solid #000000; */
+#performance{
+	
 	display : inline-block;
-	font-size : 10.5pt;
+
 }
 
 
@@ -551,7 +539,7 @@ body{
 	height : 50px;
 	/* border : 1pt solid #000000;  */
 	display : inline-block;
-	margin-top : 3%;
+	margin-top : 1%;
 }
 
 #name_Name{
@@ -925,12 +913,25 @@ body{
     border-radius : 5px;
 }
 
+#aaa{
+	/* border : 1pt solid #000000; */
+	height : 50px;
+	margin-top : 3%;
+}
 
 </style>
 
-
-
 <script type="text/javascript" src="resources/script/jquery/jquery-1.11.0.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function(){
+	
+	
+	
+}); //ready end
+
+
+</script>
 </head>
 <body>
 
@@ -995,36 +996,24 @@ body{
  	 		<div id="contentFrame">
  	 			<div id="applyFrame">
  	 				
- 	 				
+ 	 				<div id="aaa">
  	 					<div id="genreNameFrame">
  	 						<div id="genreName">지원부문</div>
  	 					</div>
- 	 					
+ 	 				
  	 						<div id="genreRadio">
  	 							<div id="genreRadio1">
- 	 								<div id="radioSinger">
- 	 									<input type="radio" value="가수" />가수
- 	 								</div>
- 	 								<div id="radioSingAsongWriter">
- 	 										<input type="radio" value="가수" name="select"/>싱어송라이터
- 	 								</div>
- 	 								<div id="radioBand">
- 	 										<input type="radio" value="가수" name="select"/>밴드
- 	 								</div>
- 	 							</div>
- 	 							<div id="genreRadio2">
- 	 								<div id="radioDance">
- 	 										<input type="radio" value="가수" name="select"/>댄스
- 	 								</div>
- 	 								<div id="radioPlay">
- 	 										<input type="radio" value="가수" name="select"/>연주음악
- 	 								</div>
- 	 								<div id="radioPerformance">
- 	 										<input type="radio" value="가수" name="select"/>퍼포먼스
- 	 								</div>
- 	 							</div>
+ 	 								<form>
+ 	 										<input type="radio" value="가수" name="select" id="singer"/>가수
+ 	 										<input type="radio" value="가수" name="select" id="performance"/>퍼포먼스
+ 	 										<input type="radio" value="가수" name="select" id="band"/>밴드<br/>
+ 	 										<input type="radio" value="가수" name="select" id="dance"/>댄스
+ 	 										<input type="radio" value="가수" name="select" id="play"/>연주음악
+ 	 										<input type="radio" value="가수" name="select" id="singasongwriter"/>싱어송라이터
+ 	 								</form>
  	 						</div>
- 	 					
+ 	 					</div>
+ 	 				</div>
  	 					<div id="name_NameFrame">
  	 						<div id="name_Name">신청자 이름</div>
  	 					</div>
