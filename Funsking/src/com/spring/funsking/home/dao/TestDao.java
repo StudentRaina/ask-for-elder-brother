@@ -28,7 +28,4 @@ public class TestDao implements ITestDao {
 				sqlMapClient.queryForList("test.getplace",params);
 	}
  
-
-
-	
 }
