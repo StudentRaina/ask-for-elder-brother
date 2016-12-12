@@ -6,7 +6,19 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 <script type="text/javascript" src="resources/script/jquery/jquery-1.11.0.js"></script>
-<script type="text/javascript"></script>
+<script type="text/javascript">
+$(document).ready(function() {
+	
+	$("#loginFrame").on("click", function() {
+		location.href = "login";
+	});//로그인 페이지 이동
+
+	$("#joinFrame").on("click", function() {
+		location.href = "join_tos";
+	});//회원가입 페이지 이동		
+});
+
+</script>
 <style type="text/css">
 body{
 	margin:0px;

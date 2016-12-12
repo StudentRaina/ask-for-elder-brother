@@ -54,13 +54,16 @@ public class JoinController {
 	public @ResponseBody ResponseEntity<String> insertJoin(	
 			HttpServletRequest request,
 			@RequestParam HashMap<String, String>  params,
+			HttpSession session,
 			ModelAndView modelAndView) throws Throwable{
 		
 		ObjectMapper mapper = new ObjectMapper(); 
 		Map<String, Object> modelMap = new HashMap<String, Object>();
 		
 		String res=iJoinService.insertJoin(params);
-	
+		
+		session.setAttribute("sInsertID", params.get("id"));
+			
 		modelMap.put("res",res);
 		
 		HttpHeaders responseHeaders = new HttpHeaders();

@@ -13,5 +13,43 @@
 		AND PW = #user_password#
 	</select>
 
-
+	<select id="getIdview1"
+			parameterClass="java.util.HashMap"
+			resultClass="java.util.HashMap">
+		SELECT NUM, ID, NAME
+		FROM FUSER
+		WHERE NAME = #name_view1#
+		AND EMAIL = #email_view1#
+	</select>
+	
+	<select id="getIdview2"
+			parameterClass="java.util.HashMap"
+			resultClass="java.util.HashMap">
+		SELECT NUM, ID, NAME
+		FROM FUSER
+		WHERE NAME = #name_view2#
+		AND PHONE = #phone_view2#
+	</select>
+	
+	
+	<select id="getPasswordview1"
+			parameterClass="java.util.HashMap"
+			resultClass="java.util.HashMap">
+		SELECT NUM, PW, NAME
+		FROM FUSER
+		WHERE ID = #id_view3#
+		AND NAME = #name_view3#
+		AND EMAIL = #email_view3#
+	</select>
+	
+	<select id="getPasswordview2"
+			parameterClass="java.util.HashMap"
+			resultClass="java.util.HashMap">
+		SELECT NUM, PW, NAME
+		FROM FUSER
+		WHERE ID = #id_view4#
+		AND NAME = #name_view4#
+		AND PHONE = #phone_view4#
+	</select>
+	
 </sqlMap>

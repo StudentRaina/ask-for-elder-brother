@@ -18,4 +18,32 @@ public class LoginDao implements ILoginDao {
 		return (HashMap<String, String>)
 				sqlMapClient.queryForObject("login.getFuser", params);
 	}
+
+	@Override
+	public HashMap<String, String> getIdview1(HashMap<String, String> params) throws Throwable {
+		// TODO Auto-generated method stub
+		return (HashMap<String, String>)
+				sqlMapClient.queryForObject("login.getIdview1", params);
+	}
+
+	@Override
+	public HashMap<String, String> getIdview2(HashMap<String, String> params) throws Throwable {
+		// TODO Auto-generated method stub
+		return (HashMap<String, String>)
+				sqlMapClient.queryForObject("login.getIdview2", params);
+	}
+
+	@Override
+	public HashMap<String, String> getPasswordview1(HashMap<String, String> params) throws Throwable {
+		// TODO Auto-generated method stub
+		return (HashMap<String, String>)
+				sqlMapClient.queryForObject("login.getPasswordview1", params);
+	}
+
+	@Override
+	public HashMap<String, String> getPasswordview2(HashMap<String, String> params) throws Throwable {
+		// TODO Auto-generated method stub
+		return (HashMap<String, String>)
+				sqlMapClient.queryForObject("login.getPasswordview2", params);
+	}
 }

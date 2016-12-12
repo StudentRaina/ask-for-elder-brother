@@ -15,6 +15,7 @@
 $(document).ready(function() {
 	$("#non_agreeBtn").on("click", function() {
 		alert("동의하시지 않으면 회원가입이 불가능합니다.");
+		location.href = "login";
 	});//non_agreeBtn 클릭시 출력
 	
 	$("#agreeBtn").on("click", function() {	

@@ -32,7 +32,7 @@ $(document).ready(function() {
 			alert("아이디를 입력해주세요.");
 			$("#user_id").focus();
 		}else if($.trim($("#user_password").val()) == ""){
-			alert("비밀번호를 입력해주요.");
+			alert("비밀번호를 입력해주세요.");
 			$("#user_password").focus();
 		}else{
 			var login_params = $("#loginForm").serialize();
@@ -44,7 +44,7 @@ $(document).ready(function() {
 				data : login_params,
 				success : function(result) {
 					if(result.res == "success"){
-						location.href = "home2";
+						location.href = "home1";
 					}else {
 						alert("가입된 회원아이디가 아니거나 비밀번호가 틀립니다."); 
 						$("#user_id").focus();
@@ -94,7 +94,6 @@ $(document).ready(function() {
 		<input type="button" value="아이디/비밀번호 찾기" id="id_password_viewBtn"/>
 	</form>
 </div>
-
 
 </body>
 </html>
