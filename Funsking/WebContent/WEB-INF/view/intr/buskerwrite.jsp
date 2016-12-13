@@ -97,9 +97,10 @@ $(document).ready(function(){
 	});
 	
 	   $("#drop2").on("change", function(){
-		  /* console.log($("#drop2 option:selected").text().substring($("#drop2 option:selected").text().indexOf("(")+1, 5)*1);  */
-	   /* $("[name ='textTname']").val($("#drop2 option:selected").text()); */
-		 $("[name ='textBskNum']").val($("#drop2 option:selected").text().substring($("#drop2 option:selected").text().indexOf("(")+1, 5)*1);
+	    /* console.log($("#drop2 option:selected").text().substring($("#drop2 option:selected").text().indexOf("(")+1, 5));  */
+	    /* $("[name ='textTname']").val($("#drop2 option:selected").text()); */
+		/* $("[name ='textBskNum']").val($("#drop2 option:selected").text().substring($("#drop2 option:selected").text().indexOf("(")+1, 5)*1); */
+	 	$("[name ='textBskNum']").val($("#drop2 option:selected").text().substring($("#drop2 option:selected").text().indexOf("(")+1,$("#drop2 option:selected").text().indexOf(")")));
 	});  
 	
 	$("#CancelBtn").on("click", function(){
@@ -123,7 +124,7 @@ $(document).ready(function(){
 function uploadResultCallBack(data, result){
 	if(result == "success"){
 		 var resData = eval("(" + removePre(data) + ")");  //eval 데이터를 용도에맞춰 변형시켜줌 자바스크립트bean형태로 만들려고 사용 // resData 는 결국 Bean이라는 뜻
-			console.log(resData);
+			
 		$("#textFile").val(resData.fileName[0]);		
 		$("#textFile1").val(resData.fileName[1]);
 		
@@ -199,12 +200,13 @@ function auditionBusker2(){
 	      data : params,
 	      success : function(result) {
 	    	  var html = "";
+	    		   html += "<option value='0'> &nbsp;  </option>"  
 	    	  for(var i = 0; i < result.audi2.length; i++){
 	    		  html += "<option value='" + result.audi2[i].AUDCODE + "'>"
 	    		  html += result.audi2[i].TNAME + "(" +result.audi2[i].BSKNUM + ")"
 	    		  html += "</option>"
 	    	  }
-	    	alert(html);
+	    	/* alert(html); */
 	    	  $("#drop2").html(html);
 	         },
 		  error : function(result) {
@@ -263,6 +265,7 @@ function auditionBusker2(){
 				<div class="c_3_1_3">
 				<form action="#" id="actionForm2">		
 				 팀명:<select id="drop2" >
+				 <option value="0">&nbsp;</option>
 					</select>
 					</form>
 				 </div> 
