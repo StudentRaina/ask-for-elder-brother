@@ -81,17 +81,26 @@ html, body {
 <script type="text/javascript">
 $(document).ready(function() {
 	
+	 GENREBUSKER(); 
 	refreshList();
 	
+	$("#drop1").on("change", function(){
+		 $("[name= 'textGenre']").val($("#drop1 option:selected").val());
+		 refreshList();
+	});  
+	   
 	$("#searchBtn").on("click", function(){
-		$("input[name='searchText']").val($("#searchText").val());
+		$("input[name='searchText']").val($("#searchText").val()*1);
 		$("input[name='page']").val("1");
-		
+		/* alert.log($("#searchText").val()*1); */
 		refreshList();
 	});
 	
+	
+	
 	$("#tb").on("click", "table", function(){
 		$("input[name='intrNum']").val($(this).attr("name"));  //attr: 속성
+
 		$("#actionForm").attr("action", "buskerintro2"); //form 의 action="#" 이 "test5"로 바꾼다.
 		$("#actionForm").submit();
 	}); 
@@ -139,20 +148,25 @@ function refreshList() {
 			   	}	 */
 			   	
 			   	 for(var i = 0 ; i < result.list3.length ; i++){
+			   		 
+			   		 if(result.list3[i].FILE_EXT != "mp4" ){ 
+			   			 
+			   		 
 			   		html += "<div class ='list'>";   	
 			   		html += "<table border= '1' name='" +result.list3[i].INTRNUM + "'>"
 	   				html += "<tr>"
-   					html += "<td colspan='3'>"
+   					html += "<td colspan='4'>"
    					html += "<img class='buskerimg' src='resources/upload/" + result.list3[i].FILENAME + "' />"
    					html += "</td>";
    					html += "</tr>"
 					html += "<tr>"
 					html += "<td name ='" + result.list3[i].TNAME + "'>" + result.list3[i].TNAME + "</td>";
-		            html += "<td>" + result.list3[i].GENRE + "</td>";
+		            html += "<td name ='" +result.list3[i].GENRE + "'>" + result.list3[i].GENRE + "</td>";
 		            html += "<td>" + result.list3[i].DATE1 + "</td>";
 					html += "</tr>"		  		
 					html += "</table>"
-					html +=	"</div>"	  
+					html +=	"</div>"
+			   		 }
 			   	} 
 			   	
 	         	
@@ -189,12 +203,35 @@ function refreshList() {
 				alert("error!!");
 			} 
 		});// ajax 종료
+		
 }// refreshList 종료
 
-$("#ReviBtn").on("click", function(){
-	$("#actionForm").attr("action", "buskerupdate");
-	$("#actionForm").submit();
-});
+//장르 가져오기
+function GENREBUSKER(){
+		var params = $("#actionForm1").serialize();
+		$.ajax({
+		      type : "post",
+		      url :  "GenreBusker",
+		      dataType : "json",
+		      data : params,
+		      success : function(result) {
+		    	  var html = "";
+		    	  html += "<option value=''> 전체 </option>"
+		    	  for(var i = 0; i < result.genre.length; i++){ 
+		    		  html += "<option value='" + result.genre[i].GENRE + "'>"
+		    		  html +=  result.genre[i].ATTR
+		    		  html += "</option>"
+		    	  	}
+		  /*    	  console.log(html); */
+		    	  $("#drop1").html(html);
+		    	  		    	    	 
+		         },
+			  error : function(result) {
+	        	 alert("장르 오류!!");
+	      	}
+		});
+	}; //GENREBUSKER 끝
+
 </script>
 
 </head>
@@ -209,10 +246,14 @@ $("#ReviBtn").on("click", function(){
 		<div class="c_2">
 			<div class="c_2_1">
 				1
+				<form action ="#" id="actionForm1" method="post"> 
+					<select id="drop1">
+						
+					</select>
+				</form>
 			</div>
 			<div class="c_2_2">			
 				<input type="button"  value="등록하기" id="RegBtn"/>
-				<input type="button"  value="수정하기" id="ReviBtn"/>		
 			</div>
 		</div>
 
@@ -229,8 +270,11 @@ $("#ReviBtn").on("click", function(){
 							<input type="text" name="page" value="${param.page}" />
 						</c:otherwise>
 				</c:choose>
+				<input type="text" name="textGenre" value="" />
 				<input type="text" name="searchText" value="${param.searchText}" />
 				<input type="text" name="intrNum" value="" />
+				<input type="text" name="fileNum" value="" />
+				
 			</form>
 			<input type="text" id="searchText" value="${param.searchText}"/>
 			<input type="button" value="검색" id="searchBtn" />
