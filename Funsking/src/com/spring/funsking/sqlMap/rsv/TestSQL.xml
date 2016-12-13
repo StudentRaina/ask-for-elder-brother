@@ -20,18 +20,10 @@
 	WHERE A.GUCODE=B.GUCODE
 	</select>
 	
-	<select id="getplace2" parameterClass="java.util.HashMap"
-		resultClass="java.util.HashMap">
-		SELECT DISTINCT ATTR,CONCERTSCHE	
- 		FROM RSVSCHE A ,(SELECT ATTR,PCODE FROM RSVPLACE
- 							WHERE PCODE=#se2#)B
- 		where A.PCODE=B.PCODE
-	</select>
-	
  	<select id="getplace3" parameterClass="java.util.HashMap"
 	resultClass="java.util.HashMap">
-	select DISTINCT ATTR,A.PCODE AS PCODE
-	from RSVPLACE A,(SELECT PCODE,CONCERTSCHE FROM RSVSCHE WHERE CONCERTSCHE=#dse1#) B
+	SELECT DISTINCT ATTR,A.PCODE AS PCODE
+	from RSVPLACE A,(SELECT PCODE,CONCERTSCHE FROM RSVSCHE WHERE CONCERTSCHE=#sche#) B
 	WHERE A.PCODE= B.PCODE AND GUCODE=#dse2#
 	</select> 
 	
@@ -50,4 +42,29 @@
 		VALUES(RSVPLACENUM.NEXTVAL,#gu#,#spt#,#genre#,#pphoto#,#dphoto#,#epphoto#,#attr#)
 	</insert> 
 	
+	<insert id="insertsche" parameterClass="java.util.HashMap">
+	INSERT INTO RSVSCHE(SCHECODE,PCODE,CONCERTSCHE,CONCERTHR)
+	VALUES(RSVSCHENUM.NEXTVAL,#se2#,#checkdate#,#sche#)
+	</insert>
+	
+	<select id="getrsvall" parameterClass="java.util.HashMap"
+	resultClass="java.util.HashMap">
+	SELECT B.ATTR AS GU,B.TEL,A.ATTR AS PLACE,F.ATTR AS GENRE,A.SPT,DPHOTO,PPHOTO,EPPHOTO,C.CONCERTSCHE,C.CONCERTHR,E.TNAME
+           FROM RSVGU B 
+                      INNER JOIN RSVPLACE A
+                        ON A.GUCODE=B.GUCODE 
+                            INNER JOIN RSVSCHE C
+                              ON C.CONCERTSCHE=#sche#
+                                INNER JOIN GENRECODE F
+                                  ON A.GENRE=F.GENRE
+                              LEFT JOIN 
+                              (SELECT D.SCHECODE,E.TNAME FROM RSVBSK D
+                                        LEFT OUTER JOIN BSK E
+                                            ON D.BSKNUM =E.BSKNUM) E
+                                            ON C.SCHECODE= E.SCHECODE
+                   WHERE B.GUCODE = #gu# AND A.PCODE=#place#
+                   ORDER BY CONCERTHR
+	</select>
+	
+
 </sqlMap>

@@ -28,13 +28,6 @@ public class TestDao implements ITestDao {
 				sqlMapClient.queryForList("test.getplace",params);
 	}
 
-	@SuppressWarnings("unchecked")
-	@Override
-	public ArrayList<HashMap<String, String>> getplace2(HashMap<String, String> params) throws Throwable {
-		// TODO Auto-generated method stub
-		return (ArrayList<HashMap<String, String>>)
-				sqlMapClient.queryForList("test.getplace2",params);
-	}
 
 	@SuppressWarnings("unchecked")
 	@Override
@@ -81,4 +74,34 @@ public class TestDao implements ITestDao {
 		//트렌젝션 끝냄  적용안되서 에러 후... 롤백됨.
 		return res;
 	}
+
+	public String insertsche(HashMap<String, String> params) throws Throwable {
+		// TODO Auto-generated method stub
+			String res="false";
+		sqlMapClient.startTransaction();
+		//트렌젝션 시작한다
+		sqlMapClient.startBatch();
+		try{
+			sqlMapClient.insert("test.insertsche",params);
+			sqlMapClient.executeBatch();
+			sqlMapClient.commitTransaction();
+			//적용해줌.
+			res="true";
+		}catch(Exception e){
+			res="false";
+			e.printStackTrace();
+		}
+		sqlMapClient.endTransaction();
+		//트렌젝션 끝냄  적용안되서 에러 후... 롤백됨.
+		return res;
+	}
+
+	@SuppressWarnings("unchecked")
+	@Override
+	public ArrayList<HashMap<String, String>> rsvall(HashMap<String, String> params) throws Throwable {
+		// TODO Auto-generated method stub
+		return (ArrayList<HashMap<String, String>>)
+				sqlMapClient.queryForList("test.getrsvall",params);
+	}
+
 }

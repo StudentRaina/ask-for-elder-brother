@@ -15,20 +15,21 @@
 $(document).ready(function() {
 	$("#real_name_confBtn").on("click", function() {	
 		
-		if($("input[name='real_name']").val() != ""){
-			if($("input[name='redt_num']").val() != ""){
-				if(isNaN($("input[name='redt_num']").val() * 1) == false){
-					alert("실명인증이 확인되었습니다.");
-					location.href="join_text_write";		
-				}else{
-					alert("주민등록 번호에 숫자를 입력해주세요.")
-				}
-			}else{
-				alert("주민등록 번호를 입력하세요.");	
-			}
-		}else{
+		if($("input[name='real_name']").val() == ""){
 			alert("이름을 입력해주세요.");
-		}			
+			$("input[name='real_name']").focus();
+		}else if($("input[name='redt_num']").val() == ""){
+			alert("주민등록 번호를 입력하세요.");
+			$("input[name='redt_num']").focus();
+		}else{
+			if(isNaN($("input[name='redt_num']").val() * 1) == false){
+				alert("실명인증이 확인되었습니다.");
+				location.href="join_text_write";		
+			}else{
+				alert("주민등록 번호에 숫자를 입력해주세요.");
+				$("input[name='redt_num']").focus();
+			}
+		}		
 	});
 		
 	

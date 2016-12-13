@@ -26,12 +26,6 @@ public class TestService implements ITestService {
 	}
 
 	@Override
-	public ArrayList<HashMap<String, String>> getplace2(HashMap<String, String> params) throws Throwable {
-		// TODO Auto-generated method stub
-		return iTestDao.getplace2(params);
-	}
-
-	@Override
 	public ArrayList<HashMap<String, String>> getplace3(HashMap<String, String> params) throws Throwable {
 		// TODO Auto-generated method stub
 		return iTestDao.getplace3(params);
@@ -54,6 +48,19 @@ public class TestService implements ITestService {
 		// TODO Auto-generated method stub
 		return iTestDao.insertrsv(params);
 	}
+
+	@Override
+	public String insertsche(HashMap<String, String> params) throws Throwable {
+		// TODO Auto-generated method stub
+		return iTestDao.insertsche(params);
+	}
+
+	@Override
+	public ArrayList<HashMap<String, String>> rsvall(HashMap<String, String> params) throws Throwable {
+		// TODO Auto-generated method stub
+		return iTestDao.rsvall(params);
+	}
+
 
 
 

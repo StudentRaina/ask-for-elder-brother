@@ -44,7 +44,7 @@
 
 .insert{
 	width: 200px;
-	height: 200px;
+	height: 100px;
 	display:inline-block;	
 	vertical-align: top;
 }
@@ -57,6 +57,9 @@
 $(document).ready(function() { 
 		getgu();
 		getgenre();
+		$("#placeBtn").attr("disabled",false);
+		$("#scheBtn").attr("disabled",true);
+		$("#scheBtn").css("background-color","rgb(142, 68, 173)");
 		$("#placeBtn").on("click",function(){
 			$("#placeBtn").attr("disabled",true);
 			$("#scheBtn").attr("disabled",false);
@@ -64,6 +67,9 @@ $(document).ready(function() {
 			$("#placeBtn").css("background-color","rgb(142, 68, 173)");
 			$("#insertplace").css("display","block");
 			$("#insertsche").css("display","none");
+			$("input[name=checkdate]").prop("checked",false);
+			$(".rsv").val("");
+			
 			//버튼 비활성화
 		});
 		$("#scheBtn").on("click",function(){
@@ -73,33 +79,77 @@ $(document).ready(function() {
 			$("#placeBtn").css("background-color","none");
 			$("#insertplace").css("display","none");
 			$("#insertsche").css("display","block");
+			$(".rsv").val("");
+			
 		});
 		
-		
-		var d= new Date(); 
-		console.log(d.getDate());
-		//오늘날짜 6일
-		console.log(d.getFullYear());
-		//년도 2016
-		console.log(d.getMonth());
-		//10월 17일인데 9월이 나오는 이유:배열로 1~12월 되어있기떄문에  +1안해주면 지난다로나옴
-		console.log(d.getDay());
-		// 일 월 화 수 목 금 토 일  -> 숫자로나타냄.
-		// 0 1 2 3 4 5 6 7
-		yyyy = d.getFullYear();
-        mm   = d.getMonth()+1;
-        dd   = d.getDate()+1;
-        var date = new Date(yyyy,mm-1,dd);
+		$("#se1").on("change", function() {
+			checkgu();
+		});
 			$("#savaBtn").on("click", function() {
+				if($('input:checkbox[name="checkdate"]:checked').length>0){
+					insertsche();
+				}else {
 				var insertForm= $("#insertForm");
 				insertForm.ajaxForm(uploadResultCallBack);
 				//아작스를 실행하고나서 uploadresultCallBack을 호출하겟다.
-				insertForm.submit();	
+				insertForm.submit();
+				}
 			});//저장버튼
 });//ready 끝
 
+function insertsche(){
+	var test = "";
+		$("input[name=checkdate]:checked").each(function() {
+		   test += $(this).val()+",";
+		});
+	var str = test.substr(0,test.length-1);
+	var strArray = str.split(',');
+	//console.log(test+"test");
+	var sche = $("#sche").val();
+	var schestr = sche.substr(0,sche.length);
+	var scheArray = schestr.split(',');
+	$("[name=scheArray]").val(scheArray);
+	$("[name=strArray]").val(strArray);
+	/* var sche = $("#sche").val();
+	scheArray = sche.split('~');
+	var time = parseInt(scheArray[0]); */
+	//for(var k = 0 ; k < strArray.length ; k ++){
+		//요일 체크한것의 횟수  일 ,월 선택시 length는 2
+		//for(var i = 0 ; i < scheArray.length ; i ++){
+			//14~18일시 몇번실행하는것을 찾아냄.
+		//$("[name=checkdate]").val(strArray[k]);
+			//요일의 value값
+		//$("[name=sche]").val(scheArray[i]);
+			//14~17로 시간설정할시 짤라서 넣어줌.
+		var params = $("#insertForm").serialize();
+		$.ajax({ //jquery에 있는 ajax
+					type : "post", //브라우저의 주소 입력란에 내용이 나타나지 않음
+					url : "insertsche",
+					dataType : "json",
+					data : params,
+					success : function(result) {
+						if(result.res=="true"){
+							alert("저장성공");
+							//lacation.ref
+						}else{
+							alert("저장중에 문제가 발생함.");
+						}
+					},
+					error : function(result) {
+						alert("에ㅔㅇ에에에에에레ㅓㄹ러러러러러러러러러러러럴");
+					}
+				});// ajax끝
+		//}//안쪽 for문 끝
+	//}//바깥 for 끝
+};
+
+
+
+
 
 function getgu(){
+	if($("#se1").val() != 0 || $("#gu").val() != 0){
 	var params = $("#insertForm").serialize();
 	$.ajax({ //jquery에 있는 ajax
 				type : "post", //브라우저의 주소 입력란에 내용이 나타나지 않음
@@ -107,7 +157,7 @@ function getgu(){
 				dataType : "json",
 				data : params,
 				success : function(result) {
-					var html = "";
+					var html ='<option value="">=구=</option>'
 					for (var i = 0; i < result.list.length; i++) {
 						html += '<option value="' ;
 						html += result.list[i].GUCODE+'">';
@@ -123,7 +173,17 @@ function getgu(){
 					alert("응안돼~");
 				}
 			});// ajax끝
-}
+	}else{
+		$("#se2").val("");
+		$("#se2").html("");
+	}
+	}//if 끝
+	// 구 얻어오는 function 끝
+
+
+
+
+
 function getgenre(){
 	var params = $("#insertForm").serialize();
 	$.ajax({ //jquery에 있는 ajax
@@ -132,7 +192,7 @@ function getgenre(){
 			dataType : "json",
 			data : params,
 			success : function(result) {
-				var html = "";
+				var html = '<option value="">=장르=</option>';
 				for (var i = 0; i < result.list.length; i++) {
 					html += '<option value="' ;
 					html += result.list[i].GENRE+'">';
@@ -146,7 +206,39 @@ function getgenre(){
 				alert("응안돼~");
 			}
 		});// ajax끝
-}
+}//장르를 보여주는 function 끝
+
+function checkgu() {
+	if ($("#se1").val() != 0) {
+		var params = $("#insertForm").serialize();
+		$.ajax({ //jquery에 있는 ajax
+					type : "post", //브라우저의 주소 입력란에 내용이 나타나지 않음
+					url : "rsvplace",
+					dataType : "json",
+					data : params,
+					success : function(result) {
+						var show = "";
+						var html = '<option value="">=장소=</option>'
+						for (var i = 0; i < result.list.length; i++) {
+							html += '<option value="' ;
+							html += result.list[i].PCODE+'">'; 
+							html += result.list[i].BATTR;
+							html += '</option>';
+							show = result.list[0].ATTR;
+							//<option value="pcode"> 장소 </option>
+							// show = xx구 
+						}
+						$("#se2").html(html);
+					},
+					error : function(result) {
+						alert(result.responseText);
+					}
+				});// ajax끝
+	}else{
+		$("#se2").html("");
+		$("#se2").val("");
+	}//if 끝
+}//function checkgu 끝 구선택시 장소 자동으로갖고옴.
 
 
 function removePre(data){
@@ -186,7 +278,6 @@ function uploadResultCallBack(data,result){
 					error : function(result) {
 						alert("에ㅔㅇ에에에에에레ㅓㄹ러러러러러러러러러러러럴");
 					}
-
 				});
 				//textFile에 업로드한 결과파일명을 넣 어 줌 .
 			}else{
@@ -199,54 +290,56 @@ function uploadResultCallBack(data,result){
 
 </head>
 <body>
+	<input type="button" value="선택보기"id="seeBtn"  class="Btn"/>
 	<input type="button" value="스케쥴 입력" id="scheBtn"  class="Btn"/>
 	<input type="button" value="장소 입력" id="placeBtn" class="Btn"/>
 	<form action="fileUploadAjax" id="insertForm" method="post" enctype="multipart/form-data">
-<div id="insertsche" class="insert">
-	<div class="rsv">구</div>
-		<select id="se1" name="se1">
-	</select><br/>
-	<div class="rsv">장소</div>
-		<select id="se2" name="se2"></select><br/>
-	<div class="rsv">공연일자</div>
-	<input type="checkbox" value="0">일요일<br/>
-	<input type="checkbox" value="1">월요일
-	<input type="checkbox" value="2">화요일
-	<input type="checkbox" value="3">수요일<br/>
-	<input type="checkbox" value="4">목요일
-	<input type="checkbox" value="5">금요일
-	<input type="checkbox" value="6">토요일
-	<br/>
-	<!-- 		<input type="text" name="attr" class="rsv"><br/>(0:일,1:월,2:화,3:수,4:목,5:금,6:토)<br/> -->	
-	<div class="rsv">공연시간</div>
-			<input type="text" name="attr" class="rsv"><br/>
-	<input type="button" value="저장" name="" />
-	<input type="button" value="취소"  />	
-</div>
-<div id="insertplace" class="insert">
+	
+		<div id="insertsche" class="insert">
 			<div class="rsv">구</div>
-				<select id="gu" name="gu">
-				</select><br/>
+				<select id="se1" name="se1"></select><br />
 			<div class="rsv">장소</div>
-				<input type="text" name="attr" class="rsv"><br/>
+				<select id="se2" name="se2"></select><br />
+			<div class="rsv">공연일자</div>
+				<!-- <input type="text" name="sche"> <br /> -->
+				<input type="checkbox" value="0" name="checkdate">일
+				<input type="checkbox" value="1" name="checkdate">월
+				<input type="checkbox" value="2" name="checkdate">화
+				<input type="checkbox" value="3" name="checkdate">수
+				<input type="checkbox" value="4" name="checkdate">목
+				<input type="checkbox" value="5" name="checkdate">금
+				<input type="checkbox" value="6" name="checkdate">토
+				<input type="hidden" value="" name="scheArray">
+				<input type="hidden" value="" name="strArray">
+			<!-- 		<input type="text" name="attr" class="rsv"><br/>(0:일,1:월,2:화,3:수,4:목,5:금,6:토)<br/> -->
+			<div class="rsv">공연시간</div>
+				<input type="text" name="sche" class="rsv" id="sche"><br />
+		</div>
+		
+		
+		<div id="insertplace" class="insert">
+			<div class="rsv">구</div>
+				<select id="gu" name="gu"></select><br />
+			<div class="rsv">장소</div>
+				<input type="text" name="attr" class="rsv"><br />
 			<div class="rsv" class="rsv">지원사항</div>
-				<input type="text" name="spt" class="rsv"><br/>
+				<input type="text" name="spt" class="rsv"><br />
 			<div class="rsv">장르</div>
-				<select id="genre" name="genre">
-				</select><br/>
+				<select id="genre" name="genre"></select><br />
 			<div class="rsv">공연장소사진</div>
-				<input type="file" name="att1"><br/>
-					<input type="hidden" name="pphoto" id="pphoto" />
+				<input type="file" name="att1"><br /> 
+				<input type="hidden" name="pphoto" id="pphoto" />
 			<div class="rsv">상세정보사진</div>
-				<input type="file" name="att2"><br/>
-					<input type="hidden" name="dphoto" id="dphoto" />
+				<input type="file" name="att2"><br /> 
+				<input type="hidden"
+				name="dphoto" id="dphoto" />
 			<div class="rsv">예샹배치도사진</div>
-				<input type="file" name="att3"> <br/>
-					<input type="hidden" name="epphoto" id="epphoto" />
+				<input type="file" name="att3"> <br /> 
+				<input type="hidden"name="epphoto" id="epphoto" />
+		</div>
+	</form>
 	<input type="button" value="저장" id="savaBtn" />
 	<input type="button" value="취소" id="cancleBtn" />
-</div>
-	</form>
 	<!-- 	
 			pcode	장소 코드
 			gucode	예약 구 코드
