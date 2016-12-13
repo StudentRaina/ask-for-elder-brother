@@ -131,7 +131,7 @@ function insertsche(){
 					success : function(result) {
 						if(result.res=="true"){
 							alert("저장성공");
-							//lacation.ref
+							location.href="adminrsv";
 						}else{
 							alert("저장중에 문제가 발생함.");
 						}
@@ -270,7 +270,7 @@ function uploadResultCallBack(data,result){
 					success : function(result) {
 						if(result.res=="true"){
 							alert("저장성공");
-							//lacation.ref
+							location.href="adminrsv";
 						}else{
 							alert("저장중에 문제가 발생함.");
 						}

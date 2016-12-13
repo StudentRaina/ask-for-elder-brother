@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN"
+    "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="Intr">
+	<select id="getBusker" parameterClass="java.util.HashMap" resultClass="java.util.HashMap">
+		 <!-- SELECT  C.INTRNUM, C.TNAME, C.GENRE, C.DATE1
+		   FROM    (SELECT B.INTRNUM, A.TNAME, A.GENRE,  B.DATE1, ROW_NUMBER() OVER(ORDER BY B.INTRNUM DESC) AS RNUM
+	        	      FROM BSK A
+		              INNER JOIN  INTR B
+		                      ON  A.BSKNUM = B.BSKNUM 
+		             WHERE 1=1
+		             <isNotEmpty property="searchText">
+						AND B.INTR LIKE '%' || #searchText# || '%'
+					</isNotEmpty>#: 파라미터를 확인할때 씀 
+		           ) C
+		  WHERE C.RNUM BETWEEN #start# AND #end#    --> 
+		  SELECT D.INTRNUM,D.DATE1,D.TNAME,D.GENRE,D.FILENAME
+  			FROM(SELECT A.INTRNUM,A.DATE1,B.TNAME,B.GENRE, ROW_NUMBER() OVER(ORDER BY A.INTRNUM DESC) AS RNUM, C.FILENAME
+        			FROM INTR A
+        			INNER JOIN BSK B
+                			ON  A.BSKNUM = B.BSKNUM 
+        			LEFT OUTER JOIN INTRFILEUPLOAD C
+                			ON A.INTRNUM = C.INTRNUM
+             		WHERE 1=1
+		             <isNotEmpty property="searchText">
+						AND A.INTR LIKE '%' || #searchText# || '%'
+					</isNotEmpty>
+					) D
+			WHERE D.RNUM BETWEEN #start# AND #end#
+	</select>
+	<select id="getBuskerCount" parameterClass="java.util.HashMap" resultClass="Integer">
+		SELECT COUNT(*) AS CNT
+		FROM INTR
+		WHERE 1 = 1
+		<isNotEmpty property="searchText">
+			AND TEST_NO LIKE '%' || #searchText# || '%'
+		</isNotEmpty>
+		
+	</select>
+	  <!-- <select id="getBusker2" parameterClass="java.util.HashMap" resultClass="java.util.HashMap">
+		SELECT A.INTRNUM, B.TNAME, B.GENRE, A.COMM, A.INTR, A.DATE1, C.FILENAME,
+      			SUBSTR(C.FILENAME, INSTR(C.FILENAME, '.', -1) +1) AS FILE_EXT
+        FROM INTR A 
+	        INNER JOIN BSK B
+	                ON A.BSKNUM = B.BSKNUM 
+	        LEFT OUTER JOIN INTRFILEUPLOAD C
+	                ON A.INTRNUM = C.INTRNUM
+		WHERE A.INTRNUM = #intrNum#
+	 </select>  -->  
+	  <select id="getBusker2" parameterClass="java.util.HashMap" resultClass="java.util.HashMap">
+		SELECT A.INTRNUM, B.TNAME, B.GENRE, A.COMM, A.INTR, A.DATE1
+		 FROM INTR A          
+		 INNER JOIN BSK B                  
+		         ON A.BSKNUM = B.BSKNUM
+		 WHERE A.INTRNUM = #intrNum#
+	</select>
+	
+	<select id="getBusker3" parameterClass="java.util.HashMap" resultClass="java.util.HashMap">
+		SELECT INTRNUM, FILENAME, SUBSTR(FILENAME, INSTR(FILENAME, '.', -1) +1) AS FILE_EXT 
+		  FROM INTRFILEUPLOAD
+		  WHERE INTRNUM = #intrNum# 
+	</select>  
+	
+	<select id="buskerSeq" parameterClass="java.util.HashMap" resultClass="INTEGER">
+		SELECT INTRNUM.NEXTVAL FROM DUAL
+	</select> 
+	
+	<insert id="insertBusker" parameterClass="java.util.HashMap">
+		INSERT INTO INTR(INTRNUM, BSKNUM, COMM, INTR, DATE1,BOARDCODE)
+      			  VALUES(INTRNUM.NEXTVAL, #textBskNum#, #textComm#, #textIntr#, TO_DATE(SYSDATE, 'YYYY-MM-DD HH24:MI:SS'), '2')
+
+	</insert>
+	
+ 	<insert id="insertBusker2" parameterClass="java.util.HashMap">
+		INSERT INTO INTRFILEUPLOAD(FILENUM, INTRNUM, FILENAME)
+	     			    VALUES(INTRFILENUM.NEXTVAL,INTRNUM.CURRVAL, #textFile#)
+    </insert> 
+    
+    <insert id="insertBusker3" parameterClass="java.util.HashMap">
+    	INSERT INTO INTRFILEUPLOAD(FILENUM, INTRNUM, FILENAME)
+	     			    VALUES(INTRFILENUM.NEXTVAL,INTRNUM.CURRVAL, #textFile1#)
+    </insert>
+    
+    <!-- 오디션 회차 가져오기  -->
+    <select id="audition" parameterClass="java.util.HashMap" resultClass="java.util.HashMap">
+    	SELECT  AUDCODE, ATTR
+  		  FROM AUDCODE
+    </select>
+    
+    <!--회차별 버스커 가져오기  -->
+    <select id="audition2" parameterClass="java.util.HashMap" resultClass="java.util.HashMap">
+    	<!-- SELECT TNAME, AUDCODE
+		  FROM AUDAPP
+		 WHERE GRADE = 2 AND AUDCODE = #audCode# -->
+		  SELECT B.TNAME, AUDCODE, B.BSKNUM
+			FROM AUDAPP A 
+   				INNER JOIN BSK B
+           				ON A.BSKNUM = B.BSKNUM
+     	   WHERE A.GRADE = 2 AND AUDCODE = #audCode#
+    </select>
+</sqlMap>

@@ -17,6 +17,11 @@
 	<sqlMap resource="/com/spring/funsking/sqlMap/rsv/TestSQL.xml" />
 	<!-- Join쿼리 -->
 	<sqlMap resource="/com/spring/funsking/sqlMap/rsv/JoinSQL.xml" />
-
+	<!-- 오디션신청쿼리 -->
+	<sqlMap resource="/com/spring/funsking/sqlMap/rsv/AuditionapplySQL.xml" />
+	<!-- notice 공지사항 -->
+	<sqlMap resource="/com/spring/funsking/sqlMap/rsv/NoticeSQL.xml" />
+	<!--  버스커 소개게시판 쿼리 -->
+	<sqlMap resource="/com/spring/funsking/sqlMap/rsv/Intr.xml" />
 </sqlMapConfig>
  
