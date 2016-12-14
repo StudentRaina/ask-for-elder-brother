@@ -40,6 +40,7 @@
    background-image: url("resources/images/join2.png");
    background-position : center;
 }
+<!-- -->
 
 
 </style>
