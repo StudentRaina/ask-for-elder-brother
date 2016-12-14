@@ -48,6 +48,15 @@
     margin-left : 30%;
 }
 
+
+#join_image1{
+   width: 900px;
+   height : 200px;
+   display : inline-block;
+   background-image: url("resources/images/join4.png");
+   background-position : center;
+}
+
 </style>
 <script type="text/javascript" 
 		src="resources/script/jquery/jquery-1.11.0.js"></script>
@@ -168,6 +177,9 @@ $(document).ready(function() {
  	 		<div id="contentFrame">
  	 		
  	 		
+ 	 		<div id="join_image1"></div>
+ 	 		<br/>
+ 	 		<br/>
  	 		
  	 		
  	 
@@ -181,6 +193,10 @@ $(document).ready(function() {
 		</div>
 	</div>
 </form>
+
+<br/>
+<br/>
+ 	 
 <input type="button" id="home_move" value="홈으로 이동">
 <input type="button" id="login_move" value="로그인">
  	 

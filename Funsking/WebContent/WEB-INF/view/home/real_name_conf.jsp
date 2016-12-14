@@ -33,6 +33,15 @@
 }
 
 
+#join_image1{
+   width: 900px;
+   height : 200px;
+   display : inline-block;
+   background-image: url("resources/images/join2.png");
+   background-position : center;
+}
+
+
 </style>
 <script type="text/javascript" 
 		src="resources/script/jquery/jquery-1.11.0.js"></script>
@@ -165,13 +174,16 @@ $(document).ready(function() {
  	 		
  	 		
  	 		
- 	 		
- 	 		
+ 	 		<div id="join_image1"></div>
+ 	 		<br/>
+ 	 		<br/>
  	 		
 실명인증 확인
+<br/>
+<br/>
 <form>
 아래 실명인증 절차를 거친 후 회원가입을 진행해 주시길 바랍니다.<br/>
-실명이 확인되지 않을 경우 서비스 가입이 제한되오니 이용에 참고하시기 바랍니다.<br/>
+실명이 확인되지 않을 경우 서비스 가입이 제한되오니 이용에 참고하시기 바랍니다.<br/><br/>
 	<table>
 		<tr>
 			<td>이름</td>
@@ -189,6 +201,8 @@ $(document).ready(function() {
 			</td>
 		</tr>
 	</table>
+	<br/>
+	<br/>
 ※타인의 주민등록번호를 부정사용하는 자는 3년 이하의 징역 또는 1천 만원 이하의 벌급이 부과될 수 있습니다.<br/>
 관련법률 : 주민등록법 제37조(벌칙) (시행일 2009. 10. 2)<br/>
 </form>

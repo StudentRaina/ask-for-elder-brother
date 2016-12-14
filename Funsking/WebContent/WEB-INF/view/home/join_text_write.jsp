@@ -33,6 +33,16 @@
     margin-left : 30%;
 }
 
+
+#join_image1{
+   width: 900px;
+   height : 180px;
+   display : inline-block;
+   background-image: url("resources/images/join3.png");
+   background-position : center;
+}
+
+
 </style>
 <script type="text/javascript" 
 		src="resources/script/jquery/jquery-1.11.0.js"></script>
@@ -257,12 +267,14 @@ $(document).ready(function() {
  	 		<div id="bigtitleFrame"></div>
  	 		<div id="contentFrame">
  	 		
- 	 		
+ 	 		<div id="join_image1"></div>
+ 	 		<br/>
+ 	 		<br/>
  	 		
  	 		
 
 
-<h1>회원가입</h1>
+<h3>회원가입</h3>
 
 <form  action="#" id="joinForm" method="post">
 	<div class="form-group" id="divId">

@@ -39,6 +39,15 @@
    
 }
 
+
+#login_image1{
+   width: 740px;
+   height : 250px;
+   display : inline-block;
+   background-image: url("resources/images/login1.png");
+   background-position : center;
+}
+
 </style>
 <script type="text/javascript" 
 		src="resources/script/jquery/jquery-1.11.0.js"></script>
@@ -189,10 +198,11 @@ $(document).ready(function() {
  	 		<div id="contentFrame">
  	 		
  	 		
+ 	 		<div id="login_image1"></div>
  	 		
- 	 		
- 	 		
- 	 		
+ 	 		<br/>
+ 	 		<br/>
+ 	 		<br/>
 
 
 <form method="post" id="loginForm">
@@ -215,6 +225,9 @@ $(document).ready(function() {
 	</table>
 </form>
 
+<br/>
+<br/>
+ 	 		
 <div class="sub_login">
 	<form method="post" id="joinForm">
 		FUNSKING 회원이 아니신가요?
