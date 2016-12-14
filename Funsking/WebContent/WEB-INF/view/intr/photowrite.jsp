@@ -58,14 +58,14 @@ $(document).ready(function(){
 		$("#actionForm").submit();
 	});
 	
-	$("#saveBtn").on("click", function(){
+	$("#SaveBtn").on("click", function(){
 		var insertForm = $("#insertForm")
 		
 		insertForm.ajaxForm(uploadResultCallBack); //form자체를 실행할때 ajax로 구동하겠다. // ajax를 실행하고 이 함수를 실행하겠다.
 		insertForm.submit();
 			
 	});
-	rsvplace();
+	rsvplace();	
 	
 }); //ready 끝
 
@@ -86,7 +86,7 @@ function uploadResultCallBack(data, result){
 		      data : params,
 		      success : function(result) {
 		      	if(result.res == "true"){
-		      		location.href = "buskerintro";
+		      		location.href = "buskerphoto";
 		      	} else {
 		      		alert("저장 중 문제가 발생");
 		      	}
@@ -144,10 +144,22 @@ function rsvplace(){
 	
 <div id="topFrame">
  	<div id="logoFrame"></div>
- 	  <div id="memberFrame">
- 		<div id="joinFrame">회원가입</div>
- 		<div id="loginFrame">${sFuserID}</div>
- 	  </div>
+ 	 <!--천재영느님께서 만듬 ㅋㅋㅋㅋㅋㅋ 로그인 화면  -->    
+     <c:choose>  
+        <c:when test="${!empty sFuserNUM}">
+           <div id="member2Frame">       
+             <div id="login_idFrame">${sFuserID}</div>
+             <div id="logoutFrame">로그아웃</div>
+            </div>      
+        </c:when>
+        
+        <c:otherwise>
+           <div id="memberFrame">       
+             <div id="joinFrame">회원가입</div>
+             <div id="loginFrame">로그인</div>
+            </div>     
+        </c:otherwise>   
+     </c:choose>
  </div> 
 	<hr/>
 	
@@ -218,7 +230,7 @@ function rsvplace(){
 	 	 			<form action ="fileUploadAjax" id="insertForm" method="post" enctype="multipart/form-data">  <!-- 멀티파트는 복합적인 자료를 넘김? => 파일을 넘길때 쓴다 -->
  	 				<table border="1">
  	 					<tr>
- 	 						<td>제 목 :<input type="text" name="textTitle" value="" width="100px"></td>
+ 	 						<td>제 목 :<input type="text" name="textTitle"  width="100px"></td>
  	 					</tr>
  	 					<tr>
  	 						<td> 	 						

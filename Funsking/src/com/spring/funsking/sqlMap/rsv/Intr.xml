@@ -5,18 +5,8 @@
 
 	<!--전체 버스커 목록보기  -->
 	<select id="getBusker" parameterClass="java.util.HashMap" resultClass="java.util.HashMap">
-		 <!-- SELECT  C.INTRNUM, C.TNAME, C.GENRE, C.DATE1
-		   FROM    (SELECT B.INTRNUM, A.TNAME, A.GENRE,  B.DATE1, ROW_NUMBER() OVER(ORDER BY B.INTRNUM DESC) AS RNUM
-	        	      FROM BSK A
-		              INNER JOIN  INTR B
-		                      ON  A.BSKNUM = B.BSKNUM 
-		             WHERE 1=1
-		             <isNotEmpty property="searchText">
-						AND B.INTR LIKE '%' || #searchText# || '%'
-					</isNotEmpty>#: 파라미터를 확인할때 씀 
-		           ) C
-		  WHERE C.RNUM BETWEEN #start# AND #end#    --> 
-		  SELECT D.INTRNUM,D.DATE1,D.TNAME,D.GENRE, D.FILENUM, D.FILENAME, SUBSTR(FILENAME, INSTR(FILENAME, '.', -1) +1) AS FILE_EXT
+		 
+		   <!-- SELECT D.INTRNUM,D.DATE1,D.TNAME,D.GENRE, D.FILENUM, D.FILENAME, SUBSTR(FILENAME, INSTR(FILENAME, '.', -1) +1) AS FILE_EXT
   			FROM(SELECT A.INTRNUM,A.DATE1,B.TNAME,B.GENRE, ROW_NUMBER() OVER(ORDER BY A.INTRNUM DESC) AS RNUM, C.FILENAME, C.FILENUM
         			FROM INTR A
         			INNER JOIN BSK B
@@ -31,7 +21,22 @@
 						AND A.INTRNUM LIKE '%' || #searchText# || '%'
 					</isNotEmpty>
 					) D
-			WHERE D.RNUM BETWEEN #start# AND #end#
+			WHERE D.RNUM BETWEEN #start# AND #end#  -->
+			SELECT D.INTRNUM,D.DATE1,D.TNAME,D.GENRE, D.FILENUM, D.FILENAME, SUBSTR(FILENAME, INSTR(FILENAME, '.', -1) +1) AS FILE_EXT
+  			FROM(SELECT A.INTRNUM,A.DATE1,B.TNAME,B.GENRE, ROW_NUMBER() OVER(ORDER BY A.INTRNUM DESC) AS RNUM, C.FILENAME, C.FILENUM, SUBSTR(FILENAME, INSTR(FILENAME, '.', -1) +1) AS FILE_EXT
+        			FROM INTR A
+        			INNER JOIN BSK B
+                			ON  A.BSKNUM = B.BSKNUM 
+        			LEFT OUTER JOIN INTRFILEUPLOAD C
+                			ON A.INTRNUM = C.INTRNUM
+             		WHERE 1=1
+             		<isNotEmpty property="textGenre">
+             		 	AND B.GENRE = #textGenre#
+             		 </isNotEmpty>
+		             <isNotEmpty property="searchText">
+						AND A.INTRNUM LIKE '%' || #searchText# || '%'
+					</isNotEmpty>)D
+                WHERE FILE_EXT !='mp4' AND D.RNUM BETWEEN #start# AND #end#
 	</select>
 	 
 	
@@ -73,14 +78,16 @@
 		  WHERE INTRNUM = #intrNum# 
 	</select>  
 	
+	<!-- 시퀀스 -->
 	<select id="buskerSeq" parameterClass="java.util.HashMap" resultClass="INTEGER">
 		SELECT INTRNUM.NEXTVAL FROM DUAL
 	</select> 
 	
+	<!-- 인서트 -->
 	<insert id="insertBusker" parameterClass="java.util.HashMap">
 		INSERT INTO INTR(INTRNUM, BSKNUM, COMM, INTR, DATE1,BOARDCODE)
       			  VALUES(INTRNUM.NEXTVAL, #textBskNum#, #textComm#, #textIntr#, TO_DATE(SYSDATE, 'YYYY-MM-DD HH24:MI:SS'), '2')
-
+	<!-- 인서트 -->
 	</insert>
 	
  	<insert id="insertBusker2" parameterClass="java.util.HashMap">
@@ -187,16 +194,20 @@
 		  WHERE CONCERTNUM = #concertNum#
     </select>
     
+    <select id="photoseq" parameterClass="java.util.HashMap" resultClass="Integer">
+    	SELECT CONCERTNUM.NEXTVAL FROM DUAL
+    </select>
+    
     <!-- 사진 정보 인서트 -->
     <insert id="insertphoto" parameterClass="java.util.HashMap">
-		INSERT INTO INTR(CONCERTNUM, NUM, RSVNUM, TITLE, COMM, DATE1,  BOARDCODE)
-      			  VALUES(CONCERTNUM.NEXTVAL, #textNum#, #textRsv#, #textIntr#, #textTitle#, #textComm#,  TO_DATE(SYSDATE, 'YYYY-MM-DD HH24:MI:SS'), '7')
+		INSERT INTO CONCERT(CONCERTNUM, TITLE, COMM, DATE1,  BOARDCODE)
+      			  VALUES(#seq#, #textTitle#, #textComm#,  TO_DATE(SYSDATE, 'YYYY-MM-DD HH24:MI:SS'), '7')
 	</insert>
 	
 	<!-- 사진 파일 인서트 -->
  	<insert id="insertphoto2" parameterClass="java.util.HashMap">
-		INSERT INTO CONCERTFILE(FILENUM, CONCERTNUM, FILENAME)
-	     			    VALUES(CONCERTFILE.NEXTVAL,CONCERTNUM.CURRVAL, #textFile#)
+		INSERT INTO CONCERTFILEUPLOAD(FILENUM, CONCERTNUM, FILENAME)
+	    VALUES(CONCERTFILE.NEXTVAL,#seq#, #textFile#)
     </insert>
     
     <!-- 예약된 장소 ajax가져오기 -->
