@@ -49,6 +49,41 @@
     margin-left : 30%;
 }
 
+
+
+#noticeBlock{
+   width : 150px;
+   height : 40px;
+   
+   display : table-cell;
+   vertical-align : middle;
+      text-align : center;
+   background-color : #FF007F;
+   color : #FFFFFF;
+   font-weight : bold;
+}
+
+#festivalBlock{
+   width : 150px;
+   height : 40px;
+   
+   display : table-cell;
+   vertical-align : middle;
+      text-align : center;
+   background-color : rgb(190, 190, 190);   
+   color : #FFFFFF;
+   font-weight : bold;
+      
+}
+
+.bbb{
+   width : 150px;
+   height : 40px;
+   display : inline-block;
+   margin-top : 1%;
+}
+
+
 </style>
 <script type="text/javascript" 
 		src="resources/script/jquery/jquery-1.11.0.js"></script>
@@ -87,17 +122,20 @@ $(document).ready(function() {
 	//초기화면
 	
 	
-	$("#id_view_div").on("click", function() {
+	$("#noticeBlock").on("click", function() {
 		$("#id_div").show();
-	    $("#password_div").hide();   
-
+	    $("#password_div").hide();
+	    $("#noticeBlock").css("background-color","#FF007F");
+		$("#festivalBlock").css("background-color","rgb(190, 190, 190)");
 	});//아이디 찾기 이동
 	
 	
 	
-	$("#password_view_div").on("click", function() {
+	$("#festivalBlock").on("click", function() {
 		$("#password_div").show();
-	    $("#id_div").hide();        
+	    $("#id_div").hide();
+	    $("#festivalBlock").css("background-color","#FF007F");
+		$("#noticeBlock").css("background-color","rgb(190, 190, 190)");
 	});//비밀번호 찾기 이동
 	
 	
@@ -346,24 +384,14 @@ $(document).ready(function() {
  	 			<div id="block2"></div>
  	 			<div id="line2"></div>
  	 		</div>
- 	 		<div id="bigtitleFrame"></div>
- 	 		<div id="contentFrame">
+ 	 		<div class="bbb">
+           <div id="noticeBlock">아이디 찾기</div>
+           </div>
+           <div class="bbb">
+           <div id="festivalBlock">비밀번호 찾기</div>
+           </div>
+ 	 	   <div id="contentFrame">
  	 		
- 	 		
- 	 		
- 
-
-
-
-<div id="view_div">	
-	<div id="id_view_div">
-		<div id="id_view_div2">아이디 찾기</div>
-	</div>
-	
-	<div id="password_view_div">
-		<div id="password_view_div2">비밀번호 찾기</div>
-	</div>
-</div>
 
 <h1>
 등록한 정보로 찾기

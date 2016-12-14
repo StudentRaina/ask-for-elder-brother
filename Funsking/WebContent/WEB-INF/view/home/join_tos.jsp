@@ -33,15 +33,19 @@
    
 }
 
-/* 
+
 #join_image1{
-   width: 300px;
+   width: 900px;
    height : 200px;
    display : inline-block;
-   background-image: url("/resources/images/join1.PNG");
+   background-image: url("resources/images/join1.png");
    background-position : center;
 }
- */
+
+textarea {
+	width: 550px;
+	height: 250px;
+} 
 
 
 </style>
@@ -169,13 +173,15 @@ $(document).ready(function() {
  	 		<div id="contentFrame">
  	 		
  	 		
- 	 		<!-- 
+ 	 		 
  	 		<div id="join_image1"></div>
- 	 		-->
-
+ 	 		
+<br/>
+<br/>
 이용약관
+<br/>
 <form>
-	<textarea rows = "10" cols = "55" readonly = "readonly">
+	<textarea rows = "10" cols = "55" readonly = "readonly" style= "resize:none">
 	제1조 목적
 	이 약관은 고양문화재단이 제공하는 정보서비스의 이용에 관한 조건 및 절차와 기타 필요한 사항을 규정하는 것을 목적으로 합니다.
 	
@@ -276,10 +282,13 @@ $(document).ready(function() {
 	<input type = "checkbox" name = "tos_check_box1"/>
 	위의 이용약관에 동의합니다.
 </form>
-	
+<br/>
+<br/>	
 개인정보 수집 ·이용동의
+<br/>
+<br/>
 <form>
-	<textarea rows = "10" cols = "55" readonly = "readonly">
+	<textarea rows = "10" cols = "55" readonly = "readonly" style= "resize:none">
 		회사는 개인정보취급방침을 통하여 고객님께서 제공하시는 개인정보가 어떠한 용도와 방식으로 이용되고 있으며, 개인정보보호를 위해 어떠한 조치가 취해지고 있는지 알려드립니다. 회사는 개인정보취급방침을 개정하는 경우 웹사이트 공지사항(또는 개별공지)을 통하여 공지할 것입니다.
 	
 	본 방침은 2016 년 04 월 05 일 부터 시행됩니다.
