@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN"
+    "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="notice">
+	
+	<select id="getTest" 
+	parameterClass = "java.util.HashMap" 
+	resultClass="java.util.HashMap"> <!-- dao에서 만든 arrayList의 제네릭이 hashMap 이므로 resultClass로 hashMap을 설정해준다 -->
+		
+		SELECT A.NOTICENUM, A.TITLE,A.COMM,A.DATE1,A.NUM
+		FROM (SELECT ROW_NUMBER() OVER(ORDER BY NOTICENUM DESC) AS RNUM,
+        NOTICENUM, TITLE, COMM, DATE1,NUM
+        FROM NOTICE
+        WHERE 1 = 1
+        <isNotEmpty property="searchText">
+        AND TITLE LIKE '%' || #searchText# || '%'
+         </isNotEmpty>
+        ) A
+		WHERE A.RNUM BETWEEN #start# AND #end#
+	</select>
+
+
+	<select id="getTestCount" parameterClass = "java.util.HashMap"
+							  resultClass = "integer">
+		SELECT COUNT(*) AS CNT
+		FROM NOTICE
+		WHERE 1 = 1
+		<isNotEmpty property="searchText">
+			AND TITLE LIKE '%' || #searchText# || '%'
+		</isNotEmpty>
+	</select>
+	
+	<select id="getTestCon"
+			parameterClass="java.util.HashMap"
+			resultClass="java.util.HashMap">
+		
+
+		SELECT A.NOTICENUM, A.TITLE, B.ID, A.DATE1,A.COMM
+		FROM NOTICE A
+		INNER JOIN FUSER B
+		ON A.NUM =  B.NUM
+		WHERE A.NOTICENUM = #noticeNo#
+			<!-- SELECT TEST_NO, TEST_CON, TEST_FILE,
+			LOWER(SUBSTR(TEST_FILE, INSTR(TEST_FILE,'.', -1) + 1)) AS FILE_EXT
+	FROM TEST
+	WHERE TEST_NO= #testNo#
+	 -->
+	
+	</select>
+
+</sqlMap>

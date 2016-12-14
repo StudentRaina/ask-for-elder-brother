@@ -96,17 +96,18 @@ $(document).ready(function(){
 	
 	
 	$("#ReviBtn").on("click", function(){
-		$("#actionForm").attr("action", "buskerupdate");
+		$("#actionForm").attr("action", "introupdate");
 		$("#actionForm").submit();
 	}); //  Revi(수정)버튼 종료
 	
-	$("#delBtn").on("click", function(){
+	$("#DelBtn").on("click", function(){
+		
 		if(confirm("지울래?")){
 			var params = $("#actionForm").serialize();
 			
 			$.ajax({
 				type : "post",
-				url : "deleteTest",
+				url : "deleteBusker",
 				dataType : "json",
 				data : params,
 				success : function(result){
@@ -121,6 +122,7 @@ $(document).ready(function(){
 				}
 			}); //ajax종료
 		} //if종료
+		console.log("1");
 	}) //deleteBtn 종료
 	
 	console.log($("#tb"));
@@ -138,8 +140,10 @@ $(document).ready(function(){
 		<div class="c_2">
 			<div class="c_2_1">
 				<form action ="#" id="actionForm" method="post">
-					<input type="text" name="searchText" value="${param.searchText}" />
-					<input type="text" name="intrNum" value="${param.intrNum}" />
+					1<input type="hidden" name="page" value="${param.page}"/>
+					2<input type="text" name="searchText" value="${param.searchText}" />
+					3<input type="text" name="fileNum" value="${param.fileNum}" />
+					4<input type="text" name="intrNum" value="${param.intrNum}" />
 				</form>
 			</div>
 			<div class="c_2_2">			
@@ -155,27 +159,32 @@ $(document).ready(function(){
 			<div class="c_3_2">사진및소개${imgCnt}
 				<table border="1" margin:"0>
 					 <c:if test="${imgCnt > 0}">
-			            <!--  CON.TEST_FILE 안에 무너가있다면. -->
+			            <!--  CON.TEST_FILE 안에 무너가있다면. -->	
 					      <tr>
 					         <th>파일</th>
-					         <td colspan="3">
 					         <c:forEach var="img" items="${list5}">
+					         <td colspan="2">
 				               <c:if test="${img.FILE_EXT eq 'jpg' ||
 				                           		img.FILE_EXT eq 'gif' ||
 				                           		img.FILE_EXT eq 'png'}">
 				               <img alt="${img.FILENAME}" id="buskerimg"
 				                  src="resources/upload/${img.FILENAME}"/>
 				               </c:if>
-					         </c:forEach>
 					         </td>
-			     	 </tr>
+					         
+					         </c:forEach>
+			     		 </tr>
 			      </c:if> 
 			   
 					<tr>					
 						<td>장르 :${list4.GENRE}</td>
 						<td>코멘트 :${list4.COMM}</td>
 						<td>소개 :${list4.INTR}</td>
-						</tr>
+					</tr>
+					<tr>
+						 <%-- <td>파일넘버:${list5.FILENUM}</td>  --%>
+					</tr>
+					
 					
 				</table>
 			</div>

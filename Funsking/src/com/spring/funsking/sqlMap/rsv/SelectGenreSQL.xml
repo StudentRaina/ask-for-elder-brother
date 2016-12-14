@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN"
+    "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="auditionApply">
+
+	<insert id="insertAuditionApply"
+			parameterClass="java.util.HashMap">
+					
+		INSERT INTO BSK(BSKNUM, GENRE, PW, NAME, PHONE, EMAIL)
+		VALUES(FUSERNUM.NEXTVAL, #id#, #password#, #name#, #phone#, #email#)		
+	</insert>
+
+	<select id="idCheckAjax"
+			parameterClass="java.util.HashMap"
+			resultClass="java.util.HashMap">
+		SELECT ID
+		FROM FUSER
+		WHERE ID = #id#
+	</select>
+	
+</sqlMap>

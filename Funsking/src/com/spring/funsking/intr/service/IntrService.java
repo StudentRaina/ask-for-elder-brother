@@ -30,7 +30,7 @@ public class IntrService implements IIntrService {
 	}
 
 	@Override // 버스커 파일
-	public ArrayList<HashMap<String, String>> getBusker3(HashMap<String, String> params) throws Throwable {
+	public ArrayList<HashMap<String, String>> getBusker3(HashMap<String, String> params) throws Throwable { 
 		// TODO Auto-generated method stub
 		return iIntrDao.getBusker3(params);
 	}
@@ -65,12 +65,60 @@ public class IntrService implements IIntrService {
 		return iIntrDao.audition2(params);
 	}
 
-
-
-	/*@Override
-	public int buskerSeq(HashMap<String, String> params) throws Throwable {
+	@Override
+	public int deleteBusker(HashMap<String, String> params) throws Throwable {
 		// TODO Auto-generated method stub
-		return iIntrDao.buskerSeq(params);
-	}*/
+		return iIntrDao.deleteBusker(params);
+	}
+
+	@Override
+	public ArrayList<HashMap<String, String>> GenreBusker(HashMap<String, String> params) throws Throwable {
+		// TODO Auto-generated method stub
+		return iIntrDao.GenreBusker(params);
+	}
+
+	@Override
+	public int getphotoCount(HashMap<String, String> params) throws Throwable {
+		// TODO Auto-generated method stub
+		return iIntrDao.getphotoCount(params);
+	}
+
+	@Override
+	public ArrayList<HashMap<String, String>> photoajax(HashMap<String, String> params) throws Throwable {
+		// TODO Auto-generated method stub
+		return iIntrDao.photoajax(params);
+	}
+
+	@Override
+	public HashMap<String, String> buskerphoto2(HashMap<String, String> params) throws Throwable {
+		// TODO Auto-generated method stub
+		return iIntrDao.buskerphoto2(params);
+	}
+
+	@Override
+	public ArrayList<HashMap<String, String>> buskerphoto3(HashMap<String, String> params) throws Throwable {
+		// TODO Auto-generated method stub
+		return iIntrDao.buskerphoto3(params);
+	}
+
+	@Override
+	public String insertphoto(HashMap<String, String> params) throws Throwable {
+		// TODO Auto-generated method stub
+		return iIntrDao.insertphoto(params);
+	}
+
+	@Override
+	public ArrayList<HashMap<String, String>> rsvplaceAjax(HashMap<String, String> params) throws Throwable {
+		// TODO Auto-generated method stub
+		return iIntrDao.rsvplaceAjax(params);
+	}
+
+	@Override
+	public int updateajax(HashMap<String, String> params) throws Throwable {
+		// TODO Auto-generated method stub
+		return iIntrDao.updateajax(params);
+	}
+
+
 
 }

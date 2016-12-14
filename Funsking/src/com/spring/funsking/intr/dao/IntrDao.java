@@ -69,31 +69,6 @@ public class IntrDao implements IIntrDao{
 		return res;
 	}
 
-/*	//버스커 파일 업로드
-	@Override
-	public String insertBusker2(HashMap<String, String> params) throws Throwable {
-		// TODO Auto-generated method stub
-		String res2 = "false";
-		
-		sqlMapClient.startTransaction();
-		sqlMapClient.startBatch();
-		
-		//에러가나면 res는 false로 되서 end트렉젝션함. => 롤백이된다.
-		try{
-			
-		
-			sqlMapClient.executeBatch();
-			sqlMapClient.commitTransaction();
-			
-			res2 = "true";
-		} catch (Exception e) {
-			res2 = "false";
-			e.printStackTrace();
-		}
-		
-		sqlMapClient.endTransaction();
-		return res2;
-	}*/
 
 	//paging
 	@Override
@@ -118,13 +93,108 @@ public class IntrDao implements IIntrDao{
 		return (ArrayList<HashMap<String, String>>) sqlMapClient.queryForList("Intr.audition2", params);
 	}
 
-
-/*	//시퀀스
+	//버스커 소개 삭제
 	@Override
-	public int buskerSeq(HashMap<String, String> params) throws Throwable {
+	public int deleteBusker(HashMap<String, String> params) throws Throwable {
+		// TODO Auto-generated method stub
+		int res1 = (int)sqlMapClient.delete("Intr.deleteBusker", params);
+		int res2 = (int)sqlMapClient.delete("Intr.deleteBusker2", params);
 		
-		return (int) sqlMapClient.queryForObject("Intr.buskerSeq", params);
+		int res= 0;
+		res = res1 +res2;
+		
+		return res;
+	
+		
 	}
 
-	*/
+	@SuppressWarnings("unchecked")
+	@Override
+	public ArrayList<HashMap<String, String>> GenreBusker(HashMap<String, String> params) throws Throwable {
+		// TODO Auto-generated method stub
+		return (ArrayList<HashMap<String, String>>) sqlMapClient.queryForList("Intr.GenreBusker", params);
+	}
+
+	//포토 카운트
+	@Override
+	public int getphotoCount(HashMap<String, String> params) throws Throwable {
+		// TODO Auto-generated method stub
+		return (int) sqlMapClient.queryForObject("Intr.getphotoCount", params);
+	}
+
+	//포토 첫화면 가져오기
+	@SuppressWarnings("unchecked")
+	@Override
+	public ArrayList<HashMap<String, String>> photoajax(HashMap<String, String> params) throws Throwable {
+		// TODO Auto-generated method stub
+		return (ArrayList<HashMap<String, String>>) sqlMapClient.queryForList("Intr.photoajax", params);
+	}
+
+	//포토 상세보기
+	@SuppressWarnings("unchecked")
+	@Override
+	public HashMap<String, String> buskerphoto2(HashMap<String, String> params) throws Throwable {
+		// TODO Auto-generated method stub
+		return (HashMap<String, String>)sqlMapClient.queryForObject("Intr.buskerphoto2", params);
+	}
+
+	//포토 상세보기 파일
+	@SuppressWarnings("unchecked")
+	@Override
+	public ArrayList<HashMap<String, String>> buskerphoto3(HashMap<String, String> params) throws Throwable {
+		// TODO Auto-generated method stub
+		return (ArrayList<HashMap<String, String>>)sqlMapClient.queryForList("Intr.buskerphoto3", params);
+	}
+
+	@Override
+	public String insertphoto(HashMap<String, String> params) throws Throwable {
+		String res = "false";
+		
+		/*int sequence = (int)sqlMapClient.queryForObject("Intr.buskerSeq", params);
+		
+		params.put("sequence", Integer.toString(sequence));*/
+		
+		sqlMapClient.startTransaction();
+		sqlMapClient.startBatch();
+		
+		//에러가나면 res는 false로 되서 end트렉젝션함. => 롤백이된다.
+		try{
+			sqlMapClient.insert("Intr.insertphoto", params);
+			sqlMapClient.insert("Intr.insertphoto2", params);
+			/* sqlMapClient.insert("Intr.insertBusker3", params);*/
+		
+			sqlMapClient.executeBatch();
+			sqlMapClient.commitTransaction();
+			
+			res = "true";
+		} catch (Exception e) {
+			res = "false";
+			e.printStackTrace();
+		}
+		
+		sqlMapClient.endTransaction();
+		return res;
+	}
+
+	//예약된 장소 가져오기 ajax
+	@SuppressWarnings("unchecked")
+	@Override
+	public ArrayList<HashMap<String, String>> rsvplaceAjax(HashMap<String, String> params) throws Throwable {
+		// TODO Auto-generated method stub
+		return (ArrayList<HashMap<String, String>>) sqlMapClient.queryForList("Intr.rsvplaceAjax", params);
+	}
+
+	//버스커 소개 수정
+	@Override
+	public int updateajax(HashMap<String, String> params) throws Throwable {
+		// TODO Auto-generated method stub
+		int res1= (int)sqlMapClient.update("Intr.updateajax", params);
+		int res2= (int)sqlMapClient.update("Intr.updateajax2", params);
+		int res3= (int)sqlMapClient.update("Intr.updateajax3", params);
+		 int res = 0;
+		 res= res1+res2+res3;
+		return res;
+	}
+
+
 }

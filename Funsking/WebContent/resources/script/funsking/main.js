@@ -1,0 +1,30 @@
+$(document).ready(function() {
+$("#busi_intr").on("click",function(){
+				location.href="busiintr";
+			});
+$("#notice").on("click",function(){
+				location.href="";
+			});
+$("#street_concert").on("click",function(){
+				location.href="";
+			});
+$("#bsk_intr").on("click",function(){
+				location.href="";
+			});
+$("#media_photo").on("click",function(){
+				location.href="rsv";
+			});
+$("#audition").on("click",function(){
+				location.href="";
+			});
+$("#qna").on("click",function(){
+				location.href="";
+			});
+$("#cmu").on("click",function(){
+				location.href="";
+			});
+$("#logoFrame").on("click",function(){
+				location.href="";
+			});
+});
+

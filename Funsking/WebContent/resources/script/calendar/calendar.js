@@ -71,7 +71,7 @@ function showCalendar(y, m) {
     text += "</tbody>";
     text += "</table>"; 
     text += "</div>"; 
-    
+    console.log(text);
     $("#calendarArea").html(text);
     
     $("#monthArea").off("click", ".dateArea");

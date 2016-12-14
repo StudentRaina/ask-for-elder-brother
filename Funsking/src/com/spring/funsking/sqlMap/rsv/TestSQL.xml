@@ -13,15 +13,58 @@
 
 	<select id="getplace" parameterClass="java.util.HashMap"
 		resultClass="java.util.HashMap">
-		<!-- SELECT PCODE,GUCODE,ATTR
-		FROM RSVPLACE
-		WHERE
-		GUCODE=#se1# -->
 	SELECT A.ATTR,PCODE,B.ATTR AS BATTR
 	FROM RSVPLACE B,(SELECT GUCODE,ATTR
 	FROM RSVGU
 	WHERE GUCODE=#se1#) A
 	WHERE A.GUCODE=B.GUCODE
-	
 	</select>
+	
+ 	<select id="getplace3" parameterClass="java.util.HashMap"
+	resultClass="java.util.HashMap">
+	SELECT DISTINCT ATTR,A.PCODE AS PCODE
+	from RSVPLACE A,(SELECT PCODE,CONCERTSCHE FROM RSVSCHE WHERE CONCERTSCHE=#sche#) B
+	WHERE A.PCODE= B.PCODE AND GUCODE=#dse2#
+	</select> 
+	
+	<select id="getreflashplace" parameterClass="java.util.HashMap"
+	resultClass="java.util.HashMap">
+	SELECT ATTR FROM RSVPLACE
+    WHERE PCODE=#se2#
+	</select> 
+	<select id="getgenre" parameterClass="java.util.HashMap"
+	resultClass="java.util.HashMap">
+	SELECT GENRE,ATTR FROM GENRECODE
+	</select>
+	
+	<insert id="insertrsv" parameterClass="java.util.HashMap">
+		INSERT INTO RSVPLACE(PCODE,GUCODE,SPT,GENRE,PPHOTO,DPHOTO,EPPHOTO,ATTR)
+		VALUES(RSVPLACENUM.NEXTVAL,#gu#,#spt#,#genre#,#pphoto#,#dphoto#,#epphoto#,#attr#)
+	</insert> 
+	
+	<insert id="insertsche" parameterClass="java.util.HashMap">
+	INSERT INTO RSVSCHE(SCHECODE,PCODE,CONCERTSCHE,CONCERTHR)
+	VALUES(RSVSCHENUM.NEXTVAL,#se2#,#checkdate#,#sche#)
+	</insert>
+	
+	<select id="getrsvall" parameterClass="java.util.HashMap"
+	resultClass="java.util.HashMap">
+	SELECT B.ATTR AS GU,B.TEL,A.ATTR AS PLACE,F.ATTR AS GENRE,A.SPT,DPHOTO,PPHOTO,EPPHOTO,C.CONCERTSCHE,C.CONCERTHR,E.TNAME
+           FROM RSVGU B 
+                      INNER JOIN RSVPLACE A
+                        ON A.GUCODE=B.GUCODE 
+                            INNER JOIN RSVSCHE C
+                              ON C.CONCERTSCHE=#sche#
+                                INNER JOIN GENRECODE F
+                                  ON A.GENRE=F.GENRE
+                              LEFT JOIN 
+                              (SELECT D.SCHECODE,E.TNAME FROM RSVBSK D
+                                        LEFT OUTER JOIN BSK E
+                                            ON D.BSKNUM =E.BSKNUM) E
+                                            ON C.SCHECODE= E.SCHECODE
+                   WHERE B.GUCODE = #gu# AND A.PCODE=#place#
+                   ORDER BY CONCERTHR
+	</select>
+	
+
 </sqlMap>
