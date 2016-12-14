@@ -5,7 +5,7 @@ public class CommonProperties {
 	 * 기본 셋
 	 */
 	//기본 리스트 사이즈
-	public static final int VIEWCOUNT = 10;
+	public static final int VIEWCOUNT = 20;
 	//기본 페이지 사이즈
 	public static final int PAGECOUNT = 10;
 	//검색 기준일
@@ -22,13 +22,12 @@ public class CommonProperties {
 	 * 파일 업로드
 	 */
 	//파일 업로드 경로
-	public static final String FILE_UPLOAD_PATH = "C:\\MyWork\\양진이\\ask-for-elder-brother\\Funsking\\WebContent\\resources\\upload\\";
-	
 	/*public static final String FILE_UPLOAD_PATH = "C:\\MyWork\\Workspace\\SampleSpring\\WebContent\\resources\\upload\\";*/
+	public static final String FILE_UPLOAD_PATH ="C:\\Users\\admin\\git\\ask-for-elder-brother\\Funsking\\WebContent\\resources\\upload\\";
 	//파일 다운로드 경로
 	public static final String FILE_DOWNLOAD_PATH = "http://localhost:8080/location";
 	
 	//허용파일 확장자
-	public static final String FILE_EXT = "xls|ppt|doc|xlsx|pptx|docx|hwp|csv|jpg|png|tld|txt|gif|bmp";
+	public static final String FILE_EXT = "xls|ppt|doc|xlsx|pptx|docx|hwp|csv|jpg|png|tld|txt|gif|mp4|JPG|JIF";
 
 }

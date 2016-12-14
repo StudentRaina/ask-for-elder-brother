@@ -7,6 +7,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 <link rel="stylesheet" type="text/css" href="resources/css/intr/hoho.css" />
+<script type="text/javascript" src="resources/script/funsking/main.js"></script>
 </head>
 <body>
 <div id="centerFrame">

@@ -10,6 +10,7 @@
 <script type="text/javascript"
 	src="resources/script/jquery/jquery-1.11.0.js"></script>
 <script type="text/javascript" src="resources/script/jquery/jquery.form.js"></script>	
+<script type="text/javascript" src="resources/script/funsking/main.js"></script>
 <style type="text/css">
 /* html, body {
 	position: relative;
@@ -57,7 +58,7 @@
 .c_3_1{
 	width: 100%;
 	height: 80%;
-	background-color:  #20B2AA;
+	/* background-color:  #20B2AA; */
 }
 .c_3_2{
 	width:100px;
@@ -155,7 +156,7 @@ function refreshList() {
 			   			 
 			   		 
 			   		html += "<div class ='list'>";   	
-			   		html += "<table border= '1' name='" +result.list3[i].INTRNUM + "'>"
+			   		html += "<table  name='" +result.list3[i].INTRNUM + "'>"
 	   				html += "<tr>"
   					html += "<td colspan='2'>"
   					html += "<img class='buskerimg' src='resources/upload/" + result.list3[i].FILENAME + "' />"

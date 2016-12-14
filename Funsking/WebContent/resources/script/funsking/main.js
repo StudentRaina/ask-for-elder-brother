@@ -24,7 +24,7 @@ $("#cmu").on("click",function(){
 				location.href="";
 			});
 $("#logoFrame").on("click",function(){
-				location.href="";
+				location.href="home1";
 			});
 });
 

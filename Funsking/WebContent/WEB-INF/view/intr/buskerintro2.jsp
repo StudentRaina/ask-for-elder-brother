@@ -9,7 +9,8 @@
 <link rel="stylesheet" type="text/css" href="resources/css/intr/hoho.css" />
 <script type="text/javascript"
 	src="resources/script/jquery/jquery-1.11.0.js"></script>
-<script type="text/javascript" src="resources/script/jquery/jquery.form.js"></script>	
+<script type="text/javascript" src="resources/script/jquery/jquery.form.js"></script>
+<script type="text/javascript" src="resources/script/funsking/main.js"></script>	
 <style type="text/css">
 html, body {
 	position: relative;
@@ -37,7 +38,7 @@ html, body {
 .c_1 , .c_2{
 	width: 100%;
 	height: 5%;
-	background-color: #FFF0FF;
+	 background-color: #FFF0FF; 
 	display: inline-block;
 }
  .c_2_1{
@@ -57,17 +58,17 @@ html, body {
 .c_3_1{
 	width: 100%;
 	height: 10%;
-	background-color:  #20B2AA;
+	/* background-color:  #20B2AA; */
 }
 .c_3_2{
 	width:100%;
 	height: 50%;
-	background-color: #87CEFA;
+	/* background-color: #87CEFA; */
 }
 .c_3_3{
 	width:100%;
 	height: 40%;
-	background-color: #00CEFA;
+	/* background-color: #00CEFA; */
 }
 
 .list {
@@ -79,7 +80,14 @@ html, body {
 	width :300px;
 	height:300px;
 }
-
+.c_3_1_1 {
+	width : 70%;
+	display: inline-block;
+}
+.c_3_1_2{
+	width: 25%;
+	display: inline-block;
+}
 </style>
 
 <script type="text/javascript">
@@ -192,10 +200,10 @@ $(document).ready(function(){
 						<div class="c_2">
 							<div class="c_2_1">
 								<form action ="#" id="actionForm" method="post">
-									1<input type="hidden" name="page" value="${param.page}"/>
-									2<input type="text" name="searchText" value="${param.searchText}" />
-									3<input type="text" name="fileNum" value="${param.fileNum}" />
-									4<input type="text" name="intrNum" value="${param.intrNum}" />
+									<input type="hidden" name="page" value="${param.page}"/>
+									<input type="hidden" name="searchText" value="${param.searchText}" />
+									<input type="hidden" name="fileNum" value="${param.fileNum}" />
+									<input type="hidden" name="intrNum" value="${param.intrNum}" />
 								</form>
 							</div>
 							<div class="c_2_2">			

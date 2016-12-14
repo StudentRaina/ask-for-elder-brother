@@ -10,6 +10,8 @@
 <script type="text/javascript"
 	src="resources/script/jquery/jquery-1.11.0.js"></script>
 <script type="text/javascript" src="resources/script/jquery/jquery.form.js"></script>	
+<script type="text/javascript" 
+			src="resources/script/funsking/main.js">
 <style type="text/css">
 html, body {
 	position: relative;

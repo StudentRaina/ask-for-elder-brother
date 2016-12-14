@@ -9,7 +9,8 @@
 <link rel="stylesheet" type="text/css" href="resources/css/intr/hoho.css" />
 <script type="text/javascript"
 	src="resources/script/jquery/jquery-1.11.0.js"></script>
-<script type="text/javascript" src="resources/script/jquery/jquery.form.js"></script>	
+<script type="text/javascript" src="resources/script/jquery/jquery.form.js"></script>
+<script type="text/javascript" src="resources/script/funsking/main.js"></script>	
 <style type="text/css">
 html, body {
 	position: relative;
@@ -65,7 +66,7 @@ html, body {
 	
 }
 .c_3_1 {
-	height:10%;
+	height:5%;
 }
 .c_3_2, .c_3_3{
 	height: 20%;
@@ -74,7 +75,7 @@ html, body {
 .c_3_1_1{
 	width: 20%;
 	display: inline-block;
-	background-color: #20B2AA;
+	/* background-color: #20B2AA; */
 	height: 100%;
 }
 .c_3_1_2{
@@ -235,9 +236,9 @@ function removePre(data) {
 						<div class="c_2_1">
 							1
 							<form action ="#" id="actionForm" method="post">
-								page<input type="text" name="page" value="${param.page}"/>
-								Seq<input type="text" name="seqNum" value="${param.seqNum}" />
-								intr<input type="text" name="intrNum" value="${param.intrNum}" />
+								<input type="hidden" name="page" value="${param.page}"/>
+								<input type="hidden" name="seqNum" value="${param.seqNum}" />
+								<input type="hidden" name="intrNum" value="${param.intrNum}" />
 							</form>
 						</div>
 						<div class="c_2_2">			
