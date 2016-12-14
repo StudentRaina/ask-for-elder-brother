@@ -6,13 +6,13 @@ $("#notice").on("click",function(){
 				location.href="";
 			});
 $("#street_concert").on("click",function(){
-				location.href="";
+				location.href="rsv";
 			});
 $("#bsk_intr").on("click",function(){
-				location.href="";
+				location.href="buskerintro";
 			});
 $("#media_photo").on("click",function(){
-				location.href="rsv";
+				location.href="buskerphoto";
 			});
 $("#audition").on("click",function(){
 				location.href="";
@@ -24,7 +24,7 @@ $("#cmu").on("click",function(){
 				location.href="";
 			});
 $("#logoFrame").on("click",function(){
-				location.href="";
+				location.href="home1";
 			});
 });
 

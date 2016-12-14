@@ -6,9 +6,11 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
+<link rel="stylesheet" type="text/css" href="resources/css/intr/hoho.css" />
 <script type="text/javascript"
 	src="resources/script/jquery/jquery-1.11.0.js"></script>
-<script type="text/javascript" src="resources/script/jquery/jquery.form.js"></script>	
+<script type="text/javascript" src="resources/script/jquery/jquery.form.js"></script>
+<script type="text/javascript" src="resources/script/funsking/main.js"></script>	
 <style type="text/css">
 html, body {
 	position: relative;
@@ -33,9 +35,9 @@ html, body {
 	float: left;
 }
 
-.c_1 , .c_2{
+.c_2{
 	width: 100%;
-	height: 10%;
+	height: 5%;
 	background-color: #FFF0FF;
 	display: inline-block;
 }
@@ -64,16 +66,16 @@ html, body {
 	
 }
 .c_3_1 {
-	height:10%;
+	height:5%;
 }
-.c_3_2, .c_3_3, .c_3_4{
-	height: 30%;
+.c_3_2, .c_3_3{
+	height: 20%;
 	background-color: #E0FFFF;
 }
 .c_3_1_1{
 	width: 20%;
 	display: inline-block;
-	background-color: #20B2AA;
+	/* background-color: #20B2AA; */
 	height: 100%;
 }
 .c_3_1_2{
@@ -88,6 +90,7 @@ html, body {
 	background-color: #87CEFA;
 }
 </style>
+
 <script type="text/javascript">
 $(document).ready(function(){
 	
@@ -99,7 +102,8 @@ $(document).ready(function(){
 	});//CancelBtn 종료 
 	
 	$("#SaveBtn").on("click", function(){
-		var updateForm = $("#updateForm")
+		
+		var updateForm = $("#updateForm");
 
 		
 		updateForm.ajaxForm(uploadResultCallBack); //form자체를 실행할때 ajax로 구동하겠다. // ajax를 실행하고 이 함수를 실행하겠다.
@@ -112,6 +116,7 @@ $(document).ready(function(){
 });//ready 종료
 
 function uploadResultCallBack(data, result){
+	
 	if(result == "success"){
 		 var resData = eval("(" + removePre(data) + ")");  //eval 데이터를 용도에맞춰 변형시켜줌 자바스크립트bean형태로 만들려고 사용 // resData 는 결국 Bean이라는 뜻
 			
@@ -153,102 +158,172 @@ function removePre(data) {
 	} else {
 		return data;
 	}
-} // removePre 끝  <pre>를 없애주겠다는 기능 
-
-
+} // removePre 끝  <pre>를 없애주겠다는 기능
 </script>
 </head>
 <body>
-<div class="top">top</div>
-<div class="center">
-
-		<div class="content">
-		<div class="c_1">
-			<h1><b>버스커 소개</b></h1>		
-		</div>
-		<div class="c_2">
-			<div class="c_2_1">
-				1
-				<form action ="#" id="actionForm" method="post">
-					page<input type="text" name="page" value="${param.page}"/>
-					Seq<input type="text" name="seqNum" value="${param.seqNum}" />
-					intr<input type="text" name="intrNum" value="${param.intrNum}" />
-				</form>
-			</div>
-			<div class="c_2_2">			
-				<input type="button"  value="확인 " id="SaveBtn"/>
-				<input type="button"  value="취소" id="CancelBtn"/>	
-			</div>
-		</div>
-		<div class="c_3" id="tb">
-			<div class="c_3_1">
-				<div class="c_3_1_1">팀명: ${list4.TNAME}</div>				
-				<div class="c_3_1_3">
-				</div>  
-			</div>
-			<form action ="fileUploadAjax" id="updateForm" method="post" enctype="multipart/form-data">
-			<div class="c_3_2">
-			<br/>
-			사진및소개 
-				<!-- 멀티파트는 복합적인 자료를 넘김? => 파일을 넘길때 쓴다 -->
-					파일<input type="file" name="att1" />
-					<input type="text" name="textFile" id="textFile" />
-					<br/>
-					<table border="1">
-						<c:if test="${imgCnt > 0}">
-			            <!--  CON.TEST_FILE 안에 무너가있다면. -->	
-					         <c:forEach var="img" items="${list5}">
-				               <c:if test="${img.FILE_EXT eq 'jpg' ||
-				                           		img.FILE_EXT eq 'gif' ||
-				                           		img.FILE_EXT eq 'png'}">
-								     <tr>				       
-							         	<td colspan="3">
-							               <img alt="${img.FILENAME}" id="buskerimg"
-							                  src="resources/upload/${img.FILENAME}"/>
-								         </td>
-					     		 	 </tr>
-					     		 	 <tr>
-						     			<td>파일번호<input type="text" name="fileNum" value="${img.FILENUM}" /></td>
-						     		 </tr>
-				               </c:if>
-					         </c:forEach>
-			     		 </c:if> 
-			     		 <%-- <tr>
-			     			<td>파일번호<input type="text" name="fileNum" value="${list5[0].FILENUM}" /></td>
-			     		 </tr> --%>
-			     		<tr>
-			     			<td>파일번호:<input type="text" name="intrNum" value="${list4.INTRNUM}" />
-			     		</tr>
-						<tr>
-							<td>코멘트 <input type="text" name="textComm" value="${list4.COMM}"/></td>
-						</tr>
-						<tr>
-							<td>소개 <input type="text" name="textIntr" value="${list4.INTR}"/></td>
-						</tr>
-						
-					
-					</table>
+<div id="centerFrame">
+	
+<div id="topFrame">
+ 	<div id="logoFrame"></div>
+ <!--천재영느님께서 만듬 ㅋㅋㅋㅋㅋㅋ 로그인 화면  -->    
+     <c:choose>  
+        <c:when test="${!empty sFuserNUM}">
+           <div id="member2Frame">       
+             <div id="login_idFrame">${sFuserID}</div>
+             <div id="logoutFrame">로그아웃</div>
+            </div>      
+        </c:when>
+        
+        <c:otherwise>
+           <div id="memberFrame">       
+             <div id="joinFrame">회원가입</div>
+             <div id="loginFrame">로그인</div>
+            </div>     
+        </c:otherwise>   
+     </c:choose> 
+ </div> 
+	<hr/>
+	
+ 	<div id="menuFrame">
+ 		<div id="busi_intr">사업소개</div>
+ 		<div id="notice">공지사항</div>
+ 		<div id="street_concert">거리공연</div>
+		<div id="bsk_intr">버스커소개</div>
+		<div id="media_photo">공연 영상 및 사진</div>
+		<div id="audition">오디션</div>
+		<div id="qna">QnA</div>
+		<div id="cmu">커뮤니티</div>
+ 	</div>
+ 	<hr id="hr"/>
+ 	<h2 id="h2_busi_intr">버스커 소개</h2>
+ 	 	<hr id="hr2"/>
+ 	 	
+ 	
+ 	 	<div id="somenuFrame">
+ 	 		<!-- <div id="menutop">
+ 	 			<div id="block"></div>
+ 	 			<div id="line"></div>
+ 	 			
+ 	 				<div id="somenu1">
+ 	 			<div id="menu_textform1">
+ 	 			<div id="menu_text1">공연 영상</div>
+ 	 			</div>
+ 	 			<div id="menu_image1"></div>	
+ 	 		</div>
+ 			
+ 			<div id="somenu2">
+ 	 		<div id="menu_textform2">
+ 	 			<div id="menu_text2">공연 사진</div>
+ 	 			</div>
+ 	 			<div id="menu_image2"></div>
+ 	 		</div>
+ 	 		</div> -->
+ 	 		
+ 	 		
+ 	 	</div>
+ 	 	<div id="contentsFrame" style="float: right;">
+ 	 		<div id="menutitle">버스커 소개 수정</div>
+ 	 		<div id="content_top">
+ 	 			<div id="block2"></div>
+ 	 			<div id="line2"></div>
+ 	 		</div>
+ 	 		<!-- <div id="bigtitleFrame">버스킹 공연 사진</div> --> 
+ 	 		<div id="contentFrame">
+ 	 				
+				<div class="content">
+					<div class="c_2">
+						<div class="c_2_1">
+							1
+							<form action ="#" id="actionForm" method="post">
+								<input type="hidden" name="page" value="${param.page}"/>
+								<input type="hidden" name="seqNum" value="${param.seqNum}" />
+								<input type="hidden" name="intrNum" value="${param.intrNum}" />
+							</form>
+						</div>
+						<div class="c_2_2">			
+							<input type="button"  value="확인 " id="SaveBtn"/>
+							<input type="button"  value="취소" id="CancelBtn"/>	
+						</div>
+					</div>
+					<div class="c_3" id="tb">
+						<div class="c_3_1">
+							<div class="c_3_1_1">팀명: ${list4.TNAME}</div>				
+							<div class="c_3_1_3">
+							</div>  
+						</div>
+						<form action ="fileUploadAjax" id="updateForm" method="post" enctype="multipart/form-data">
+						<div class="c_3_2">
+						<br/>
+						사진및소개 
+							<!-- 멀티파트는 복합적인 자료를 넘김? => 파일을 넘길때 쓴다 -->
+								파일<input type="file" name="att1" />
+								<input type="text" name="textFile" id="textFile" />
+								<br/>
+								<table border="1">
+									<c:if test="${imgCnt > 0}">
+						            <!--  CON.TEST_FILE 안에 무너가있다면. -->	
+								         <c:forEach var="img" items="${list5}">
+							               <c:if test="${img.FILE_EXT eq 'jpg' ||
+							                           		img.FILE_EXT eq 'gif' ||
+							                           		img.FILE_EXT eq 'png'}">
+											     <tr>				       
+										         	<td colspan="3">
+										               <img alt="${img.FILENAME}" id="buskerimg"
+										                  src="resources/upload/${img.FILENAME}"/>
+											         </td>
+								     		 	 </tr>
+								     		 	 <%-- <tr>
+									     			<td>파일번호<input type="text" name="fileNum" value="${img.FILENUM}" /></td>
+									     		 </tr> --%>
+							               </c:if>
+								         </c:forEach>
+						     		 </c:if> 
+						     		  <tr>
+						     			<td>파일번호<input type="text" name="fileNum" value="${list5[0].FILENUM}" /></td>
+						     		 </tr> 
+						     		<tr>
+						     			<td>글번호:<input type="text" name="intrNum" value="${list4.INTRNUM}" />
+						     		</tr>
+									<tr>
+										<td>코멘트 <input type="text" name="textComm" value="${list4.COMM}"/></td>
+									</tr>
+									<tr>
+										<td>소개 <input type="text" name="textIntr" value="${list4.INTR}"/></td>
+									</tr>
+									
+								
+								</table>
+								
+						</div>
+						<div class="c_3_3">영상및사진<br/>
+								
+								파일<input type="file" name="att2" />
+								   <input type="text" name="textFile1" id="textFile1" /> <br/>
+								   <c:if test="${videoCnt > 0}">
+									<video poster="http://placehold.it/640x360" width="640" height="360" controls="controls">
+										<c:forEach var="img" items="${list5}">
+								               <c:if test="${img.FILE_EXT eq 'mp4'}">
+						                        	<source src="resources/upload/${img.FILENAME}" type="video/mp4" />                     		
+								               </c:if>
+										</c:forEach>
+									</video>
+							</c:if>
+							<input type="text" name="fileNum1" value="${list5[1].FILENUM}" />
+						</div>
+						</form>
+					</div>										
 				
-			</div>
-			<div class="c_3_3">영상및사진<br/>
-					
-					파일<input type="file" name="att2" />
-					   <input type="text" name="textFile1" id="textFile1" /> <br/>
-					   <c:if test="${videoCnt > 0}">
-						<video poster="http://placehold.it/640x360" width="640" height="360" controls="controls">
-							<c:forEach var="img" items="${list5}">
-					               <c:if test="${img.FILE_EXT eq 'mp4'}">
-			                        	<source src="resources/upload/${img.FILENAME}" type="video/mp4" />                     		
-					               </c:if>
-							</c:forEach>
-						</video>
-				</c:if>
-				<input type="text" name="fileNum1" value="${list5[0].FILENUM}" />
-			</div>
-			</form>
-			<div class="c_3_4">댓글</div>
-		</div>
-	</div>
-</div>
+ 	 		</div> <!-- contentFrame 종료 -->
+ 	 		
+ 	 	</div>
+ 	</div>	 
+ 	 	<hr/>
+ 		<div id="bottomFrame">(재)서울문화재단 ⓒALL RIGHTS RESERVED.<br/>
+ ※ (재)서울문화재단 서울특별시 동대문구 청계천로 517 (용두동 255-67)    ☎ 02-3290-7000<br/>
+ 		이 사이트는 IE, Chrome에 최적화 되어 있는 사이트입니다.</div>
+ 	
+ </div>
+
 </body>
 </html>
