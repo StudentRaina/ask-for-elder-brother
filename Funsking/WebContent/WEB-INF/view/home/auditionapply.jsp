@@ -458,11 +458,9 @@ body{
 #genreNameFrame{
 	width : 25%;
 	height : 50px;
-	/*  border : 1pt solid #000000;  */
+	   /* border : 1pt solid #000000;  */ 
 	display : inline-block;
 	margin-top : -5%;
-	font-size : 13pt;
-	font-weight : bold;
 }
 
  #genreName{
@@ -478,60 +476,20 @@ body{
 } 
 
 #genreRadio{
-	width : 72%;
+	width : 70%;
 	height: 50px;
-/* 	 border : 1pt solid #000000;  */
+ 	 /* border : 1pt solid #000000;   */
 	display : inline-block;
-	/* margin-top : -5%; */
+	 margin-top : -5%; 
 }
 
 #genreRadio1{
 	width : 100%;
 	height : 100%;
-/* 	 border : 1pt solid #000000;  */
+ 	 /* border : 1pt solid #000000;   */
 }
 
-#genreRadio2{
-	width : 100%;
-	height : 50%;
-	/* border : 1pt solid #000000; */
-}
 
-#singer{
-	
-	display : inline-block;
-
-}
-
-#singasongwriter{
-	
-	display : inline-block;
-
-}
-
-#band{
-	
-	display : inline-block;
-	
-}
-
-#dance{
-	
-	display : inline-block;
-
-}
-
-#play{
-	
-	display : inline-block;
-
-}
-
-#performance{
-	
-	display : inline-block;
-
-}
 
 
 #name_NameFrame{
@@ -914,22 +872,123 @@ body{
 }
 
 #aaa{
-	/* border : 1pt solid #000000; */
-	height : 50px;
+	 /* border : 1pt solid #000000;  */
+	width : 100%;
+	height : 60px;
 	margin-top : 3%;
+}
+
+#selectGenre{
+	width : 150px;
+	height : 30px;
+	display : table-cell;
+	vertical-align : middle;
+
 }
 
 </style>
 
 <script type="text/javascript" src="resources/script/jquery/jquery-1.11.0.js"></script>
 
+
 <script type="text/javascript">
 $(document).ready(function(){
+	auditionjoinAjax();
 	
 	
+	$("#applyBtn").on("click", function(){
+		auditionjoinCheck();
+	}); //applyBtn
 	
-}); //ready end
+	$("#cancelBtn").on("click", function(){
+	
+	}); //cancelBtn
+	
+		
+	});//ready 끝
+	
+function auditioninsertAjax(){
+	var params = $("#auditionjoinForm").serialize();
+		$.ajax({
+			type : "post",
+			url : "insertAuditionJoin",
+			dataType : "json",
+			data : params,
+			success : function(result){
+				if(result.res == "true"){
+					alert("신청이 완료되었습니다.");
+					location.href = "home1";
+				}else{
+					alert("오디션 신청중 오류가 발생했습니다.");
+				}
+			},
+			error : function(result){
+			 	alert ("웹 페이지에 문제가 있어 올바르게 표시되지 않았습니다.");
+			}
+		}); //ajax
+	}//가입 insert
+	
+function auditionjoinCheck() {
+		if($.trim($("#name_textbox").val()) == ""){
+			alert("신청자 이름을 입력하세요.");
+			$("#name_textbox").focus();
+			
+		}else if($.trim($("#team_textbox").val()) == ""){
+			alert("팀명을 입력하세요.");
+			$("#name_textbox").focus();
+			
+		}else if($.trim($("#phone_textbox").val()) == ""){
+			alert("연락처를 입력하세요.");
+			$("#phone_textbox").focus();
+			
+		}else if($.trim($("#email_textbox").val()) == ""){
+			alert("이메일을 입력하세요.");
+			$("#email_textbox").focus();
+			
+		}else if($.trim($("#people_textbox").val()) == ""){
+			alert("인원을 입력하세요.");
+			$("#people_textbox").focus();
+			
+		}else if($.trim($("#career_textbox").val()) == ""){
+			alert("활동경력을 입력하세요.");
+			$("#career_textbox").focus();			
+		}else if($.trim($("#url_textbox").val()) == ""){
+			alert("url 및 링크를 입력하세요.");
+			$("#url_textbox").focus();			
+		}else{
+			auditioninsertAjax();
+		}			
+	}//회원가입 작성 여부
+	
 
+
+function auditionjoinAjax(){
+	var params = $("#auditionjoinForm").serialize();
+	
+	$.ajax({
+		type : "post",
+		url : "selectgenre",
+		dataType : "json",
+		data : params,
+		success : function(result){
+	               var html = "";
+	               for (var i = 0; i < result.list.length; i++) {
+	                  html += '<option value="' ;
+	                  html += result.list[i].GENRE+'">';
+	                  html += result.list[i].ATTR;
+	                  html += '</option>';
+	                  //<option value="GUCODE"> attr </option>
+	                  // <tr><tb>gucode</tb><tb>attr</tb></tr>
+	               }
+	               $("#selectGenre").html(html);
+	            },
+	            error : function(result) {
+	               alert("응안돼~");
+	            }
+		
+	}); //장르선택
+	
+};
 
 </script>
 </head>
@@ -993,26 +1052,19 @@ $(document).ready(function(){
  	 			<div id="block2"></div>
  	 			<div id="line2"></div>
  	 		</div>
+ 	 			<form action="#" id="auditionjoinForm" method="post">
  	 		<div id="contentFrame">
  	 			<div id="applyFrame">
- 	 				
+ 	 			
  	 				<div id="aaa">
  	 					<div id="genreNameFrame">
  	 						<div id="genreName">지원부문</div>
  	 					</div>
- 	 				
  	 						<div id="genreRadio">
  	 							<div id="genreRadio1">
- 	 								<form>
- 	 										<input type="radio" value="가수" name="select" id="singer"/>가수
- 	 										<input type="radio" value="가수" name="select" id="performance"/>퍼포먼스
- 	 										<input type="radio" value="가수" name="select" id="band"/>밴드<br/>
- 	 										<input type="radio" value="가수" name="select" id="dance"/>댄스
- 	 										<input type="radio" value="가수" name="select" id="play"/>연주음악
- 	 										<input type="radio" value="가수" name="select" id="singasongwriter"/>싱어송라이터
- 	 								</form>
+ 									<select id="selectGenre" name="selectGenre"></select>
+ 								</div>
  	 						</div>
- 	 					</div>
  	 				</div>
  	 					<div id="name_NameFrame">
  	 						<div id="name_Name">신청자 이름</div>
@@ -1020,17 +1072,7 @@ $(document).ready(function(){
  	 					
  	 					<div id="name_textboxFrame">
  	 						<div id="name_textbox1">
- 	 						<input type="text" id="name_textbox"></input>
- 	 						</div>
- 	 					</div>
- 	 					
- 	 					<div id="id_NameFrame">
- 	 						<div id="id_Name">아이디</div>
- 	 					</div>
- 	 					
- 	 					<div id="id_textboxFrame">
- 	 						<div id="id_textbox1">
- 	 						<input type="text" id="id_textbox"></input>
+ 	 						<input type="text" id="name_textbox" name="leader"></input>
  	 						</div>
  	 					</div>
  	 					
@@ -1040,7 +1082,7 @@ $(document).ready(function(){
  	 					
  	 					<div id="team_textboxFrame">
  	 						<div id="team_textbox1">
- 	 						<input type="text" id="team_textbox"></input>
+ 	 						<input type="text" id="team_textbox" name="tname"></input>
  	 						</div>
  	 					</div>
  	 					
@@ -1050,7 +1092,7 @@ $(document).ready(function(){
  	 					
  	 					<div id="phone_textboxFrame">
  	 						<div id="phone_textbox1">
- 	 						<input type="text" id="phone_textbox"></input><br/>
+ 	 						<input type="text" id="phone_textbox" name="tel"></input><br/>
  	 						"-"는 빼고 적어주시길 바랍니다.
  	 						</div>
  	 					</div>
@@ -1061,7 +1103,7 @@ $(document).ready(function(){
  	 					
  	 					<div id="email_textboxFrame">
  	 						<div id="email_textbox1">
- 	 						<input type="text" id="email_textbox"></input>
+ 	 						<input type="text" id="email_textbox" name="temail"></input>
  	 						</div>
  	 					</div>
  	 					
@@ -1071,7 +1113,7 @@ $(document).ready(function(){
  	 					
  	 					<div id="people_textboxFrame">
  	 						<div id="people_textbox1">
- 	 						<input type="text" id="people_textbox"></input>
+ 	 						<input type="text" id="people_textbox" name="top"></input>
  	 						</div>
  	 					</div>
  	 					
@@ -1081,7 +1123,7 @@ $(document).ready(function(){
  	 					
  	 					<div id="career_textboxFrame">
  	 						<div id="career_textbox1">
- 	 						<textarea id="career_textbox" rows="5" cols="20"></textarea>
+ 	 						<textarea id="career_textbox" rows="5" cols="20" name="carr"></textarea>
  	 						</div>
  	 					</div>
  	 					
@@ -1092,16 +1134,18 @@ $(document).ready(function(){
  	 					
  	 					<div id="url_textboxFrame">
  	 						<div id="url_textbox1">
- 	 						<input type="text" id="url_textbox"></input>
+ 	 						<input type="text" id="url_textbox" name="link"></input>
  	 						</div>
  	 					</div>
- 	 					
+ 	 				</form>
+ 	 				
+ 	 				<div id="buttonFrame">
+						<input type="button" class="button" value="신청하기" id="applyBtn" />
+						<input type="button" class="button" value="취소" id="cancelBtn"/>
+					</div>	
  	 					
  	 				
-					<div id="buttonFrame">
-						<input type="button" class="button" value="신청하기" />
-						<input type="button" class="button" value="취소" />
-					</div>
+					
  	 			</div>
  	 		</div>
  	 		

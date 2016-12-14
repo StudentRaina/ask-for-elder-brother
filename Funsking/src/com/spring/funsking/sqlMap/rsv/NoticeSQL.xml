@@ -8,9 +8,9 @@
 	parameterClass = "java.util.HashMap" 
 	resultClass="java.util.HashMap"> <!-- dao에서 만든 arrayList의 제네릭이 hashMap 이므로 resultClass로 hashMap을 설정해준다 -->
 		
-		SELECT A.NOTICENUM, A.TITLE,A.COMM,A.DATE1,A.NUM
+	SELECT A.NOTICENUM, A.TITLE, A.NOTICEDATE
 		FROM (SELECT ROW_NUMBER() OVER(ORDER BY NOTICENUM DESC) AS RNUM,
-        NOTICENUM, TITLE, COMM, DATE1,NUM
+        NOTICENUM, TITLE, COMM, TO_DATE(DATE1, 'YYYY-MM-DD HH24:MI:SS') AS NOTICEDATE,NUM
         FROM NOTICE
         WHERE 1 = 1
         <isNotEmpty property="searchText">
@@ -36,17 +36,69 @@
 			resultClass="java.util.HashMap">
 		
 
-		SELECT A.NOTICENUM, A.TITLE, B.ID, A.DATE1,A.COMM
+		SELECT A.NOTICENUM, A.TITLE, B.ID, A.DATE1, A.COMM
 		FROM NOTICE A
 		INNER JOIN FUSER B
 		ON A.NUM =  B.NUM
 		WHERE A.NOTICENUM = #noticeNo#
+
 			<!-- SELECT TEST_NO, TEST_CON, TEST_FILE,
 			LOWER(SUBSTR(TEST_FILE, INSTR(TEST_FILE,'.', -1) + 1)) AS FILE_EXT
 	FROM TEST
 	WHERE TEST_NO= #testNo#
 	 -->
+	</select>
 	
+	<select id="getFileCon"
+			parameterClass="java.util.HashMap"
+			resultClass="java.util.HashMap">
+		
+
+		SELECT NOTICENUM, FILENAME, SUBSTR(FILENAME, INSTR(FILENAME, '.', -1) +1) AS FILE_EXT 
+        FROM NOTICEFILEUPLOAD
+        WHERE NOTICENUM = #noticeNo#
+        
+
+			<!-- SELECT TEST_NO, TEST_CON, TEST_FILE,
+			LOWER(SUBSTR(TEST_FILE, INSTR(TEST_FILE,'.', -1) + 1)) AS FILE_EXT
+	FROM TEST
+	WHERE TEST_NO= #testNo#
+	 -->
 	</select>
 
+
+	<insert id="insertTest"
+			parameterClass="java.util.HashMap">
+		INSERT INTO NOTICE(NOTICENUM, NUM, BOARDCODE, DATE1, TITLE, COMM)
+		VALUES (NOTICENUM.NEXTVAL, #memNo#, 1, TO_DATE(SYSDATE, 'YYYY-MM-DD HH24:MI:SS'), #title#,#textCon#)
+	</insert>
+	<insert id="insertFile"
+			parameterClass="java.util.HashMap">
+		INSERT INTO NOTICEFILEUPLOAD
+	VALUES(NOTICENUM.CURRVAL,#textFile#)		
+	</insert>
+	
+	<delete id="deleteTest"
+				parameterClass="java.util.HashMap">
+			DELETE FROM NOTICE
+			WHERE NOTICENUM = #noticeNo#
+		</delete> 
+	
+	<delete id="deleteFile"
+				parameterClass="java.util.HashMap">
+			DELETE FROM NOTICEFILEUPLOAD
+			WHERE NOTICENUM = #noticeNo#
+		</delete> 
+		
+	<update id="updateTest"
+			parameterClass="java.util.HashMap">
+			UPDATE NOTICE SET TITLE=#title#,
+                  COMM=#textCon#
+			WHERE NOTICENUM = #noticeNo#
+	</update>
+	<update id="updateFile"
+			parameterClass="java.util.HashMap">
+			UPDATE NOTICEFILEUPLOAD SET FILENAME = #textFile#
+			WHERE NOTICENUM = #noticeNo#
+	</update>
 </sqlMap>
