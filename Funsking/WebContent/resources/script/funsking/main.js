@@ -24,22 +24,7 @@ $("#cmu").on("click",function(){
 				location.href="";
 			});
 $("#logoFrame").on("click",function(){
-				location.href="adminrsv";
+				location.href="";
 			});
-$("#loginFrame").on("click", function() {
-    location.href = "login";
- });//로그인 페이지 이동
-
- $("#joinFrame").on("click", function() {
-    location.href = "join_tos";
- });//회원가입 페이지 이동      
- 
- $("#logoutFrame").on("click", function() {
-    location.href = "Logout";
- });//로그아웃
- 
- $("#login_idFrame").on("click", function() {
-    location.href = "mypage_user";
- });//마이페이지
 });
 

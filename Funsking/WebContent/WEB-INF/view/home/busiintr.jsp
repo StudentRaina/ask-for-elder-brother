@@ -27,17 +27,47 @@ img{
 #busiintr{
 	display: inline-block;
 }
-	
+#menu_image1{
+	width: 30px;
+	height : 40px;
+	background-image: url("resources/images/asdf.png");
+	display:inline-block;
+	background-position : right center;
+	background-repeat : no-repeat;
+ 	background-size : 100% 70%; 
+ 	margin-left : 23.8%;
+}
+#menu_image2{
+	width: 30px;
+	height : 40px;
+	background-image: url("resources/images/asdf.png");
+	display:inline-block;
+	background-position : right center;
+	background-repeat : no-repeat;
+ 	background-size : 100% 70%; 
+ 	margin-left : 23.8%;
+}
 </style>
 <script type="text/javascript">
 $(document).ready(function() {
+	
+	
+	$("#menu_image2").css("display","none");
+	
+	
 	$("#somenu1").css("background-color","rgb(155, 89, 182)");	
 	$("#outl").css("display","none");
 	$("#bigtitleFrame").html("FUNSKING IN SEOUL 소개");
 			$("#busi_intr").on("click",function(){
 				location.href="busiintr";
 			});
+			
+			
+			
 			$("#somenu2").on("click",function(){
+				$("#menu_image2").css("display","inline-block");
+				$("#menu_image1").css("display","none");
+				
 				$("#busiintr").css("display","none");
 				$("#outl").css("display","block");
 				$("#somenu2").css("background-color","rgb(155, 89, 182)");	
@@ -45,6 +75,10 @@ $(document).ready(function() {
 				$("#bigtitleFrame").html("개요");
 			});
 			$("#somenu1").on("click",function(){
+				
+				$("#menu_image1").css("display","inline-block");
+				$("#menu_image2").css("display","none");
+				
 				$("#busiintr").css("display","block");
 				$("#outl").css("display","none");
 				$("#somenu1").css("background-color","rgb(155, 89, 182)");	
@@ -112,7 +146,7 @@ $(document).ready(function() {
  			
  			<div id="somenu2">
  	 		<div id="menu_textform2">
- 	 			<div id="menu_text2" class="mousecursor">개요 및 연혁</div>
+ 	 			<div id="menu_text2" class="mousecursor">개요&연혁</div>
  	 			</div>
  	 			<div id="menu_image2"></div>
  	 		</div>

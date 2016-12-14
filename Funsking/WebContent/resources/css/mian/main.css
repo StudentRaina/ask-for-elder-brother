@@ -330,7 +330,7 @@ body{
 
 #menu_text2{
 	display: table-cell;
-	width : 150px;
+	width : 90px;
 	height : 40px;
 	vertical-align : middle;
 }
@@ -436,4 +436,4 @@ body{
 
 .mousecursor:hover{
 		cursor:pointer;
-}  
+}
