@@ -5,6 +5,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.codehaus.jackson.map.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,7 +27,10 @@ public class HomeController {
 
 	
 	@RequestMapping(value="/home1")
-	public ModelAndView home1(HttpServletRequest request, ModelAndView modelAndView){
+	public ModelAndView home1(HttpServletRequest request, 
+							  HttpSession session,
+							  @RequestParam HashMap<String, String> params,
+							  ModelAndView modelAndView) throws Throwable{
 		
 		modelAndView.setViewName("home/home1");
 		

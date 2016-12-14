@@ -9,10 +9,10 @@ $("#street_concert").on("click",function(){
 				location.href="rsv";
 			});
 $("#bsk_intr").on("click",function(){
-				location.href="";
+				location.href="buskerintro";
 			});
 $("#media_photo").on("click",function(){
-				location.href="";
+				location.href="buskerphoto";
 			});
 $("#audition").on("click",function(){
 				location.href="";

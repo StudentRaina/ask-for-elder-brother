@@ -72,7 +72,7 @@ $(document).ready(function() {
 	
 	$("#tb").on("click", "table", function(){
 		$("input[name='concertNum']").val($(this).attr("name"));  //attr: 속성
-		$("#actionForm").attr("action", "buskerintro2"); //form 의 action="#" 이 "test5"로 바꾼다.
+		$("#actionForm").attr("action", "buskerphoto2"); //form 의 action="#" 이 "test5"로 바꾼다.
 		$("#actionForm").submit();
 	}); 
 	
@@ -105,7 +105,7 @@ function refreshList() {
 			   	 for(var i = 0 ; i < result.list3.length ; i++){
 			   		 
 			   		 if(result.list3[i].FILE_EXT != "mp4" ){ 
-			   			 
+			   		
 			   		 
 			   		html += "<div class ='list'>";   	
 			   		html += "<table border= '1' name='" +result.list3[i].CONCERTNUM + "'>"
@@ -116,7 +116,7 @@ function refreshList() {
    					html += "</tr>"
 					html += "<tr>"
 					html += "<td name ='" + result.list3[i].CONCERTNUM + "'>" + result.list3[i].CONCERTNUM + "</td>";
-		            html += "<td>" + result.list3[i].GENRE + "</td>";
+		            html += "<td>" + result.list3[i].TITLE + "</td>";
 		            html += "<td>" + result.list3[i].DATE1 + "</td>";
 					html += "</tr>"		  		
 					html += "</table>"
@@ -168,10 +168,22 @@ function refreshList() {
 	
 <div id="topFrame">
  	<div id="logoFrame"></div>
- 	  <div id="memberFrame">
- 		<div id="joinFrame">회원가입</div>
- 		<div id="loginFrame">로그인</div>
- 	  </div>
+ 	 <!--천재영느님께서 만듬 ㅋㅋㅋㅋㅋㅋ 로그인 화면  -->    
+     <c:choose>  
+        <c:when test="${!empty sFuserNUM}">
+           <div id="member2Frame">       
+             <div id="login_idFrame">${sFuserID}</div>
+             <div id="logoutFrame">로그아웃</div>
+            </div>      
+        </c:when>
+        
+        <c:otherwise>
+           <div id="memberFrame">       
+             <div id="joinFrame">회원가입</div>
+             <div id="loginFrame">로그인</div>
+            </div>     
+        </c:otherwise>   
+     </c:choose> 
  </div> 
 	<hr/>
 	

@@ -57,10 +57,22 @@
 	
 <div id="topFrame">
  	<div id="logoFrame"></div>
- 	  <div id="memberFrame">
- 		<div id="joinFrame">회원가입</div>
- 		<div id="loginFrame">로그인</div>
- 	  </div>
+ 	<!--천재영느님께서 만듬 ㅋㅋㅋㅋㅋㅋ 로그인 화면  -->    
+     <c:choose>  
+        <c:when test="${!empty sFuserNUM}">
+           <div id="member2Frame">       
+             <div id="login_idFrame">${sFuserID}</div>
+             <div id="logoutFrame">로그아웃</div>
+            </div>      
+        </c:when>
+        
+        <c:otherwise>
+           <div id="memberFrame">       
+             <div id="joinFrame">회원가입</div>
+             <div id="loginFrame">로그인</div>
+            </div>     
+        </c:otherwise>   
+     </c:choose> 
  </div> 
 	<hr/>
 	
@@ -128,7 +140,7 @@
  	 					</tr>
  	 					<tr>
  	 						<td colspan="2">
- 	 						 파일:	${con2.FILENAME}
+ 	 						<%--  파일:	${con2.FILENAME} --%>
  	 						내용: 	${con.COMM}	
  	 						</td>
  	 					</tr>

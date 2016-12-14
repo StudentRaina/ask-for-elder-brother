@@ -23,5 +23,7 @@
 	<sqlMap resource="/com/spring/funsking/sqlMap/rsv/NoticeSQL.xml" />
 	<!--  버스커 소개게시판 쿼리 -->
 	<sqlMap resource="/com/spring/funsking/sqlMap/rsv/Intr.xml" />
+	<!--  회원정보  쿼리 -->
+	<sqlMap resource="/com/spring/funsking/sqlMap/rsv/MypageSQL.xml" />
 </sqlMapConfig>
  

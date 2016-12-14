@@ -26,16 +26,27 @@ public class LoginController {
 
 
 
-	@RequestMapping(value="/login")//로그인 페이지
+	@RequestMapping(value="/login")
 	public ModelAndView login(HttpServletRequest request, ModelAndView modelAndView){
 		
 		modelAndView.setViewName("home/login");
 		
 		return modelAndView;
-	}
+	}//로그인 페이지
 	
 
-	@RequestMapping(value="/loginConfAjax")//로그인 확인
+	@RequestMapping(value="/Logout")//로그아웃
+	public ModelAndView Logout(HttpServletRequest request,
+								   HttpSession session,
+								   ModelAndView modelAndView) {
+		session.invalidate();
+		
+		modelAndView.setViewName("redirect:home1");
+		
+		return modelAndView;
+	}
+	
+	@RequestMapping(value="/loginConfAjax")
 	public @ResponseBody ResponseEntity<String> loginConfAjax(
 			HttpServletRequest request,
 			@RequestParam HashMap<String, String> params,
@@ -51,7 +62,9 @@ public class LoginController {
 		if(fuser != null && !fuser.isEmpty()){
 			session.setAttribute("sFuserNUM", fuser.get("NUM"));
 			session.setAttribute("sFuserID", fuser.get("ID"));
+			session.setAttribute("sFuserPW", fuser.get("PW"));
 			session.setAttribute("sFuserNAME", fuser.get("NAME"));
+			session.setAttribute("sFuserGRADE", fuser.get("GRADE"));
 			
 			modelMap.put("res", "success");
 		}else{
@@ -64,15 +77,160 @@ public class LoginController {
 		return new ResponseEntity<String>(mapper.writeValueAsString(modelMap),
 										  responseHeaders, HttpStatus.CREATED);
 		
-	}
+	}//로그인 확인
 	
 	
-	@RequestMapping(value="/id_password_view")//아이디/비밀번호 찾기 페이지
+	@RequestMapping(value="/id_password_view")
 	public ModelAndView id_password_view(HttpServletRequest request, ModelAndView modelAndView){
 		
 		modelAndView.setViewName("home/id_password_view");
 		
 		return modelAndView;
-	}
+	}//아이디/비밀번호 찾기 페이지
+	
+	
+	@RequestMapping(value = "/idViewCheckAjax1")
+	public @ResponseBody ResponseEntity<String> idViewCheckAjax1(
+			HttpServletRequest request,
+			@RequestParam HashMap<String, String>  params,
+			HttpSession session,
+			ModelAndView modelAndView) throws Throwable{
+		
+		ObjectMapper mapper = new ObjectMapper();
+		Map<String, Object> modelMap = new HashMap<String, Object>();
+		
+		HashMap<String, String> idview1
+					= iLoginService.getIdview1(params);
+		
+		if(idview1 != null && !idview1.isEmpty()){
+			session.setAttribute("sIdview1NUM", idview1.get("NUM"));
+			session.setAttribute("sIdview1ID", idview1.get("ID"));
+			session.setAttribute("sIdview1NAME", idview1.get("NAME"));		
+			modelMap.put("res", "success");
+		} else {
+			modelMap.put("res", "fail");
+		}
+			
+		HttpHeaders responseHeaders = new HttpHeaders();
+		responseHeaders.add("Content-Type", "text/json; charset=UTF-8");
+		
+		return new ResponseEntity<String>(mapper.writeValueAsString(modelMap),
+										  responseHeaders, HttpStatus.CREATED);   
+	}//아이디 조회 idViewCheckAjax1
+	
+	
+	
+
+	@RequestMapping(value = "/idViewCheckAjax2")
+	public @ResponseBody ResponseEntity<String> idViewCheckAjax2(
+			HttpServletRequest request,
+			@RequestParam HashMap<String, String>  params,
+			HttpSession session,
+			ModelAndView modelAndView) throws Throwable{
+		
+		ObjectMapper mapper = new ObjectMapper();
+		Map<String, Object> modelMap = new HashMap<String, Object>();
+		
+		HashMap<String, String> idview2
+					= iLoginService.getIdview2(params);
+		
+		if(idview2 != null && !idview2.isEmpty()){
+			session.setAttribute("sIdview2NUM", idview2.get("NUM"));
+			session.setAttribute("sIdview2ID", idview2.get("ID"));
+			session.setAttribute("sIdview2NAME", idview2.get("NAME"));
+			
+			modelMap.put("res", "success");
+		} else {
+			modelMap.put("res", "fail");
+		}
+				
+		HttpHeaders responseHeaders = new HttpHeaders();
+		responseHeaders.add("Content-Type", "text/json; charset=UTF-8");
+		
+		return new ResponseEntity<String>(mapper.writeValueAsString(modelMap),
+										  responseHeaders, HttpStatus.CREATED);   
+	}//아이디 조회 idViewCheckAjax2
+	
+	
+
+	@RequestMapping(value = "/passwordViewCheckAjax1")
+	public @ResponseBody ResponseEntity<String> passwordViewCheckAjax1(
+			HttpServletRequest request,
+			@RequestParam HashMap<String, String>  params,
+			HttpSession session,
+			ModelAndView modelAndView) throws Throwable{
+		
+		ObjectMapper mapper = new ObjectMapper();
+		Map<String, Object> modelMap = new HashMap<String, Object>();
+		
+		HashMap<String, String> passwordview1
+					= iLoginService.getPasswordview1(params);
+		
+		if(passwordview1 != null && !passwordview1.isEmpty()){
+			session.setAttribute("sPasswordview1NUM", passwordview1.get("NUM"));
+			session.setAttribute("sPasswordview1PW", passwordview1.get("PW"));
+			session.setAttribute("sPasswordview1NAME", passwordview1.get("NAME"));
+			
+			modelMap.put("res", "success");
+		} else {
+			modelMap.put("res", "fail");
+		}
+				
+		HttpHeaders responseHeaders = new HttpHeaders();
+		responseHeaders.add("Content-Type", "text/json; charset=UTF-8");
+		
+		return new ResponseEntity<String>(mapper.writeValueAsString(modelMap),
+										  responseHeaders, HttpStatus.CREATED);   
+	}//비밀번호 조회 passwordViewCheckAjax1
+	
+
+	@RequestMapping(value = "/passwordViewCheckAjax2")
+	public @ResponseBody ResponseEntity<String> passwordViewCheckAjax2(
+			HttpServletRequest request,
+			@RequestParam HashMap<String, String>  params,
+			HttpSession session,
+			ModelAndView modelAndView) throws Throwable{
+		
+		ObjectMapper mapper = new ObjectMapper();
+		Map<String, Object> modelMap = new HashMap<String, Object>();
+		
+		HashMap<String, String> passwordview2
+					= iLoginService.getPasswordview2(params);
+		
+		if(passwordview2 != null && !passwordview2.isEmpty()){
+			session.setAttribute("sPasswordview2NUM", passwordview2.get("NUM"));
+			session.setAttribute("sPasswordview2PW", passwordview2.get("PW"));
+			session.setAttribute("sPasswordview2NAME", passwordview2.get("NAME"));
+			
+			modelMap.put("res", "success");
+		} else {
+			modelMap.put("res", "fail");
+		}
+				
+		HttpHeaders responseHeaders = new HttpHeaders();
+		responseHeaders.add("Content-Type", "text/json; charset=UTF-8");
+		
+		return new ResponseEntity<String>(mapper.writeValueAsString(modelMap),
+										  responseHeaders, HttpStatus.CREATED);   
+	}//비밀번호 조회 passwordViewCheckAjax2
+	
+	@RequestMapping(value="/id_view_result")
+	public ModelAndView id_view_result(HttpServletRequest request, ModelAndView modelAndView){
+		
+		modelAndView.setViewName("home/id_view_result");
+		
+		return modelAndView;
+	}//아이디 찾기 결과 페이지
+	
+
+	@RequestMapping(value="/password_view_result")
+	public ModelAndView password_view_result(HttpServletRequest request, ModelAndView modelAndView){
+		
+		modelAndView.setViewName("home/password_view_result");
+		
+		return modelAndView;
+	}//비밀번호 찾기 결과 페이지
+	
+	
 	
 }

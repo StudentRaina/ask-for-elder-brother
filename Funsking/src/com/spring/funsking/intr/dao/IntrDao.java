@@ -150,12 +150,12 @@ public class IntrDao implements IIntrDao{
 	public String insertphoto(HashMap<String, String> params) throws Throwable {
 		String res = "false";
 		
-		/*int sequence = (int)sqlMapClient.queryForObject("Intr.buskerSeq", params);
+		int seq = (int)sqlMapClient.queryForObject("Intr.photoseq", params);
 		
-		params.put("sequence", Integer.toString(sequence));*/
+		params.put("seq", Integer.toString(seq));
 		
 		sqlMapClient.startTransaction();
-		sqlMapClient.startBatch();
+		//sqlMapClient.startBatch();
 		
 		//에러가나면 res는 false로 되서 end트렉젝션함. => 롤백이된다.
 		try{
@@ -163,7 +163,7 @@ public class IntrDao implements IIntrDao{
 			sqlMapClient.insert("Intr.insertphoto2", params);
 			/* sqlMapClient.insert("Intr.insertBusker3", params);*/
 		
-			sqlMapClient.executeBatch();
+			//sqlMapClient.executeBatch();
 			sqlMapClient.commitTransaction();
 			
 			res = "true";
