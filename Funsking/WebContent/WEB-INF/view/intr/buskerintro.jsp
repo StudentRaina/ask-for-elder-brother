@@ -165,7 +165,7 @@ function refreshList() {
 					html += "<tr name='hidden1'>"
 					html += "<td colspan='2' name ='" + result.list3[i].TNAME + "'>" + result.list3[i].TNAME + "</td>";
 					html += "</tr>"
-					html += "<tr>"
+					html += "<tr style='visibility: hidden;'>"
 		            html += "<td name ='" +result.list3[i].GENRE + "'>" + result.list3[i].GENRE + "</td>";
 		            html += "<td>" + result.list3[i].DATE1 + "</td>";
 					html += "</tr>"		  		

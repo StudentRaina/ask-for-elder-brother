@@ -10,8 +10,7 @@
 <script type="text/javascript"
 	src="resources/script/jquery/jquery-1.11.0.js"></script>
 <script type="text/javascript" src="resources/script/jquery/jquery.form.js"></script>	
-<script type="text/javascript" 
-			src="resources/script/funsking/main.js">
+<script type="text/javascript" src="resources/script/funsking/main.js"></script>
 <style type="text/css">
 html, body {
 	position: relative;
@@ -76,20 +75,20 @@ html, body {
 .c_3_1_1{
 	width: 20%;
 	display: inline-block;
-	background-color: #20B2AA;
+	/* background-color: #20B2AA; */
 	height: 100%;
 }
 .c_3_1_2{
 	width: 20%- 1px;
 	display: inline-block;
-	background-color: #87CEFA;
+	/* background-color: #87CEFA; */
 	height: 100%;
 }
 .c_3_1_3{
 	width: 60%;
 	height: 100%;
 	display: inline-block;
-	background-color: #87CEFA;
+	/* background-color: #87CEFA; */
 }
 </style>
 
@@ -294,14 +293,24 @@ function auditionBusker2(){
  	 				
 				<div class="content">
 					<div class="c_2">
-						<div class="c_2_1">
-							1
+						<div class="c_2_1">							
 							<form action ="#" id="actionForm" method="post">
-								page<input type="text" name="page" value="${param.page}"/>
-								searTe<input type="text" name="searchText" value="${param.searchText}" />
-								Seq<input type="text" name="seqNum" value="${param.seqNum}" />
-								intr<input type="text" name="sequence" value="${param.sequence}" />
+								<input type="hidden" name="page" value="${param.page}"/>
+								<input type="hidden" name="searchText" value="${param.searchText}" />
+								<input type="hidden" name="seqNum" value="${param.seqNum}" />
+								<input type="hidden" name="sequence" value="${param.sequence}" />
 							</form>
+							<form action="#" id="actionForm1">
+								회차 :<select id="drop1"  name="audCode">
+									<option value=""></option>
+								</select>
+							
+								</form>
+								<form action="#" id="actionForm2">		
+							 팀명:<select id="drop2" >
+							 <option value="0">&nbsp;</option>
+								</select>
+								</form>
 						</div>
 						<div class="c_2_2">			
 							<input type="button"  value="확인 " id="SaveBtn"/>
@@ -309,35 +318,6 @@ function auditionBusker2(){
 						</div>
 					</div>
 					<div class="c_3" id="tb">
-						<div class="c_3_1">
-							<div class="c_3_1_1">
-								<form action="#" id="actionForm1">
-								회차 :<select id="drop1"  name="audCode">
-									<option value=""></option>
-								</select>
-							
-								</form>
-								
-							 	<!-- <form action ="#" id="actionForm2" method="post">
-							 		
-							 		
-							 	</form> -->
-							 	 <!-- 드랍박스예시	<select>
-							 		   <option  name="0"></option>
-									   <option  id="1">Volv</option>
-									   <option value="saab">Saab</option>
-									   <option value="mercedes">Mercedes</option>
-									   <option value="audi">Audi</option>
-									</select>   -->
-							 </div>						
-							<div class="c_3_1_3">
-							<form action="#" id="actionForm2">		
-							 팀명:<select id="drop2" >
-							 <option value="0">&nbsp;</option>
-								</select>
-								</form>
-							 </div> 
-						</div>
 						<form action ="fileUploadAjax" id="insertForm" method="post" enctype="multipart/form-data">
 						<div class="c_3_2">
 						<br/>

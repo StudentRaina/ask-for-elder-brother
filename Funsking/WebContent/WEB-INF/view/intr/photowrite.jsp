@@ -31,26 +31,28 @@
 	width:20%;
 	height: 100%;
 	display: inline-block;
-	background-color: #C1CDCD; /* 연한회색 */
+	 /* background-color: #C1CDCD; */  /* 연한회색 */
 }
 .c_2{
 	width: 100%;
 	height: 70%;
-	background-color: #EEE8AA;/* 연한노랑 */
+	/* background-color: #EEE8AA; *//* 연한노랑 */
 	display: inline-block;
 }
 .c_3{
 	width: 100%;
 	height: 10%;
-	background-color: #FFB6C1; /* 연한핑크 */
+	/* background-color: #FFB6C1; */ /* 연한핑크 */
 	display: inline-block;
 }
 .c_4{
 	width: 100%;
 	height: 10%;
-	background-color: #C1CDCD; /* 연한회색 */
+	/* background-color: #C1CDCD; */ /* 연한회색 */
 	display: inline-block;
 }
+
+
 </style>
 <script type="text/javascript">
 $(document).ready(function(){
@@ -175,7 +177,7 @@ function rsvplace(){
 		<div id="cmu">커뮤니티</div>
  	</div>
  	<hr id="hr"/>
- 	<h2 id="h2_busi_intr">사업소개</h2>
+ 	<h2 id="h2_busi_intr">버스킹 공연 사진</h2>
  	 	<hr id="hr2"/>
  	 	
  	
@@ -207,22 +209,26 @@ function rsvplace(){
  	 			<div id="block2"></div>
  	 			<div id="line2"></div>
  	 		</div>
- 	 		<div id="bigtitleFrame">버스킹 공연 사진</div>
+ 	 		<!-- <div id="bigtitleFrame">버스킹 공연 사진</div> -->
  	 		<div id="contentFrame">
  	 			<div class="c_1">
  	 				<div class="c_1_1">
- 	 				<form action="#" id="actionForm1">
+ 	 				<!-- <form action="#" id="actionForm1">
  	 					<select id="drop1">
  	 					</select>
  	 					<select id="drop2">
  	 					</select>
  	 					<select id="drop3">
  	 					</select>
- 					</form>
+ 					</form> -->
  	 					<form action="#" id="actionForm" method="post">
-							<input type="text" name="page" value="${param.page}"/>
-							<input type="text" name="searchText" value="${param.searchText}"/>
+							<input type="hidden" name="page" value="${param.page}"/>
+							<input type="hidden" name="searchText" value="${param.searchText}"/>
 						</form>
+ 	 				</div>
+ 	 				<div class="c_1_2">
+ 	 					<input type="button" id="SaveBtn" value="글 쓰기" />
+ 	 					<input type="button" id="CancelBtn" value="취 소" />
  	 				</div>
  	 				<!-- <div class="c_1_2">
  	 				</div> -->
@@ -246,12 +252,8 @@ function rsvplace(){
  	 				</table>
 					</form>
  	 			</div>
- 	 			<div class="c_3">3
- 	 			<input type="button" id="SaveBtn" value="글 쓰기" />
- 	 			<input type="button" id="CancelBtn" value="취 소" />
- 	 			</div>
- 	 			<div class="c_4" id="pagingArea">4
- 	 			</div>
+
+
  	 		</div>
  	 		
  	 	</div>

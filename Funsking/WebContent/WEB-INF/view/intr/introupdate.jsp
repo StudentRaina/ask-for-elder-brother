@@ -52,7 +52,7 @@ html, body {
 } 
 .c_3{
 	width: 100%;
-	height: 80%;
+	height: 50%;
 	/* background-color: #0000FF; */
 }
 .footer{
@@ -69,8 +69,8 @@ html, body {
 	height:5%;
 }
 .c_3_2, .c_3_3{
-	height: 20%;
-	background-color: #E0FFFF;
+	height: 10%;
+	/* background-color: #E0FFFF;  연한 하늘색*/ 
 }
 .c_3_1_1{
 	width: 20%;
@@ -88,6 +88,9 @@ html, body {
 	width: 60%;
 	display: inline-block;
 	background-color: #87CEFA;
+}
+#buskerimg{
+	height: 200px;
 }
 </style>
 
@@ -260,7 +263,7 @@ function removePre(data) {
 								파일<input type="file" name="att1" />
 								<input type="text" name="textFile" id="textFile" />
 								<br/>
-								<table border="1">
+								<table border="1" style="height: 300px;">
 									<c:if test="${imgCnt > 0}">
 						            <!--  CON.TEST_FILE 안에 무너가있다면. -->	
 								         <c:forEach var="img" items="${list5}">
@@ -279,10 +282,10 @@ function removePre(data) {
 							               </c:if>
 								         </c:forEach>
 						     		 </c:if> 
-						     		  <tr>
+						     		  <tr style="visibility: hidden;">
 						     			<td>파일번호<input type="text" name="fileNum" value="${list5[0].FILENUM}" /></td>
 						     		 </tr> 
-						     		<tr>
+						     		<tr style="visibility: hidden;">
 						     			<td>글번호:<input type="text" name="intrNum" value="${list4.INTRNUM}" />
 						     		</tr>
 									<tr>
@@ -309,7 +312,7 @@ function removePre(data) {
 										</c:forEach>
 									</video>
 							</c:if>
-							<input type="text" name="fileNum1" value="${list5[1].FILENUM}" />
+							<input type="hidden" name="fileNum1" value="${list5[1].FILENUM}" />
 						</div>
 						</form>
 					</div>										

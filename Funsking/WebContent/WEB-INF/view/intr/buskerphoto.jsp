@@ -31,20 +31,20 @@
 }
 .c_1_2{
 	width:20%;
-	height: 100%;
+	height: 10%;
 	display: inline-block;
-	background-color: #C1CDCD; /* 연한회색 */
+	/* background-color: #C1CDCD; */ /* 연한회색 */
 }
 .c_2{
 	width: 100%;
 	height: 70%;
-	background-color: #EEE8AA;/* 연한노랑 */
+	/* background-color: #EEE8AA; *//* 연한노랑 */
 	display: inline-block;
 }
 .c_3{
 	width: 100%;
 	height: 10%;
-	background-color: #FFB6C1; /* 연한핑크 */
+	/* background-color: #FFB6C1; */ /* 연한핑크 */
 	display: inline-block;
 }
 .c_4{
@@ -52,6 +52,12 @@
 	height: 10%;
 	background-color: #C1CDCD; /* 연한회색 */
 	display: inline-block;
+}
+#somenu1{
+	 background: rgb(190, 190, 190); /* 회색 */ 
+}
+#somenu2{
+ background: rgb(142, 68, 173); /* 보라색 */
 }
 </style>
 
@@ -237,30 +243,30 @@ function refreshList() {
  	 		<div id="contentFrame">
  	 			<div class="c_1">
  	 				<div class="c_1_1">
- 	 					<select id="drop1">
- 	 					</select>
+ 	 					<!-- <select id="drop1">
+ 	 					</select> -->
 		 	 			<form action ="#" id="actionForm" method="post">
 							<c:choose>
 									<c:when test="${empty param.page}">
-										<input type="text" name="page" value="1" />
+										<input type="hidden" name="page" value="1" />
 									</c:when>
 									<c:otherwise>
-										<input type="text" name="page" value="${param.page}" />
+										<input type="hidden" name="page" value="${param.page}" />
 									</c:otherwise>
 							</c:choose>
-							<input type="text" name="searchText" value="${param.searchText}" />
-							<input type="text" name="concertNum" value="" />
+							<input type="hidden" name="searchText" value="${param.searchText}" />
+							<input type="hidden" name="concertNum" value="" />
 						</form>
  	 				</div>
  	 				<div class="c_1_2">
  	 					<input type="button" id="RegBtn"  value="글 작성"/>
  	 				</div>
  	 			</div>
- 	 			<div class="c_2" id="tb">2
+ 	 			<div class="c_2" id="tb">
  	 			</div>
- 	 			<div class="c_3">3
+ 	 			<div class="c_3">
  	 			</div>
- 	 			<div class="c_4" id="pagingArea">4
+ 	 			<div class="c_4" id="pagingArea">
  	 			</div>
  	 		</div>
  	 		
