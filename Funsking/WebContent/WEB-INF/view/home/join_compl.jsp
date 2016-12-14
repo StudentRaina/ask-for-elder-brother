@@ -56,7 +56,6 @@
    background-image: url("resources/images/join4.png");
    background-position : center;
 }
-<!---->
 
 </style>
 <script type="text/javascript" 
