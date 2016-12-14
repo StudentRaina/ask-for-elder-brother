@@ -5,69 +5,13 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
-<link rel="stylesheet" type="text/css" href="resources/css/funsking/funskingmenu.css" />
+<link rel="stylesheet" type="text/css" href="resources/css/funsking/loginmenu.css" />
 <style type="text/css">
 .sub_login{
 	width: 500px;
 	height: 65px;
 	display: inline-block; 
 	background-color: #D5D5D5;
-}
-
-
-
-#somenu1{
-   width : 100%;
-   height : 40px;
-   background-color : rgb(190, 190, 190);
-   margin-top : 5%;
-   display : inline-block;
-   /* background-image: url('resources/images/asdf.png');
-   background-position : right center;
-   background-repeat : no-repeat;
-   background-size : 15% 70%; */
-   
-}
-
-#menu_image1{
-   width: 30px;
-   height : 40px;
-   display : inline-block;
-   background-image: url('resources/images/asdf.png');
-   background-position : right center;
-   background-repeat : no-repeat;
-    background-size : 100% 70%; 
-    margin-left : 30%;
-}
-
-#menu_text1{
-   display: table-cell;
-   width : 90px;
-   height : 40px;
-   vertical-align : middle;
-}
-
-#menu_textform1{
-   display : inline-block;
-   width : 90px;
-   height : 40px;
-/*    padding-left : 8px;
-   padding-top : 7px; */
-   margin-left : 5%;
-   color : #FFFFFF;
-}
-
-#somenu2{
-   width : 100%;
-   height : 40px;
-   background-color : #FF007F;
-   margin-top : 5%;
-   display : inline-block;
-   /* background-image: url('resources/images/asdf.png');
-   background-position : right center;
-   background-repeat : no-repeat;
-   background-size : 15% 70%; */
-   
 }
 
 #menu_image2{
@@ -81,28 +25,11 @@
     margin-left : 30%;
 }
 
-#menu_text2{
-   display: table-cell;
-   width : 90px;
-   height : 40px;
-   vertical-align : middle;
-}
 
-#menu_textform2{
-   display : inline-block;
-   width : 90px;
-   height : 40px;
-/*    padding-left : 8px;
-   padding-top : 7px; */
-   margin-left : 5%;
-   color : #FFFFFF;
-}
-
-
-#somenu3{
+#somenu2{
    width : 100%;
    height : 40px;
-   background-color : rgb(190, 190, 190);
+   background-color : #FF007F;
    margin-top : 5%;
    display : inline-block;
    /* background-image: url('resources/images/asdf.png');
@@ -111,52 +38,6 @@
    background-size : 15% 70%; */
    
 }
-
-#menu_image3{
-   width: 30px;
-   height : 40px;
-   display : inline-block;
-   background-image: url('resources/images/asdf.png');
-   background-position : right center;
-   background-repeat : no-repeat;
-    background-size : 100% 70%; 
-    margin-left : 30%;
-}
-
-#menu_text3{
-   display: table-cell;
-   width : 90px;
-   height : 40px;
-   vertical-align : middle;
-}
-
-#menu_textform3{
-   display : inline-block;
-   width : 90px;
-   height : 40px;
-/*    padding-left : 8px;
-   padding-top : 7px; */
-   margin-left : 5%;
-   color : #FFFFFF;
-}
-
-
-#block {
-   width : 28%;
-   height : 6px;
-   background-color : #FF007F;
-   display : inline-block;
-   float : left;
-}
-
-#block2 {
-   width : 15%;
-   height : 6px;
-   background-color : #FF007F;
-   display : inline-block;
-   float : left;
-}
-
 
 </style>
 <script type="text/javascript" 

@@ -26,6 +26,13 @@ $(document).ready(function() {
 		location.href = "mypage_user";
 	});
 	
+	
+	$("#qna").on("click", function() {
+		location.href = "faq_help_board";
+	});//QnA 페이지 이동
+	
+	
+	
 });
 
 </script>

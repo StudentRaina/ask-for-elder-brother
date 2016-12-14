@@ -5,21 +5,8 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
-<link rel="stylesheet" type="text/css" href="resources/css/funsking/funskingmenu.css" />
+<link rel="stylesheet" type="text/css" href="resources/css/funsking/loginmenu.css" />
 <style type="text/css">
-
-#somenu1{
-   width : 100%;
-   height : 40px;
-   background-color : #FF007F;
-   margin-top : 5%;
-   display : inline-block;
-   /* background-image: url('resources/images/asdf.png');
-   background-position : right center;
-   background-repeat : no-repeat;
-   background-size : 15% 70%; */
-   
-}
 
 #menu_image1{
    width: 30px;
@@ -32,27 +19,11 @@
     margin-left : 30%;
 }
 
-#menu_text1{
-   display: table-cell;
-   width : 90px;
-   height : 40px;
-   vertical-align : middle;
-}
 
-#menu_textform1{
-   display : inline-block;
-   width : 90px;
-   height : 40px;
-/*    padding-left : 8px;
-   padding-top : 7px; */
-   margin-left : 5%;
-   color : #FFFFFF;
-}
-
-#somenu2{
+#somenu1{
    width : 100%;
    height : 40px;
-   background-color : rgb(190, 190, 190);
+   background-color : #FF007F;
    margin-top : 5%;
    display : inline-block;
    /* background-image: url('resources/images/asdf.png');
@@ -60,93 +31,6 @@
    background-repeat : no-repeat;
    background-size : 15% 70%; */
    
-}
-
-#menu_image2{
-   width: 30px;
-   height : 40px;
-   display : inline-block;
-   background-image: url('resources/images/asdf.png');
-   background-position : right center;
-   background-repeat : no-repeat;
-    background-size : 100% 70%; 
-    margin-left : 30%;
-}
-
-#menu_text2{
-   display: table-cell;
-   width : 90px;
-   height : 40px;
-   vertical-align : middle;
-}
-
-#menu_textform2{
-   display : inline-block;
-   width : 90px;
-   height : 40px;
-/*    padding-left : 8px;
-   padding-top : 7px; */
-   margin-left : 5%;
-   color : #FFFFFF;
-}
-
-
-#somenu3{
-   width : 100%;
-   height : 40px;
-   background-color : rgb(190, 190, 190);
-   margin-top : 5%;
-   display : inline-block;
-   /* background-image: url('resources/images/asdf.png');
-   background-position : right center;
-   background-repeat : no-repeat;
-   background-size : 15% 70%; */
-   
-}
-
-#menu_image3{
-   width: 30px;
-   height : 40px;
-   display : inline-block;
-   background-image: url('resources/images/asdf.png');
-   background-position : right center;
-   background-repeat : no-repeat;
-    background-size : 100% 70%; 
-    margin-left : 30%;
-}
-
-#menu_text3{
-   display: table-cell;
-   width : 90px;
-   height : 40px;
-   vertical-align : middle;
-}
-
-#menu_textform3{
-   display : inline-block;
-   width : 90px;
-   height : 40px;
-/*    padding-left : 8px;
-   padding-top : 7px; */
-   margin-left : 5%;
-   color : #FFFFFF;
-}
-
-
-#block {
-   width : 28%;
-   height : 6px;
-   background-color : #FF007F;
-   display : inline-block;
-   float : left;
-}
-
-#block2 {
-   width : 15%;
-   height : 6px;
-   background-color : #FF007F;
-   display : inline-block;
-   float : left;
 }
 
 /* 
@@ -291,7 +175,7 @@ $(document).ready(function() {
 
 이용약관
 <form>
-	<textarea rows = "10" cols = "55" disabled = "disabled">
+	<textarea rows = "10" cols = "55" readonly = "readonly">
 	제1조 목적
 	이 약관은 고양문화재단이 제공하는 정보서비스의 이용에 관한 조건 및 절차와 기타 필요한 사항을 규정하는 것을 목적으로 합니다.
 	
@@ -395,7 +279,7 @@ $(document).ready(function() {
 	
 개인정보 수집 ·이용동의
 <form>
-	<textarea rows = "10" cols = "55" disabled = "disabled">
+	<textarea rows = "10" cols = "55" readonly = "readonly">
 		회사는 개인정보취급방침을 통하여 고객님께서 제공하시는 개인정보가 어떠한 용도와 방식으로 이용되고 있으며, 개인정보보호를 위해 어떠한 조치가 취해지고 있는지 알려드립니다. 회사는 개인정보취급방침을 개정하는 경우 웹사이트 공지사항(또는 개별공지)을 통하여 공지할 것입니다.
 	
 	본 방침은 2016 년 04 월 05 일 부터 시행됩니다.
