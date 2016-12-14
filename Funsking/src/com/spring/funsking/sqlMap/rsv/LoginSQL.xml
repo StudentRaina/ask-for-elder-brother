@@ -7,7 +7,7 @@
 	<select id="getFuser"
 			parameterClass="java.util.HashMap"
 			resultClass="java.util.HashMap">
-		SELECT NUM, ID, NAME
+		SELECT NUM, ID, PW, NAME, GRADE
 		FROM FUSER
 		WHERE ID = #user_id#
 		AND PW = #user_password#

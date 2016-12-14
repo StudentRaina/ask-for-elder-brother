@@ -27,7 +27,10 @@ public class HomeController {
 
 	
 	@RequestMapping(value="/home1")
-	public ModelAndView home1(HttpServletRequest request, ModelAndView modelAndView){
+	public ModelAndView home1(HttpServletRequest request, 
+							  HttpSession session,
+							  @RequestParam HashMap<String, String> params,
+							  ModelAndView modelAndView) throws Throwable{
 		
 		modelAndView.setViewName("home/home1");
 		

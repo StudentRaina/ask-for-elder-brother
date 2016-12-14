@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<!DOCTYPE html>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -16,6 +17,15 @@ $(document).ready(function() {
 	$("#joinFrame").on("click", function() {
 		location.href = "join_tos";
 	});//회원가입 페이지 이동		
+	
+	$("#logoutFrame").on("click", function() {
+		location.href = "Logout";
+	});
+	
+	$("#login_idFrame").on("click", function() {
+		location.href = "mypage_user";
+	});
+	
 });
 
 </script>
@@ -57,7 +67,7 @@ body{
 	
 }
 
- #memberFrame{
+#memberFrame{
 /* 	border: 1pt solid #000000; */
 	width : 200px;
 	height : 40px;
@@ -88,9 +98,36 @@ body{
 	
 } 
 
+/*추가----------------------------------------  */
+#member2Frame{
+/* 	border: 1pt solid #000000; */
+	width : 200px;
+	height : 40px;
+	display: inline-block;
+	margin-left : 60.5%;
+	margin-top : 0.5%;
+}
 
- 
+#login_idFrame{
+		/* border: 1pt solid #000000; */
+	width : 90px;
+	height : 40px;
+	text-align : center;
+	display: table-cell;
+	vertical-align : middle;
+	font-size : 10pt;
+}
 
+#logoutFrame{
+		/* border: 1pt solid #000000; */
+	width : 90px;
+	height : 40px;
+	text-align : center;
+	display: table-cell;
+	vertical-align : middle;
+	font-size : 10pt;
+} 
+/*여기까지-------------------------------------------------------  */
 
 #menuFrame{
 	/* border: 1pt solid #000000; */
@@ -537,10 +574,35 @@ width : 63px;
 	
 <div id="topFrame">
  	<div id="logoFrame"></div>
- 	  <div id="memberFrame">
+ <!--천재영느님께서 만듬 ㅋㅋㅋㅋㅋㅋ 로그인 화면  -->	 
+ 	 <c:choose>  
+     	<c:when test="${!empty sFuserNUM}">
+     		<div id="member2Frame"> 		
+ 				<div id="login_idFrame">${sFuserID}</div>
+ 				<div id="logoutFrame">로그아웃</div>
+ 	  		</div>   	
+     	</c:when>
+     	
+     	<c:otherwise>
+     		<div id="memberFrame"> 		
+ 				<div id="joinFrame">회원가입</div>
+ 				<div id="loginFrame">로그인</div>
+ 	  		</div>  	
+     	</c:otherwise>   
+     </c:choose> 
+ 	
+ 	  <!-- <div id="memberFrame"> 		
  		<div id="joinFrame">회원가입</div>
  		<div id="loginFrame">로그인</div>
+ 	  </div> -->
+ 	  
+ 	  <%-- 
+ 	  <!--member2Frame 추가 ---------------------------------->
+ 	  <div id="member2Frame"> 		
+ 		<div id="login_idFrame">${sFuserID}</div>
+ 		<div id="mypageFrame">Mypage</div>
  	  </div>
+ 	   --%>
  </div> 
 
 	<hr/>

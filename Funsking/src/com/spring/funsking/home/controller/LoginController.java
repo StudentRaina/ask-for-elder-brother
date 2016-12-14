@@ -35,6 +35,17 @@ public class LoginController {
 	}//로그인 페이지
 	
 
+	@RequestMapping(value="/Logout")//로그아웃
+	public ModelAndView Logout(HttpServletRequest request,
+								   HttpSession session,
+								   ModelAndView modelAndView) {
+		session.invalidate();
+		
+		modelAndView.setViewName("redirect:home1");
+		
+		return modelAndView;
+	}
+	
 	@RequestMapping(value="/loginConfAjax")
 	public @ResponseBody ResponseEntity<String> loginConfAjax(
 			HttpServletRequest request,
@@ -51,7 +62,9 @@ public class LoginController {
 		if(fuser != null && !fuser.isEmpty()){
 			session.setAttribute("sFuserNUM", fuser.get("NUM"));
 			session.setAttribute("sFuserID", fuser.get("ID"));
+			session.setAttribute("sFuserPW", fuser.get("PW"));
 			session.setAttribute("sFuserNAME", fuser.get("NAME"));
+			session.setAttribute("sFuserGRADE", fuser.get("GRADE"));
 			
 			modelMap.put("res", "success");
 		}else{
