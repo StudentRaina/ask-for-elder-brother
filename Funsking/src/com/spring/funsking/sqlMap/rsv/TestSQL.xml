@@ -10,7 +10,6 @@
 		FROM RSVGU
 	</select>
 
-
 	<select id="getplace" parameterClass="java.util.HashMap"
 		resultClass="java.util.HashMap">
 	SELECT A.ATTR,PCODE,B.ATTR AS BATTR
@@ -49,12 +48,12 @@
 	
 	<select id="getrsvall" parameterClass="java.util.HashMap"
 	resultClass="java.util.HashMap">
-	SELECT B.ATTR AS GU,B.TEL,A.ATTR AS PLACE,F.ATTR AS GENRE,A.SPT,DPHOTO,PPHOTO,EPPHOTO,C.CONCERTSCHE,C.CONCERTHR,E.TNAME
-           FROM RSVGU B 
-                      INNER JOIN RSVPLACE A
+	SELECT B.ATTR AS GU,B.TEL,A.ATTR AS PLACE,F.ATTR AS GENRE,
+			A.SPT,DPHOTO,PPHOTO,EPPHOTO,C.CONCERTSCHE,C.CONCERTHR,E.TNAME
+           FROM RSVGU B INNER JOIN RSVPLACE A
                         ON A.GUCODE=B.GUCODE 
                             INNER JOIN RSVSCHE C
-                              ON C.CONCERTSCHE=#sche#
+                              ON A.PCODE=C.PCODE
                                 INNER JOIN GENRECODE F
                                   ON A.GENRE=F.GENRE
                               LEFT JOIN 
@@ -62,8 +61,8 @@
                                         LEFT OUTER JOIN BSK E
                                             ON D.BSKNUM =E.BSKNUM) E
                                             ON C.SCHECODE= E.SCHECODE
-                   WHERE B.GUCODE = #gu# AND A.PCODE=#place#
-                   ORDER BY CONCERTHR
+                     where A.PCODE=#place# AND B.GUCODE = #gu# AND C.CONCERTSCHE=#sche#
+                             ORDER BY CONCERTHR
 	</select>
 	
 

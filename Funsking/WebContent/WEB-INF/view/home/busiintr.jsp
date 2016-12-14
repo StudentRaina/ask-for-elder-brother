@@ -21,21 +21,35 @@ img{
 	height: 700px;
 }
 
+#outl{
+	display: none;
+}
+#busiintr{
+	display: inline-block;
+}
+	
 </style>
 <script type="text/javascript">
 $(document).ready(function() {
-	
-	var contentframe="";
-	contentframe = '<img src="resources/images/tkdjqthro.png"/>';
-	$("#contentFrame").html(contentframe);
-			$("#media_photo").on("click",function(){
-				location.href="rsv";
-			});
-			$("#menu_text2").on("click",function(){
-				location.href="";
-			});
+	$("#somenu1").css("background-color","rgb(155, 89, 182)");	
+	$("#outl").css("display","none");
+	$("#bigtitleFrame").html("FUNSKING IN SEOUL 소개");
 			$("#busi_intr").on("click",function(){
 				location.href="busiintr";
+			});
+			$("#somenu2").on("click",function(){
+				$("#busiintr").css("display","none");
+				$("#outl").css("display","block");
+				$("#somenu2").css("background-color","rgb(155, 89, 182)");	
+				$("#somenu1").css("background-color","rgb(190, 190, 190)");	
+				$("#bigtitleFrame").html("개요");
+			});
+			$("#somenu1").on("click",function(){
+				$("#busiintr").css("display","block");
+				$("#outl").css("display","none");
+				$("#somenu1").css("background-color","rgb(155, 89, 182)");	
+				$("#somenu2").css("background-color","rgb(190, 190, 190)");	
+				$("#bigtitleFrame").html("FUNSKING IN SEOUL 소개");
 			});
 });
 
@@ -50,14 +64,26 @@ $(document).ready(function() {
 	
 <div id="topFrame">
  	<div id="logoFrame"></div>
- 	  <div id="memberFrame">
- 		<div id="joinFrame">회원가입</div>
- 		<div id="loginFrame">로그인</div>
- 	  </div>
+ 	    <!--천재영느님께서 만듬 ㅋㅋㅋㅋㅋㅋ 로그인 화면  -->    
+     <c:choose>  
+        <c:when test="${!empty sFuserNUM}">
+           <div id="member2Frame">       
+             <div id="login_idFrame">${sFuserID}</div>
+             <div id="logoutFrame">로그아웃</div>
+            </div>      
+        </c:when>
+        
+        <c:otherwise>
+           <div id="memberFrame">       
+             <div id="joinFrame">회원가입</div>
+             <div id="loginFrame">로그인</div>
+            </div>     
+        </c:otherwise>   
+     </c:choose> 
  </div> 
 	<hr/>
 	
- 	<div id="menuFrame" class="mousecursor">
+ 	<div id="menuFrame" >
  		<div id="busi_intr" class="mousecursor">사업소개</div>
  		<div id="notice" class="mousecursor">공지사항</div>
  		<div id="street_concert" class="mousecursor">거리공연</div>
@@ -95,13 +121,20 @@ $(document).ready(function() {
  	 		
  	 	</div>
  	 	<div id="contentsFrame" style="float: right;">
- 	 		<div id="menutitle" >개요 및 연혁</div>
+ 	 		<div id="menutitle" >사업 소개</div>
  	 		<div id="content_top">
  	 			<div id="block2"></div>
  	 			<div id="line2"></div>
  	 		</div>
- 	 		<div id="bigtitleFrame">FUNSKING IN SEOUL 소개</div>
- 	 		<div id="contentFrame"></div>
+ 	 		<div id="bigtitleFrame"></div>
+ 	 		<div id="contentFrame">
+ 	 		<div id="busiintr">
+ 	 		 <img src="resources/images/tkdjqthro.png"/>
+ 	 		</div>
+ 	 		<div id="outl">
+ 	 			<img src="resources/images/imgnull.png"/>
+ 	 		</div>
+ 	 		</div>
  	 		
  	 	</div>
  	 
