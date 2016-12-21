@@ -7,13 +7,14 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 <script type="text/javascript" src="resources/script/jquery/jquery-1.11.0.js"></script>
+<script type="text/javascript" src="resources/script/funsking/main.js"></script>
 <script type="text/javascript">
 $(document).ready(function() {
 	
-	$("#loginFrame").on("click", function() {
+/* 	$("#loginFrame").on("click", function() {
 		location.href = "login";
 	});//로그인 페이지 이동
-
+	
 	$("#joinFrame").on("click", function() {
 		location.href = "join_tos";
 	});//회원가입 페이지 이동		
@@ -31,7 +32,7 @@ $(document).ready(function() {
 		location.href = "faq_help_board";
 	});//QnA 페이지 이동
 	
-	
+ */
 	
 });
 
@@ -614,14 +615,14 @@ width : 63px;
 
 	<hr/>
  	<div id="menuFrame">
- 		<div id="busi_intr">사업소개</div>
- 		<div id="notice">공지사항</div>
- 		<div id="street_concert">거리공연</div>
-		<div id="bsk_intr">버스커소개</div>
-		<div id="media_photo">공연 영상 및 사진</div>
-		<div id="audition">오디션</div>
-		<div id="qna">QnA</div>
-		<div id="cmu">커뮤니티</div>
+ 		<div id="busi_intr" class="mousecursor">사업소개</div>
+ 		<div id="notice" class="mousecursor">공지사항</div>
+ 		<div id="street_concert" class="mousecursor">거리공연</div>
+		<div id="bsk_intr" class="mousecursor">버스커소개</div>
+		<div id="media_photo" class="mousecursor">공연 영상 및 사진</div>
+		<div id="audition" class="mousecursor">오디션</div>
+		<div id="qna" class="mousecursor">QnA</div>
+		<div id="cmu" class="mousecursor">커뮤니티</div>
  	</div>
  	<hr id="hr"/>
  	
@@ -634,16 +635,16 @@ width : 63px;
  	
  	<div id="favoriteFrame">
  		<div id="fv_1">
- 		<div id="fv_notice">공지사항</div>
+ 		<div id="fv_notice" class="mousecursor">공지사항</div>
  		</div>
  		<div id="fv_2">
- 		<div id="fv_concert_sche">공연일정</div>
+ 		<div id="fv_concert_sche" class="mousecursor">공연일정</div>
  		</div>
  		<div id="fv_3">
- 		<div id="fv_concert_rsv">공연예약</div>
+ 		<div id="fv_concert_rsv" class="mousecursor">공연예약</div>
  		</div>
  		<div id="fv_4">
- 		<div id="fv_concert_pla">공연장소</div>
+ 		<div id="fv_concert_pla" class="mousecursor">공연장소</div>
  		</div>
  		<div id="fv_textarea">서울시에서 진행중인 축제</div>
  		<div id="fv_festival1"></div>

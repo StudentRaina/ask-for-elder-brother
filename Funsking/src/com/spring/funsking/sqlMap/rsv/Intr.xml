@@ -23,20 +23,20 @@
 					) D
 			WHERE D.RNUM BETWEEN #start# AND #end#  -->
 			SELECT D.INTRNUM,D.DATE1,D.TNAME,D.GENRE, D.FILENUM, D.FILENAME, SUBSTR(FILENAME, INSTR(FILENAME, '.', -1) +1) AS FILE_EXT
-  			FROM(SELECT A.INTRNUM,A.DATE1,B.TNAME,B.GENRE, ROW_NUMBER() OVER(ORDER BY A.INTRNUM DESC) AS RNUM, C.FILENAME, C.FILENUM, SUBSTR(FILENAME, INSTR(FILENAME, '.', -1) +1) AS FILE_EXT
-        			FROM INTR A
-        			INNER JOIN BSK B
-                			ON  A.BSKNUM = B.BSKNUM 
-        			LEFT OUTER JOIN INTRFILEUPLOAD C
-                			ON A.INTRNUM = C.INTRNUM
-             		WHERE 1=1
-             		<isNotEmpty property="textGenre">
-             		 	AND B.GENRE = #textGenre#
-             		 </isNotEmpty>
-		             <isNotEmpty property="searchText">
-						AND A.INTRNUM LIKE '%' || #searchText# || '%'
-					</isNotEmpty>)D
-                WHERE FILE_EXT !='mp4' AND D.RNUM BETWEEN #start# AND #end#
+           FROM(SELECT A.INTRNUM,A.DATE1,B.TNAME,B.GENRE, ROW_NUMBER() OVER(ORDER BY A.INTRNUM DESC) AS RNUM, C.FILENAME, C.FILENUM, SUBSTR(FILENAME, INSTR(FILENAME, '.', -1) +1) AS FILE_EXT
+                 FROM INTR A
+                 INNER JOIN BSK B
+                         ON  A.BSKNUM = B.BSKNUM 
+                 LEFT OUTER JOIN INTRFILEUPLOAD C
+                         ON A.INTRNUM = C.INTRNUM
+                   WHERE SUBSTR(FILENAME, INSTR(FILENAME, '.', -1) +1) !='mp4'
+                   <isNotEmpty property="textGenre">
+                       AND B.GENRE = #textGenre#
+                    </isNotEmpty>
+                   <isNotEmpty property="searchText">
+                  AND A.INTRNUM LIKE '%' || #searchText# || '%'
+               </isNotEmpty>)D
+                WHERE  D.RNUM BETWEEN #start# AND #end#
 	</select>
 	 
 	

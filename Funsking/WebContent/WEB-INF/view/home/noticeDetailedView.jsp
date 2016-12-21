@@ -8,6 +8,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 
+
 <style type="text/css">
 body{
 	margin:0px;
@@ -278,7 +279,7 @@ body{
 #block {
 	width : 28%;
 	height : 6px;
-	background-color : rgb(155, 89, 182);
+	background-color : rgb(22, 160, 133);
 	display : inline-block;
 	float : left;
 }
@@ -294,7 +295,7 @@ body{
 #somenu1{
 	width : 100%;
 	height : 40px;
-	background-color : rgb(155, 89, 182);
+	background-color : rgb(22, 160, 133);
 	margin-top : 5%;
 	display : inline-block;
 	/* background-image: url('resources/images/asdf.png');
@@ -397,7 +398,7 @@ body{
 #block2 {
 	width : 15%;
 	height : 6px;
-	background-color : rgb(155, 89, 182);
+	background-color : rgb(22, 160, 133);
 	display : inline-block;
 	float : left;
 }
@@ -405,7 +406,7 @@ body{
 #line2 {
 	width : 85%;
 	height : 6px;
-	border-bottom : 1pt solid rgb(155, 89, 182);
+	border-bottom : 1pt solid rgb(22, 160, 133);
 	display : inline-block;
 	float : left;
 	margin-top : -0.1%;
@@ -498,6 +499,7 @@ body{
 </style>
 
 <script type="text/javascript" src="resources/script/jquery/jquery-1.11.0.js"></script>
+<script type="text/javascript" src="resources/script/funsking/main.js"></script>
 <script type="text/javascript">
  
  $(document).ready(function(){
@@ -565,7 +567,7 @@ body{
 		<div id="cmu">커뮤니티</div>
  	</div>
  	<hr id="hr"/>
- 	<h2 id="h2_busi_intr">사업소개</h2>
+ 	<h2 id="h2_busi_intr">공지사항</h2>
  	 	<hr id="hr2"/>
  	 	
  	
@@ -576,23 +578,23 @@ body{
  	 			
  	 				<div id="somenu1">
  	 			<div id="menu_textform1">
- 	 			<div id="menu_text1">사업소개</div>
+ 	 			<div id="menu_text1">공지사항</div>
  	 			</div>
  	 			<div id="menu_image1"></div>	
  	 		</div>
  			
- 			<div id="somenu2">
+ 			<!-- <div id="somenu2">
  	 		<div id="menu_textform2">
  	 			<div id="menu_text2">사업소개</div>
  	 			</div>
  	 			<div id="menu_image2"></div>
- 	 		</div>
+ 	 		</div> -->
  	 		</div>
  	 		
  	 		
  	 	</div>
  	 	<div id="contentsFrame" style="float: right;">
- 	 		<div id="menutitle">개요 및 연혁</div>
+ 	 		<div id="menutitle">공지사항 상세보기</div>
  	 		<div id="content_top">
  	 			<div id="block2"></div>
  	 			<div id="line2"></div>

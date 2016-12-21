@@ -733,20 +733,20 @@ function rsvall(){
 		var html = '<option value="">=일=</option>';
 		if (month == 1 || month == 3 || month == 5 || month == 7 || month == 8
 				|| month == 10 || month == 12) {
-			for (var i = 0; i <= 31; i++) {
+			for (var i = day+3; i <= 31; i++) {
 				html += '<option value="'+i+'">' + i + '</option>';
 			}// 31일로 처리해야될부분 1,3,5,7,8,10,12월
 		} else if (month == 4 || month == 6 || month == 11) {
-			for (var i = 0; i <= 30; i++) {
+			for (var i = day+3; i <= 30; i++) {
 				html += '<option value="'+i+'">' + i + '</option>';
 			}
 		} else if (year % 4 == 0 && month == 2) {
-			for (var i = 0; i <= 29; i++) {
+			for (var i = day+3; i <= 29; i++) {
 				html += '<option value="'+i+'">' + i + '</option>';
 			}
 			//윤년이면서, 2월일떄는 29일까지
 		} else if (month == 2) {
-			for (var i = day; i <= 28; i++) {
+			for (var i = day+3; i <= 28; i++) {
 				html += '<option value="'+i+'">' + i + '</option>';
 			}
 			//그냥 2월일떄는 28일까지

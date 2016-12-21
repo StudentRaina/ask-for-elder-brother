@@ -38,7 +38,7 @@
 .c_1 , .c_2{
 	width: 100%;
 	height: 5%;
-	background-color: #FFF0FF;
+	/* background-color: #FFF0FF; */
 	display: inline-block;
 }
  .c_2_1{
@@ -171,7 +171,6 @@ function refreshList() {
 					html += "</tr>"		  		
 					html += "</table>"
 					html +=	"</div>"
-					console.log(result.list3[i]);
 			   		 }
 			   	} 
 			   	

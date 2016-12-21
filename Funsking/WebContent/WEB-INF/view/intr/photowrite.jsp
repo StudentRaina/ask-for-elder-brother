@@ -22,10 +22,10 @@
 	display: inline-block;
 }
 .c_1_1{
-	width:70%;
+	width:60%;
 	height: 100%;
 	display: inline-block;
-	background-color: #E6E6FA;
+	/* background-color: #E6E6FA; */
 }
 .c_1_2{
 	width:20%;
@@ -51,7 +51,12 @@
 	/* background-color: #C1CDCD; */ /* 연한회색 */
 	display: inline-block;
 }
-
+#somenu1{
+	 background: rgb(190, 190, 190); /* 회색 */ 
+}
+#somenu2{
+ background: rgb(142, 68, 173); /* 보라색 */
+}
 
 </style>
 <script type="text/javascript">
@@ -188,14 +193,14 @@ function rsvplace(){
  	 			
  	 				<div id="somenu1">
  	 			<div id="menu_textform1">
- 	 			<div id="menu_text1">사업소개</div>
+ 	 			<div id="menu_text1">공연 영상</div>
  	 			</div>
  	 			<div id="menu_image1"></div>	
  	 		</div>
  			
  			<div id="somenu2">
  	 		<div id="menu_textform2">
- 	 			<div id="menu_text2">사업소개</div>
+ 	 			<div id="menu_text2">공연 사진</div>
  	 			</div>
  	 			<div id="menu_image2"></div>
  	 		</div>
@@ -227,29 +232,30 @@ function rsvplace(){
 						</form>
  	 				</div>
  	 				<div class="c_1_2">
- 	 					<input type="button" id="SaveBtn" value="글 쓰기" />
- 	 					<input type="button" id="CancelBtn" value="취 소" />
+ 	 					
  	 				</div>
- 	 				<!-- <div class="c_1_2">
- 	 				</div> -->
  	 			</div>
- 	 			<div class="c_2">2
+ 	 			<div class="c_2">
 	 	 			<form action ="fileUploadAjax" id="insertForm" method="post" enctype="multipart/form-data">  <!-- 멀티파트는 복합적인 자료를 넘김? => 파일을 넘길때 쓴다 -->
- 	 				<table border="1">
+ 	 				<table border="1" style="width: 100%;">
  	 					<tr>
- 	 						<td>제 목 :<input type="text" name="textTitle"  width="100px"></td>
+ 	 						<td>제 목 :<input type="text" name="textTitle"  style="width: 1010px;"></td>
  	 					</tr>
- 	 					<tr>
+ 	 					<tr style="width: 100%;">
  	 						<td> 	 						
-									파일<input type="file" name="att1" />
-									<input type="text" name="textFile" id="textFile" />
+									파일:<input type="file" name="att1" />
+									<input type="hidden" name="textFile" id="textFile" />
 									<!-- <input type="file" name="att2" />
 					   				<input type="text" name="textFile1" id="textFile1" /> -->
-									<br/>내용<br />
-									<textarea rows="35px" cols="100px" name="textComm"></textarea>
+									<br/>내용:<br />
+									<textarea rows="35px" cols="157px" name="textComm"></textarea>
  	 						</td>
  	 					</tr>	
  	 				</table>
+ 	 				<div class="c_3">
+ 	 					<input type="button" id="SaveBtn" value="글 쓰기" />
+ 	 					<input type="button" id="CancelBtn" value="취 소" />
+ 	 				</div>
 					</form>
  	 			</div>
 

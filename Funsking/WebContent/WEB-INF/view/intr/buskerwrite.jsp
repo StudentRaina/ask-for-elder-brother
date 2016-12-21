@@ -38,7 +38,7 @@ html, body {
 .c_1 , .c_2{
 	width: 100%;
 	height: 10%;
-	background-color: #FFF0FF;
+	/* background-color: #FFF0FF; */
 	display: inline-block;
 }
  .c_2_1{
@@ -70,7 +70,7 @@ html, body {
 }
 .c_3_2, .c_3_3, .c_3_4{
 	height: 30%;
-	background-color: #E0FFFF;
+	/* background-color: #E0FFFF; */
 }
 .c_3_1_1{
 	width: 20%;
@@ -177,6 +177,7 @@ function auditionBusker(){
 	      data : params,
 	      success : function(result) {
 	    	  var html = "";
+	    	  		html += "<option value='0'> &nbsp;  </option>"  
 	    	  for(var i = 0; i < result.audi.length; i++){ 
 	    		  html += "<option value='" + result.audi[i].AUDCODE + "'>"
 	    		  html +=  result.audi[i].ATTR
@@ -302,7 +303,7 @@ function auditionBusker2(){
 							</form>
 							<form action="#" id="actionForm1">
 								회차 :<select id="drop1"  name="audCode">
-									<option value=""></option>
+									<option value="0">&nbsp;</option>
 								</select>
 							
 								</form>
@@ -324,11 +325,11 @@ function auditionBusker2(){
 						사진및소개 
 							<!-- 멀티파트는 복합적인 자료를 넘김? => 파일을 넘길때 쓴다 -->
 								파일<input type="file" name="att1" />
-								<input type="text" name="textFile" id="textFile" />
+								<input type="hidden" name="textFile" id="textFile" />
 								<br/>
 								<table border="1">
 									 <tr>					
-										 <td>버스커넘버 <input type="text" name="textBskNum"/></td> 
+										 <td>버스커넘버 <input type="text" disabled="disabled" name="textBskNum"/></td> 
 									</tr> 
 									<tr>
 										<td>코멘트 <input type="text" name="textComm"/></td>
@@ -342,10 +343,10 @@ function auditionBusker2(){
 						<div class="c_3_3">영상및사진
 						
 								파일<input type="file" name="att2" />
-								   <input type="text" name="textFile1" id="textFile1" />
+								   <input type="hidden" name="textFile1" id="textFile1" />
 						</div>
 						</form>
-						<div class="c_3_4">댓글</div>
+						<div class="c_3_4"></div>
 					</div>
 				</div>							
 				

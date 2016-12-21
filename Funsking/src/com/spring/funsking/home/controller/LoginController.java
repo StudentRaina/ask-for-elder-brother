@@ -58,14 +58,15 @@ public class LoginController {
 		
 		HashMap<String, String> fuser
 					= iLoginService.getFuser(params);
-		
+
 		if(fuser != null && !fuser.isEmpty()){
 			session.setAttribute("sFuserNUM", fuser.get("NUM"));
 			session.setAttribute("sFuserID", fuser.get("ID"));
 			session.setAttribute("sFuserPW", fuser.get("PW"));
 			session.setAttribute("sFuserNAME", fuser.get("NAME"));
 			session.setAttribute("sFuserGRADE", fuser.get("GRADE"));
-			
+			session.setAttribute("sFuserBSKNUM", fuser.get("BSKNUM"));
+
 			modelMap.put("res", "success");
 		}else{
 			modelMap.put("res", "fail");

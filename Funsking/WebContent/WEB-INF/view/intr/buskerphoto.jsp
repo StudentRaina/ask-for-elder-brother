@@ -27,7 +27,7 @@
 	width:70%;
 	height: 100%;
 	display: inline-block;
-	background-color: #E6E6FA;
+	/* background-color: #E6E6FA; */
 }
 .c_1_2{
 	width:20%;
@@ -58,6 +58,15 @@
 }
 #somenu2{
  background: rgb(142, 68, 173); /* 보라색 */
+}
+.buskerimg{
+	width :200px;
+	height: 200px;
+}
+.list {
+	width: 25%;
+	display: inline-block;
+	
 }
 </style>
 
@@ -117,22 +126,25 @@ function refreshList() {
 			   		
 			   		 
 			   		html += "<div class ='list'>";   	
-			   		html += "<table border= '1' name='" +result.list3[i].CONCERTNUM + "'>"
+			   		html += "<table  name='" +result.list3[i].CONCERTNUM + "'>"
 	   				html += "<tr>"
-   					html += "<td colspan='3'>"
+   					html += "<td colspan='2'>"
    					html += "<img class='buskerimg' src='resources/upload/" + result.list3[i].FILENAME + "' />"
    					html += "</td>";
    					html += "</tr>"
 					html += "<tr>"
+		            html += "<td colspan='2'>" + result.list3[i].TITLE + "</td>";
+		            html += "</tr>"
+		            html += "<tr style='visibility: hidden;'>"
 					html += "<td name ='" + result.list3[i].CONCERTNUM + "'>" + result.list3[i].CONCERTNUM + "</td>";
-		            html += "<td>" + result.list3[i].TITLE + "</td>";
 		            html += "<td>" + result.list3[i].DATE1 + "</td>";
 					html += "</tr>"		  		
 					html += "</table>"
 					html +=	"</div>"
 			   		 }
 			   	} 
-			   	
+			   	 
+			   	 		      	 
 	         	
 				$("#tb").html(html);
 		         html = "";

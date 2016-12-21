@@ -6,6 +6,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 <script type="text/javascript" src="resources/script/jquery/jquery-1.11.0.js"></script>
+<script type="text/javascript" src="resources/script/funsking/main.js"></script>
 <script type="text/javascript"></script>
 <style type="text/css">
 body{
@@ -539,6 +540,7 @@ body{
  	 		
  	 		<div id="content_top">
  	 			<div id="menutitle">오디션 신청</div>
+ 	 			
  	 			<div id="bigtitleFrame">오디션을 신청할 수 있는 페이지입니다.<br/>
  	 									여러분의 꿈과 희망을 저희들에게 전달해 주시면 감사하겠습니다.<br/>
 										여러분의 용기에 감사하고 박수를 보내드립니다.</div>

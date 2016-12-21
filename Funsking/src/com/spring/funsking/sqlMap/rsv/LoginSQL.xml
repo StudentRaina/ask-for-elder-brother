@@ -7,11 +7,12 @@
 	<select id="getFuser"
 			parameterClass="java.util.HashMap"
 			resultClass="java.util.HashMap">
-		SELECT NUM, ID, PW, NAME, GRADE
-		FROM FUSER
-		WHERE ID = #user_id#
-		AND PW = #user_password#
+		SELECT A.NUM, A.ID, A.PW, A.NAME, A.GRADE, B.BSKNUM 
+		FROM FUSER A LEFT OUTER JOIN BSK B ON A.NUM = B.NUM
+		WHERE A.ID = #user_id#
+		AND A.PW = #user_password#
 	</select>
+
 
 	<select id="getIdview1"
 			parameterClass="java.util.HashMap"

@@ -25,33 +25,56 @@
 	width:70%;
 	height: 100%;
 	display: inline-block;
-	background-color: #E6E6FA;
+	/* background-color: #E6E6FA; */
 }
 .c_1_2{
 	width:20%;
 	height: 100%;
 	display: inline-block;
-	background-color: #C1CDCD; /* 연한회색 */
+	/* background-color: #C1CDCD; */ /* 연한회색 */
 }
 .c_2{
 	width: 100%;
 	height: 70%;
-	background-color: #EEE8AA;/* 연한노랑 */
+	 /* background-color: #EEE8AA; *//* 연한노랑 */
 	display: inline-block;
 }
 .c_3{
 	width: 100%;
 	height: 10%;
-	background-color: #FFB6C1; /* 연한핑크 */
+	/* background-color: #FFB6C1; */ /* 연한핑크 */
 	display: inline-block;
 }
 .c_4{
 	width: 100%;
 	height: 10%;
-	background-color: #C1CDCD; /* 연한회색 */
+	/* background-color: #C1CDCD; */ /* 연한회색 */
 	display: inline-block;
 }
+#somenu1{
+	 background: rgb(190, 190, 190); /* 회색 */ 
+}
+#somenu2{
+ background: rgb(142, 68, 173); /* 보라색 */
+}
+#photoimg{
+	width: 300px;
+	height: 300px;
+}
 </style>
+<script type="text/javascript">
+$(document).ready(function(){
+	
+	$("#listBtn").on("click", function(){
+		$("#actionForm").attr("action", "buskerphoto");
+		$("#actionForm").submit();
+	});
+});
+
+	
+	
+
+</script>
 </head>
 <body>
 <div id="centerFrame">
@@ -88,7 +111,7 @@
 		<div id="cmu">커뮤니티</div>
  	</div>
  	<hr id="hr"/>
- 	<h2 id="h2_busi_intr">사업소개</h2>
+ 	<h2 id="h2_busi_intr">공연 영상 및 사진</h2>
  	 	<hr id="hr2"/>
  	 	
  	
@@ -99,14 +122,14 @@
  	 			
  	 				<div id="somenu1">
  	 			<div id="menu_textform1">
- 	 			<div id="menu_text1">사업소개</div>
+ 	 			<div id="menu_text1">공연 영상</div>
  	 			</div>
  	 			<div id="menu_image1"></div>	
  	 		</div>
  			
  			<div id="somenu2">
  	 		<div id="menu_textform2">
- 	 			<div id="menu_text2">사업소개</div>
+ 	 			<div id="menu_text2">공연 사진</div>
  	 			</div>
  	 			<div id="menu_image2"></div>
  	 		</div>
@@ -122,35 +145,41 @@
  	 		</div>
  	 		<div id="bigtitleFrame">버스킹 공연 사진</div>
  	 		<div id="contentFrame">
- 	 			<div class="c_1">
+ 	 			 <div class="c_1">
  	 				<div class="c_1_1">
- 	 					<select id="drop1">
- 	 					</select>
+ 	 					<!-- <select id="drop1">
+ 	 					</select> -->
+ 	 					<form action ="#" id="actionForm" method="post">
+									<input type="hidden" name="page" value="${param.page}"/>
+									<input type="hidden" name="searchText" value="${param.searchText}" />
+									<input type="hidden" name="concertNum" value="${param.concertNum}" />
+								</form>
  	 				</div>
  	 				<div class="c_1_2">
- 	 					
+ 	 					<input type="button" id="listBtn" value="목록으로" />
  	 				</div>
- 	 			</div>
- 	 			<div class="c_2">2
- 	 				<table border ="1">
- 	 					<tr>
+ 	 			</div> 
+ 	 			<div class="c_2">
+ 	 				<table border ="1" style="width: 100%; height: 100%;">
+ 	 					<tr style="height: 10%;">
  	 						<td colspan="2">제목 : ${con.TITLE}</td>
  	 					</tr>
- 	 					<tr>
- 	 						<td>작성일 : ${con.DATE1}</td><td>작성자 : </td>
+ 	 					<tr style="height: 10%;">
+ 	 						<td style="width: 70%;">작성일 : ${con.DATE1}</td style="width: 30%;"><td>작성자 : ${sFuserID} </td>
  	 					</tr>
- 	 					<tr>
+ 	 					<tr style="height: 40%;">
  	 						<td colspan="2">
- 	 						<%--  파일:	${con2.FILENAME} --%>
+ 	 						 	<img src="resources/upload/${con2[0].FILENAME}" id="photoimg"/> <br />
+ 	 						  </td>
+					  </tr>
+					  	<tr style="height: 40%;">
+ 	 						  <td colspan="2">
  	 						내용: 	${con.COMM}	
  	 						</td>
  	 					</tr>
  	 				</table>
  	 			</div>
- 	 			<div class="c_3">3
- 	 			</div>
- 	 			<div class="c_4" id="pagingArea">4
- 	 			</div>
+
  	 		</div>
  	 		
  	 	</div>
